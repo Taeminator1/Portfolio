@@ -12,10 +12,13 @@
 
 ```json
 {
+  "intro": { ko, en },
   "projects": [Project],
   "contact": Contact
 }
 ```
+
+- `intro`(선택): 페이지 맨 위, Projects 제목 위에 보이는 소개 문구. 없거나 해당 언어 값이 비어 있으면 표시하지 않는다.
 
 ## Project
 
@@ -82,6 +85,10 @@ Notion 글머리 기호가 최대 2단계라서, 하위 목록은 한 단계만 
 
 ```json
 {
+  "intro": {
+    "ko": "안녕하세요. 제가 진행한 프로젝트를 소개할게요",
+    "en": "Hello. Let me introduce the projects I have worked on."
+  },
   "projects": [
     {
       "slug": "yomart",

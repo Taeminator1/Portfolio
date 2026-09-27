@@ -191,6 +191,14 @@ function renderStackFilter(projects, items) {
   apply(null);
 }
 
+// intro는 선택 값. 없거나 해당 언어 문구가 비어 있으면 자리까지 숨긴다
+function renderIntro(intro) {
+  const node = document.getElementById('intro');
+  const text = intro && intro[lang];
+  if (text) node.textContent = text;
+  else node.hidden = true;
+}
+
 function renderContact(contact) {
   document.getElementById('contact-message').textContent = contact.message[lang];
   const links = document.querySelector('.contact-links');
@@ -211,6 +219,7 @@ fetch('data.json')
     return res.json();
   })
   .then((data) => {
+    renderIntro(data.intro);
     renderProjects(data.projects);
     renderContact(data.contact);
   })

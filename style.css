@@ -79,6 +79,7 @@ ul { list-style: none; }
 .btn-ghost { border: 1px solid var(--border); }
 
 .lead { color: var(--muted); font-size: 1.1rem; max-width: 620px; }
+.intro { margin-bottom: 48px; }
 
 /* Sections */
 .section { padding: 80px 16px; }
