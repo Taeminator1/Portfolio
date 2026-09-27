@@ -137,6 +137,22 @@ function renderProjects(projects) {
 // stack 값으로 필터. 여러 개를 고를 수 있고, 고른 기술 중 하나라도 쓴 프로젝트를 보여 준다
 // 같은 버튼을 다시 누르면 해제, "전체"를 누르면 모두 해제
 // 프로젝트 하나에만 쓰인 기술은 "기타" 버튼 하나로 묶고, 누르면 목록이 펼쳐진다
+// 선택 상태는 주소의 ?stack=A,B 와 맞춘다. 기술 이름에 쉼표가 있어도 되도록 값마다 인코딩한다
+function readStackQuery() {
+  const param = location.search.slice(1).split('&').find((p) => p.startsWith('stack='));
+  if (!param) return [];
+  return param.slice('stack='.length).split(',').map((s) => {
+    try { return decodeURIComponent(s.replace(/\+/g, ' ')); } catch (e) { return ''; }
+  });
+}
+
+function writeStackQuery(values) {
+  const params = location.search.slice(1).split('&').filter((p) => p && !p.startsWith('stack='));
+  if (values.length) params.push('stack=' + values.map(encodeURIComponent).join(','));
+  const query = params.length ? `?${params.join('&')}` : '';
+  history.replaceState(null, '', location.pathname + query + location.hash);
+}
+
 function renderStackFilter(projects, items) {
   const counts = new Map();
   projects.forEach((p) => p.stack.forEach((s) => counts.set(s, (counts.get(s) || 0) + 1)));
@@ -163,11 +179,17 @@ function renderStackFilter(projects, items) {
     if (moreToggle) moreToggle.classList.toggle('has-selected', rare.some((s) => selected.has(s)));
   }
 
+  function setMoreOpen(open) {
+    more.hidden = !open;
+    moreToggle.setAttribute('aria-expanded', String(open));
+  }
+
   function toggle(value) {
     if (value === null) selected.clear();
     else if (selected.has(value)) selected.delete(value);
     else selected.add(value);
     apply();
+    writeStackQuery([...selected]);
   }
 
   function addButton(parent, label, value, count) {
@@ -189,15 +211,14 @@ function renderStackFilter(projects, items) {
     moreToggle.setAttribute('aria-expanded', 'false');
     moreToggle.setAttribute('aria-controls', more.id);
     moreToggle.append(el('span', 'filter-count', String(rare.length)), el('span', 'chevron'));
-    moreToggle.addEventListener('click', () => {
-      more.hidden = !more.hidden;
-      moreToggle.setAttribute('aria-expanded', String(!more.hidden));
-    });
+    moreToggle.addEventListener('click', () => setMoreOpen(more.hidden));
     bar.append(moreToggle);
     rare.forEach((s) => addButton(more, s, s));
     bar.append(more);
   }
 
+  readStackQuery().filter((s) => counts.has(s)).forEach((s) => selected.add(s));
+  if (rare.some((s) => selected.has(s))) setMoreOpen(true);
   apply();
 }
 
