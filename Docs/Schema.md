@@ -1,0 +1,149 @@
+# data.json 스키마
+
+참고: `Docs/References.md`의 Notion 경력기술서(국문/영문).
+
+## 원칙
+
+- 국문과 영문은 항목 수와 순서가 다르다. 그래서 문장은 언어별로 통째로 나눠 두고(`content.ko`, `content.en`), 언어와 무관한 값(기간, 기술, 미디어)은 공통으로 둔다.
+- 날짜는 `YYYY-MM` 문자열로 쓴다. 표기(`2023년 07월`, `07/2023`)는 렌더링할 때 언어별로 만든다.
+- 파일 경로는 모두 상대 경로로 쓴다.
+
+## 최상위
+
+```json
+{
+  "projects": [Project],
+  "contact": Contact
+}
+```
+
+## Project
+
+| 필드 | 타입 | 필수 | 설명 |
+|---|---|---|---|
+| `slug` | string | O | 상세 페이지 폴더명. `projects/<slug>/`. 영문 소문자·숫자·`-`만 |
+| `periods` | Period[] | O | 개발 기간. 대부분 1개, YDSKit처럼 단계가 나뉘면 여러 개 |
+| `stack` | string[] | O | 사용 기술. 카드 태그로도 쓴다 |
+| `media` | Media[] | | Notion의 "Demo" 하위 페이지 내용. 없으면 생략 (예: 앱 실행 속도 최적화) |
+| `hue` | number | | 카드 썸네일 색상(0–360). 현재 화면 유지용 |
+| `content` | { ko: ProjectContent, en: ProjectContent } | O | 언어별 문장 |
+
+### Period
+
+| 필드 | 타입 | 필수 | 설명 |
+|---|---|---|---|
+| `start` | string | O | `YYYY-MM` |
+| `end` | string | | `YYYY-MM`. 진행 중이면 생략 |
+| `label` | { ko, en } | | 단계 이름. 기간이 하나면 생략 (예: `UIKit-based library`) |
+
+### Media
+
+| 필드 | 타입 | 필수 | 설명 |
+|---|---|---|---|
+| `type` | `"image"` \| `"video"` \| `"youtube"` | O | GIF는 `image`. 긴 영상은 `youtube` |
+| `src` | string | O | `projects/<slug>/` 기준 상대 경로, 또는 YouTube URL |
+| `alt` | { ko, en } | | 대체 텍스트 |
+
+### ProjectContent
+
+| 필드 | 타입 | 필수 | Notion 대응 |
+|---|---|---|---|
+| `title` | string | O | 헤더 (예: `요마트`) |
+| `subtitle` | string | | 헤더 괄호 안 (예: `식료품 배달 서비스`) |
+| `summary` | string | O | 카드에 보일 한 줄 소개 |
+| `overview` | string[] | O | 🗒️ 개요 / Overview (기간·기술 줄 제외) |
+| `achievements` | string[] | O | 🏆 성과 / Achievements |
+| `contributions` | Item[] | O | 🚀 주요 작업 내용 / Key Contributions |
+
+### Item
+
+Notion 글머리 기호가 최대 2단계라서, 하위 목록은 한 단계만 둔다.
+
+| 필드 | 타입 | 필수 | 설명 |
+|---|---|---|---|
+| `text` | string | O | 항목 |
+| `children` | string[] | | 하위 항목 |
+
+## Contact
+
+| 필드 | 타입 | 필수 | 설명 |
+|---|---|---|---|
+| `message` | { ko, en } | O | 섹션 안내 문구 |
+| `links` | Link[] | O | 순서대로 버튼으로 표시 |
+
+### Link
+
+| 필드 | 타입 | 필수 | 설명 |
+|---|---|---|---|
+| `label` | { ko, en } | O | 버튼 문구 |
+| `url` | string | O | `mailto:`, `https://` |
+
+영문 페이지 상단 링크(LinkedIn, Design Work Samples, App Store, Company Website)가 여기에 들어간다.
+
+## 예시
+
+```json
+{
+  "projects": [
+    {
+      "slug": "yomart",
+      "periods": [{ "start": "2022-12", "end": "2023-04" }],
+      "stack": ["Clean Architecture", "Tuist", "SDUI", "Rx"],
+      "media": [
+        { "type": "image", "src": "demo.gif", "alt": { "ko": "요마트 시연", "en": "YoMart demo" } }
+      ],
+      "hue": 150,
+      "content": {
+        "ko": {
+          "title": "요마트",
+          "subtitle": "식료품 배달 서비스",
+          "summary": "웹뷰 기반 마트 서비스를 네이티브 앱으로 전환",
+          "overview": ["웹뷰 기반의 마트 서비스를 완전한 네이티브 앱으로 변화하여 성능과 사용자 경험을 크게 향상시킴"],
+          "achievements": ["앱 출시 후 매출 61%, 전환율(CVR) 3.2% 증가"],
+          "contributions": [
+            {
+              "text": "Clean Architecture와 Tuist를 기반으로 모듈화를 구현",
+              "children": ["Tuist를 활용해 계층별로 모듈을 생성하여 유지보수 및 확장성을 향상시킴"]
+            }
+          ]
+        },
+        "en": {
+          "title": "YoMart",
+          "subtitle": "Grocery Delivery Service",
+          "summary": "Rebuilt a WebView-based grocery service as a native app",
+          "overview": ["Rebuilt YoMart from a WebView-based service into a fully native architecture."],
+          "achievements": ["Increased revenue by 61% and boosted conversion rate (CVR) by 3.2% after launching the native app."],
+          "contributions": [
+            { "text": "Modularized the project using Clean Architecture and Tuist." }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "ydskit",
+      "periods": [
+        { "start": "2023-07", "end": "2023-10", "label": { "ko": "UIKit 기반", "en": "UIKit-based library" } },
+        { "start": "2024-10", "end": "2024-12", "label": { "ko": "SwiftUI 기반", "en": "SwiftUI-based library" } }
+      ],
+      "stack": ["UIKit", "SwiftUI", "SwiftPM", "DocC", "Figma"],
+      "content": { "ko": { "...": "..." }, "en": { "...": "..." } }
+    }
+  ],
+  "contact": {
+    "message": {
+      "ko": "함께 일하거나 이야기 나누고 싶으시면 편하게 연락 주세요.",
+      "en": "Feel free to reach out."
+    },
+    "links": [
+      { "label": { "ko": "Email", "en": "Email" }, "url": "mailto:hello@example.com" },
+      { "label": { "ko": "LinkedIn", "en": "LinkedIn" }, "url": "https://www.linkedin.com/in/taemin-yun-b590822b7" }
+    ]
+  }
+}
+```
+
+## 정할 것
+
+- 영문을 실제로 보여 줄지. 보여 주려면 언어 전환 UI가 필요하다(새 UI이므로 승인 필요). 당장은 `ko`만 렌더링하고 `en`은 비워 둘 수도 있다.
+- `summary`는 Notion에 없는 필드다. 카드용 한 줄을 새로 쓰거나, `overview[0]`을 그대로 쓸지.
+- 현재 카드의 `Demo ↗` / `Code ↗` 링크는 회사 프로젝트에 맞지 않는다. 카드 링크를 상세 페이지(`projects/<slug>/`) 하나로 바꿀지.

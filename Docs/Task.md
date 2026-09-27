@@ -22,14 +22,12 @@ Portfolio/
 ## 할 일
 
 ### 1. JSON 기반 페이지 구성
-- [ ] `data.json` 만들기 (현재 샘플의 Projects, Contact 내용 이전)
-- [ ] `index.html`의 하드코딩된 내용을 빈 컨테이너로 교체
-- [ ] `script.js`에서 `fetch('data.json')`으로 읽어 렌더링
-- [ ] 화면은 현재와 동일하게 유지 (새 UI 추가 없음)
-- [ ] JSON 로드 실패 시 처리 방법 정하기
+- [x] `data.json` 만들기 (현재 샘플의 Projects, Contact 내용 이전)
+- [x] `index.html`의 하드코딩된 내용을 빈 컨테이너로 교체
+- [x] `script.js`에서 `fetch('data.json')`으로 읽어 렌더링
 
 ### 2. 프로젝트별 폴더
-- [ ] `data.json`의 각 프로젝트에 `slug` 필드 추가
+- [x] `data.json`의 각 프로젝트에 `slug` 필드 추가
 - [ ] 프로젝트 카드에서 `projects/<slug>/`로 링크
 - [ ] 상세 페이지 레이아웃 안 만들어 승인받기 (새 UI이므로)
 - [ ] 승인 후 `projects/<slug>/index.html` 작성

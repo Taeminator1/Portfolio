@@ -1,0 +1,612 @@
+{
+  "projects": [
+    {
+      "slug": "ydskit",
+      "periods": [
+        {
+          "start": "2023-07",
+          "end": "2023-10",
+          "label": {
+            "ko": "UIKit-based library",
+            "en": "UIKit-based library"
+          }
+        },
+        {
+          "start": "2024-10",
+          "end": "2024-12",
+          "label": {
+            "ko": "SwiftUI-based library",
+            "en": "SwiftUI-based library"
+          }
+        }
+      ],
+      "stack": [
+        "UIKit",
+        "SwiftUI",
+        "SwiftPM",
+        "DocC",
+        "Figma"
+      ],
+      "hue": 210,
+      "content": {
+        "ko": {
+          "title": "요기요 디자인 시스템",
+          "subtitle": "YDSKit",
+          "summary": "위대한상상이 제공하는 일반 고객, 사장님, 라이더 앱을 위한 크로스 플랫폼 디자인 시스템을 정의하고 UI 컴포넌트 라이브러리 YDSKit을 개발",
+          "overview": [
+            "위대한상상이 제공하는 일반 고객, 사장님, 라이더 앱을 위한 크로스 플랫폼 디자인 시스템을 정의하고 UI 컴포넌트 라이브러리 YDSKit을 개발"
+          ],
+          "achievements": [
+            "공통 디자인 토큰과 UI 컴포넌트를 도입하여 프로젝트 간 재사용성을 향상시켰으며, 이전 구조 대비 6%의 코드 재사용률 달성"
+          ],
+          "contributions": [
+            {
+              "text": "다른 앱과 분리된 독립 패키지로 개발",
+              "children": [
+                "UIKit과 SwiftUI에 대응하는 컴포넌트들을 각 모듈에 배치하여 디자인 시스템의 일관된 이름을 사용할 수 있도록 설계 및 개발",
+                "디자인 시스템 토큰(색상, 폰트, 이미지 등)을 Swift 코드로 자동 변환하는 파이프라인 구축",
+                "각 컴포넌트에 대한 사전 QA를 수행하여, 앱 구현 단계에서 반복되는 디자인 QA를 최소화",
+                "샘플 코드와 DocC 문서를 제공하여 개발시 손쉽게 통합할 수 있도록 지원"
+              ]
+            },
+            {
+              "text": "디자이너와 협업하여 디자인 시스템 구조를 정의",
+              "children": [
+                "SDUI 기반 API 응답을 고려한 디자인 토큰 및 컴포넌트 구조를 정의",
+                "확장성을 높이기 위해 계층적 구조로 컴포넌트를 설계"
+              ]
+            }
+          ]
+        },
+        "en": {
+          "title": "YDSKit",
+          "subtitle": "Yogiyo Design System Components Library",
+          "summary": "Built YDSKit, a shared design system for Yogiyo’s customer, merchant, and rider apps, improving consistency, reusability, and scalability across products.",
+          "overview": [
+            "Built YDSKit, a shared design system for Yogiyo’s customer, merchant, and rider apps, improving consistency, reusability, and scalability across products."
+          ],
+          "achievements": [
+            "Improved code reusability across projects with common design tokens and UI components, achieving 6% code reuse compared to the previous structure."
+          ],
+          "contributions": [
+            {
+              "text": "Built a standalone package architecture.",
+              "children": [
+                "Designed the design system as an independent package, separate from all Wesang apps.",
+                "Automated the conversion of design tokens (e.g., colors, fonts, images) into Swift code.",
+                "Conducted preemptive QA for each component, reducing repetitive design QA during app implementation.",
+                "Provided sample code and DocC documentation to simplify integration for developers."
+              ]
+            },
+            {
+              "text": "Collaborated with designers to define the design system structure.",
+              "children": [
+                "Defined design tokens and components considering SDUI-based API responses.",
+                "Designed components with a hierarchical structure to enhance scalability."
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "yomart",
+      "periods": [
+        {
+          "start": "2022-12",
+          "end": "2023-04"
+        }
+      ],
+      "stack": [
+        "Clean Architecture",
+        "Tuist",
+        "SDUI (Server-Driven UI)",
+        "Rx"
+      ],
+      "hue": 150,
+      "content": {
+        "ko": {
+          "title": "요마트",
+          "subtitle": "식료품 배달 서비스",
+          "summary": "웹뷰 기반의 마트 서비스를 완전한 네이티브 앱으로 변화하여 성능과 사용자 경험을 크게 향상시킴",
+          "overview": [
+            "웹뷰 기반의 마트 서비스를 완전한 네이티브 앱으로 변화하여 성능과 사용자 경험을 크게 향상시킴"
+          ],
+          "achievements": [
+            "앱 출시 후 매출 61%, 전환율(CVR) 3.2% 증가",
+            "SDUI를 통해 앱 배포 없이도 동적으로 UI 업데이트가 가능하도록 구현하여 비즈니스 민첩성을 향상시킴"
+          ],
+          "contributions": [
+            {
+              "text": "Clean Architecture와 Tuist를 기반으로 모듈화를 구현",
+              "children": [
+                "Tuist를 활용해 계층별로 모듈을 생성하여 유지보수 및 확장성을 향상시킴",
+                "Domain 계층을 분리하여 비즈니스 로직 중심의 개발 및 의존성 관리 효율화를 달성"
+              ]
+            },
+            {
+              "text": "각각의 마이크로서비스 단위로 세분화된 오류 처리 로직을 구현하여 다양한 상황에 적절하게 에러 처리"
+            },
+            {
+              "text": "딥링크 기반의 유연한 내비게이션 시스템을 개발하여, 특정 화면에 의존하지 않고 화면 전환(Push 및 Present) 지원"
+            },
+            {
+              "text": "장바구니 시스템 개선",
+              "children": [
+                "레스토랑 카트와 마트 카트를 동시에 관리하여 끊김 없는 멀티 카트 경험 제공",
+                "장바구니 데이터를 서버로 이전함으로써 사용자의 탐색 경험 유지"
+              ]
+            },
+            {
+              "text": "글로벌 아웃소싱 팀(Sotatek, 베트남)과 협업하여 출시 이후 유지보수 및 기능 고도화를 진행"
+            }
+          ]
+        },
+        "en": {
+          "title": "YoMart",
+          "subtitle": "Grocery Delivery Service",
+          "summary": "Rebuilt YoMart from a WebView-based service into a fully native architecture, enabling scalable feature development while significantly improving business performance.",
+          "overview": [
+            "Rebuilt YoMart from a WebView-based service into a fully native architecture, enabling scalable feature development while significantly improving business performance."
+          ],
+          "achievements": [
+            "Increased revenue by 61% and boosted conversion rate (CVR) by 3.2% after launching the native app.",
+            "Enabled dynamic UI updates through Server-Driven UI (SDUI) without requiring app releases, improving business agility."
+          ],
+          "contributions": [
+            {
+              "text": "Modularized the project using Clean Architecture and Tuist.",
+              "children": [
+                "Separated modules using Tuist to improve maintainability and build scalability.",
+                "Decoupled the Data and Domain layers to improve dependency management and align with domain-driven design principles."
+              ]
+            },
+            {
+              "text": "Optimized the shopping cart system.",
+              "children": [
+                "Managed both Restaurant Cart and Mart Cart simultaneously, for a seamless multi-cart experience.",
+                "Migrated cart data to the server, allowing users to retain items across devices."
+              ]
+            },
+            {
+              "text": "Developed a flexible deep link-based navigation system.",
+              "children": [
+                "Supported push and present transitions without dependencies on specific screens."
+              ]
+            },
+            {
+              "text": "Implemented granular error handling for each microservice (MS) to improve error resolution."
+            },
+            {
+              "text": "Collaborated with global outsourcing teams (including Sotatek in Vietnam) for post-launch maintenance and feature enhancements."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "app-launch-optimization",
+      "periods": [
+        {
+          "start": "2023-05",
+          "end": "2023-07"
+        }
+      ],
+      "stack": [
+        "Deferred Deep Linking (AppsFlyer)",
+        "Swift Concurrency",
+        "Firebase (Remote Config)"
+      ],
+      "hue": 30,
+      "content": {
+        "ko": {
+          "title": "앱 실행 속도 최적화",
+          "summary": "API 호출과 리소스 로딩을 최적화하여 앱 실행 시간을 단축",
+          "overview": [
+            "API 호출과 리소스 로딩을 최적화하여 앱 실행 시간을 단축"
+          ],
+          "achievements": [
+            "앱 실행 시간을 33.9% 단축하여 온보딩 경험과 사용자 유지율을 향상시킴",
+            "API 호출을 최적화함으로써 서버 부하와 비용을 절감"
+          ],
+          "contributions": [
+            {
+              "text": "런치 스크린 이미지 리소스를 서버로 이전하고, 상황에 따라 PNG 또는 Lottie 리소스를 비동기로 다운받아 로딩 시간 최적화"
+            },
+            {
+              "text": "iOS와 Android 간 API 호출 시퀀스를 표준화하여 플랫폼 간 일관성을 확보"
+            },
+            {
+              "text": "Concurrency를 활용해 API 요청을 순차적 또는 병렬적으로 실행함으로써 대기 시간을 단축"
+            },
+            {
+              "text": "Deferred Deep Linking 환경에서 Operation Queue를 활용해 API 요청을 최적화"
+            }
+          ]
+        },
+        "en": {
+          "title": "App Launch & Flow Optimization",
+          "summary": "Optimized the app launch pipeline by reducing unnecessary network requests and improving resource loading, resulting in a 33.9% faster launch experience.",
+          "overview": [
+            "Optimized the app launch pipeline by reducing unnecessary network requests and improving resource loading, resulting in a 33.9% faster launch experience."
+          ],
+          "achievements": [
+            "Reduced app launch time by 33.9%, improving user onboarding and retention.",
+            "Minimized server load and backend costs by optimizing API calls."
+          ],
+          "contributions": [
+            {
+              "text": "Refactored event API calls to trigger only when necessary, reducing redundant requests."
+            },
+            {
+              "text": "Applied Swift Concurrency (async/await) to execute API requests sequentially or concurrently, reducing overall launch latency."
+            },
+            {
+              "text": "Leveraged Operation Queue to optimize API requests in Deferred Deep Linking environments."
+            },
+            {
+              "text": "Moved Launch Screen image assets to the server, dynamically selecting resources (PNG or Lottie) based on context."
+            },
+            {
+              "text": "Standardized API call sequences between iOS and Android to ensure platform consistency."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "flash-sale",
+      "periods": [
+        {
+          "start": "2024-02",
+          "end": "2024-06"
+        }
+      ],
+      "stack": [
+        "NTP (Network Time Protocol)",
+        "WebKit",
+        "Combine",
+        "SDUI (Server-Driven UI)",
+        "Modern Collection View"
+      ],
+      "hue": 340,
+      "content": {
+        "ko": {
+          "title": "할인 랭킹 광고 상품",
+          "summary": "남은 시간과 메뉴 특성에 따라 매장 메뉴를 동적으로 노출하는 광고형 서비스 구축",
+          "overview": [
+            "남은 시간과 메뉴 특성에 따라 매장 메뉴를 동적으로 노출하는 광고형 서비스 구축"
+          ],
+          "achievements": [
+            "해당 서비스를 이용한 사용자 그룹에서 주문 수 15%, 방문 빈도 14% 향상",
+            "서비스 참여 매장의 신규 고객 유입률을 85.3% 증가시켜 매출 성장에 기여"
+          ],
+          "contributions": [
+            {
+              "text": "재사용 가능한 타이머 로직 및 컴포넌트 구현",
+              "children": [
+                "NTP를 연동하여 정확한 서버 시간을 가져와, 안정적인 서비스 구현",
+                "남은 시간을 주기적으로 방출하는 퍼블리셔를 추상화하여 시간 관련 로직을 손쉽게 통합할 수 있도록 설계",
+                "인터페이스를 구축하여 앱과 웹뷰 간 일관된 시간 참조를 보장",
+                "서버 다운타임이나 네트워크 장애 등 NTP 시간 조회 실패 상황에 대한 오류 처리"
+              ]
+            },
+            {
+              "text": "SDUI(Server-Driven UI)용 응답 설계",
+              "children": [
+                "BE 개발자 및 디자이너와 협업하여 레이아웃을 위한 응답과 컴포넌트를 위한 응답의 데이터 구조 정의",
+                "Compositional Layout 없이도 CollectionViewCell 재사용이 가능하도록 컴포넌트를 모듈화"
+              ]
+            },
+            {
+              "text": "홈 화면의 사용자 참여도를 높이기 위해 자연스럽고 반응적인 애니메이션을 구현"
+            }
+          ]
+        },
+        "en": {
+          "title": "Flash Sale Advertising Product",
+          "summary": "Built a real-time promotion system that dynamically updated store menus based on synchronized server time and menu characteristics, enabling flexible marketing campaigns.",
+          "overview": [
+            "Built a real-time promotion system that dynamically updated store menus based on synchronized server time and menu characteristics, enabling flexible marketing campaigns."
+          ],
+          "achievements": [
+            "Increased orders by 15% and visit frequency by 14% among users who experienced the service.",
+            "Achieved an 85.3% increase in new customer acquisition for participating stores."
+          ],
+          "contributions": [
+            {
+              "text": "Developed reusable timer logic.",
+              "children": [
+                "Integrated NTP to synchronize server time and cache it locally for reliable timer calculations.",
+                "Abstracted a reusable publisher that periodically emitted the remaining time, simplifying timer integration across features.",
+                "Built a bridge between the app and embedded web pages to ensure a consistent time reference.",
+                "Defined error-handling logic for NTP time retrieval failures (e.g., server downtime, network issues)."
+              ]
+            },
+            {
+              "text": "Designed UI components for SDUI.",
+              "children": [
+                "Defined design elements (e.g., colors, sizes, animations) and data structures (e.g., labels, button texts) in collaboration with BE developers and designers.",
+                "Modularized components for CollectionViewCell reuse, even without Compositional Layout."
+              ]
+            },
+            {
+              "text": "Implemented interactive animations to boost engagement on the home screen."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "checkout-cart",
+      "periods": [
+        {
+          "start": "2023-08",
+          "end": "2023-10",
+          "label": {
+            "ko": "결제하기 화면의 웹뷰 전환",
+            "en": "Checkout Migration to WebView"
+          }
+        },
+        {
+          "start": "2026-05",
+          "end": "2026-07",
+          "label": {
+            "ko": "장바구니 기능 확장",
+            "en": "Cart Expansion"
+          }
+        }
+      ],
+      "stack": [
+        "WebKit (WKWebView)",
+        "A/B Testing (Hackle)"
+      ],
+      "hue": 270,
+      "content": {
+        "ko": {
+          "title": "결제하기 화면의 웹뷰 전환 및 장바구니의 기능 확장",
+          "summary": "결제하기 네이티브 화면을 웹뷰로 전환하여 기능 업데이트의 유연성을 높임",
+          "overview": [
+            "결제하기 네이티브 화면을 웹뷰로 전환하여 기능 업데이트의 유연성을 높임",
+            "장바구니 웹뷰를 신설하고, 앱에서 관리하던 장바구니를 단일 구조에서 다중 구조로 확장"
+          ],
+          "achievements": [
+            "앱 업데이트 없이도 기능을 유연하게 배포하고 오류에 신속히 대응할 수 있는 구조를 구축",
+            "여러 매장의 메뉴를 장바구니에 담았을 때 가격을 비교하기 어려웠던 문제를 개선"
+          ],
+          "contributions": [
+            {
+              "text": "결제하기 화면의 웹뷰 전환 당시의 전문성을 바탕으로 장바구니 기능 확장을 주도"
+            },
+            {
+              "text": "시간 또는 경로 등의 할인 혜택은 유지하면서 여러 개의 장바구니를 운용할 수 있도록 UX 플로우 제공"
+            },
+            {
+              "text": "스레드 안정성을 고려해 여러 장바구니의 안정적인 CRUD 기능을 구현"
+            },
+            {
+              "text": "MessageHandler 및 JavaScript Evaluate 함수를 통한 앱 ↔ 웹 인터페이스를 구현"
+            },
+            {
+              "text": "기존 웹뷰 단일 객체를 단일 책임 원칙(SRP)에 따라 리팩터링하고, 역할별 추상화를 통해 유지보수성을 향상"
+            },
+            {
+              "text": "A/B 테스트, 웹뷰의 fallback 전략 등을 활용하여, 오류 발생 시 기존 화면을 별도의 배포 없이 즉시 전환할 수 있도록 안정성 확립"
+            }
+          ]
+        },
+        "en": {
+          "title": "Checkout Migration to WebView",
+          "summary": "Migrated the Checkout flow from native screens to a WebView-based architecture, enabling faster feature delivery and issue resolution without app releases.",
+          "overview": [
+            "Migrated the Checkout flow from native screens to a WebView-based architecture, enabling faster feature delivery and issue resolution without app releases."
+          ],
+          "achievements": [
+            "Enabled flexible Checkout updates and faster issue resolution without app releases by migrating the flow to WebView."
+          ],
+          "contributions": [
+            {
+              "text": "Established communication between the app and WebView.",
+              "children": [
+                "Built an interface to control native screens (e.g., gift card and coupon management) from the web."
+              ]
+            },
+            {
+              "text": "Refactored the unified WebView ViewController to follow the Single Responsibility Principle (SRP) by abstracting common logic with Protocols."
+            },
+            {
+              "text": "Used Hackle’s feature flags to roll back to the previous native Checkout flow without requiring additional deployments."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "rewards-plus",
+      "periods": [
+        {
+          "start": "2026-03",
+          "end": "2026-04"
+        }
+      ],
+      "stack": [
+        "TCA",
+        "Deep Linking"
+      ],
+      "hue": 45,
+      "content": {
+        "ko": {
+          "title": "요기더+ 적립관 신설",
+          "subtitle": "포인트 기반 광고 상품",
+          "summary": "주문 여정 전반에서 포인트 적립을 유도하여 고객 리텐션을 높이기 위한 리워드 기반 광고 서비스, 요기더+ 적립관 신설",
+          "overview": [
+            "주문 여정 전반에서 포인트 적립을 유도하여 고객 리텐션을 높이기 위한 리워드 기반 광고 서비스, 요기더+ 적립관 신설"
+          ],
+          "achievements": [
+            "적립관의 주문 비중을 2.0%에서 3.1%로, 매출을 0.1%에서 0.3%로 향상",
+            "적립관에서 시작하여 결제까지 매끄러운 UX 플로우를 설계하여, 이탈을 최소화하고 현금성 혜택 제공"
+          ],
+          "contributions": [
+            {
+              "text": "앱 재실행과 딥링크 기반 화면 전환 등의 복잡한 상황에서도 주문 여정이 끊기지 않도록 리워드 경험을 설계"
+            },
+            {
+              "text": "사용자가 요기더+ 적립관을 이탈하더라도 기존 주문 경험을 유지할 수 있도록 폴백 사용자 흐름을 구현"
+            }
+          ]
+        },
+        "en": {
+          "title": "Yogiyo Rewards+",
+          "subtitle": "Reward-Based Advertising Experience",
+          "summary": "Launched Yogiyo Rewards+, a reward-driven advertising experience designed to increase customer retention by encouraging point accumulation throughout the ordering journey.",
+          "overview": [
+            "Launched Yogiyo Rewards+, a reward-driven advertising experience designed to increase customer retention by encouraging point accumulation throughout the ordering journey."
+          ],
+          "achievements": [
+            "Increased the Rewards+ revenue ratio from 0.10% to 0.30%.",
+            "Increased the proportion of Rewards+ orders from 2.0% to 3.1%."
+          ],
+          "contributions": [
+            {
+              "text": "Designed a seamless reward experience across the entire ordering journey.",
+              "children": [
+                "Ensured users could consistently view and earn rewards from browsing to checkout."
+              ]
+            },
+            {
+              "text": "Implemented a fallback user flow to preserve the existing ordering experience when users exited Rewards+."
+            }
+          ]
+        }
+      }
+    },
+    {
+      "slug": "order-tracking",
+      "periods": [
+        {
+          "start": "2025-02",
+          "end": "2025-06"
+        }
+      ],
+      "stack": [
+        "SwiftUI",
+        "Live Activity",
+        "Braze",
+        "Deep Linking"
+      ],
+      "hue": 190,
+      "content": {
+        "ko": {
+          "title": "실시간 주문 추적 시스템 개선",
+          "subtitle": "다중 대행사 & Live Activity",
+          "summary": "여러 배달 대행사에 대한 라이더 추적 기능을 확장하고, Live Activity 활용하여 실시간 주문 상태를 제공",
+          "overview": [
+            "여러 배달 대행사에 대한 라이더 추적 기능을 확장하고, Live Activity 활용하여 실시간 주문 상태를 제공"
+          ],
+          "achievements": [
+            "여러 배달 대행사의 라이더 경로에 대응하는 인터페이스를 개발하여 폭넓은 주문 추적 실현",
+            "Live Activity를 통해 실시간으로 접근 가능한 주문 상태 업데이트를 제공함으로써 사용성을 향상시킴"
+          ],
+          "contributions": [
+            {
+              "text": "여러 배달 대행사(Multi-Agency)의 라이더 추적 기능을 구현",
+              "children": [
+                "다양한 경로 데이터 형식을 처리할 수 있도록 route 데이터 구조를 수정",
+                "폴링 주기를 동적으로 변경하여, 여러 대행사에게 대응하는 인터페이스 개발",
+                "이동 수단별로 마커 애니메이션이 자연스럽게 변경되도록 개선"
+              ]
+            },
+            {
+              "text": "Live Activity 기능 구현",
+              "children": [
+                "Tuist를 활용해 Live Activity용 Widget Extension을 추가하고, 필요한 Profile 및 ID를 신규 생성",
+                "Braze API와 연동하여 사내 마이크로서비스(MS)에서 제어할 수 있는 Live Activity 시스템을 구축",
+                "Live Activity에서 주문 상세 화면으로 이동하는 딥링크를 지원하여 사용자 경험을 강화"
+              ]
+            }
+          ]
+        },
+        "en": {
+          "title": "Order Tracking System",
+          "subtitle": "Multi-Agency & Live Activity",
+          "summary": "Redesigned the order tracking system to support multiple delivery agencies and Live Activity, providing a more scalable and real-time tracking experience.",
+          "overview": [
+            "Redesigned the order tracking system to support multiple delivery agencies and Live Activity, providing a more scalable and real-time tracking experience."
+          ],
+          "achievements": [
+            "Expanded rider tracking to support multiple delivery agencies, increasing coverage across more orders.",
+            "Improved usability with real-time order status updates through Live Activity."
+          ],
+          "contributions": [
+            {
+              "text": "Expanded rider tracking to support multiple delivery agencies.",
+              "children": [
+                "Modified route data structures to handle varied path formats from multiple agencies.",
+                "Implemented dynamic polling intervals to optimize tracking performance.",
+                "Adjusted marker animations to work seamlessly across different transportation modes based on order sources."
+              ]
+            },
+            {
+              "text": "Integrated Live Activity into the order tracking experience.",
+              "children": [
+                "Integrated with Braze API to build a Live Activity system controlled by the in-house microservices.",
+                "Enhanced UX with deep linking from Live Activity to the order details page.",
+                "Created a dedicated Widget Extension for Live Activity using Tuist."
+              ]
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "contact": {
+    "message": {
+      "ko": "함께 일하거나 이야기 나누고 싶으시면 편하게 연락 주세요.",
+      "en": "Feel free to reach out if you would like to work together or just talk."
+    },
+    "links": [
+      {
+        "label": {
+          "ko": "Email",
+          "en": "Email"
+        },
+        "url": "mailto:hello@example.com"
+      },
+      {
+        "label": {
+          "ko": "GitHub",
+          "en": "GitHub"
+        },
+        "url": "https://github.com/Taeminator1"
+      },
+      {
+        "label": {
+          "ko": "LinkedIn",
+          "en": "LinkedIn"
+        },
+        "url": "https://www.linkedin.com/in/taemin-yun-b590822b7"
+      },
+      {
+        "label": {
+          "ko": "디자인 작업 샘플",
+          "en": "Design Work Samples"
+        },
+        "url": "https://drive.google.com/file/d/1Gi3U-CetiLdm3RsLgFc1bS5VdQbJt3jm/view?usp=share_link"
+      },
+      {
+        "label": {
+          "ko": "App Store",
+          "en": "App Store"
+        },
+        "url": "https://apps.apple.com/kr/app/yogiyo-food-delivery/id543831532?l=en-GB"
+      },
+      {
+        "label": {
+          "ko": "회사 웹사이트",
+          "en": "Company Website"
+        },
+        "url": "https://www.wesang.com"
+      }
+    ]
+  }
+}
