@@ -43,7 +43,6 @@
           }
         }
       ],
-      "hue": 210,
       "content": {
         "ko": {
           "title": "요기요 디자인 시스템",
@@ -119,7 +118,6 @@
         "SDUI (Server-Driven UI)",
         "Rx"
       ],
-      "hue": 150,
       "content": {
         "ko": {
           "title": "요마트",
@@ -213,7 +211,6 @@
         "Swift Concurrency",
         "Firebase (Remote Config)"
       ],
-      "hue": 30,
       "content": {
         "ko": {
           "title": "앱 실행 속도 최적화",
@@ -285,7 +282,6 @@
         "SDUI (Server-Driven UI)",
         "Modern Collection View"
       ],
-      "hue": 340,
       "content": {
         "ko": {
           "title": "할인 랭킹 광고 상품",
@@ -377,7 +373,6 @@
         "WebKit (WKWebView)",
         "A/B Testing (Hackle)"
       ],
-      "hue": 270,
       "content": {
         "ko": {
           "title": "결제하기 화면의 웹뷰 전환 및 장바구니의 기능 확장",
@@ -449,7 +444,6 @@
         "TCA",
         "Deep Linking"
       ],
-      "hue": 45,
       "content": {
         "ko": {
           "title": "요기더+ 적립관 신설",
@@ -510,7 +504,6 @@
         "Braze",
         "Deep Linking"
       ],
-      "hue": 190,
       "content": {
         "ko": {
           "title": "실시간 주문 추적 시스템 개선",

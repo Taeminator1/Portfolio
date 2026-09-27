@@ -87,16 +87,14 @@ function renderMedia(project) {
   return wrap;
 }
 
-function renderProject(project, i) {
+function renderProject(project) {
   const content = project.content[lang];
   const item = el('details', 'project');
 
   const summary = el('summary');
-  const num = el('span', 'project-num', String(i + 1).padStart(2, '0'));
-  if (project.hue !== undefined) num.style.setProperty('--hue', project.hue);
   const head = el('div', 'project-head');
   head.append(el('h3', null, content.title), el('p', null, content.summary));
-  summary.append(num, head, el('span', 'chevron'));
+  summary.append(head, el('span', 'chevron'));
 
   const body = el('div', 'project-body');
 
@@ -131,7 +129,7 @@ function renderProject(project, i) {
 
 function renderProjects(projects) {
   const container = document.querySelector('.project-list');
-  const items = projects.map((project, i) => renderProject(project, i));
+  const items = projects.map(renderProject);
   container.append(...items);
   renderStackFilter(projects, items);
 }

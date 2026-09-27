@@ -25,7 +25,6 @@
 | `periods` | Period[] | O | 개발 기간. 대부분 1개, YDSKit처럼 단계가 나뉘면 여러 개 |
 | `stack` | string[] | O | 사용 기술. 카드 태그로도 쓴다 |
 | `media` | Media[] | | Notion의 "Demo" 하위 페이지 내용. 없으면 생략 (예: 앱 실행 속도 최적화) |
-| `hue` | number | | 카드 썸네일 색상(0–360). 현재 화면 유지용 |
 | `content` | { ko: ProjectContent, en: ProjectContent } | O | 언어별 문장 |
 
 ### Period
@@ -91,7 +90,6 @@ Notion 글머리 기호가 최대 2단계라서, 하위 목록은 한 단계만 
       "media": [
         { "src": "demo.gif", "alt": { "ko": "요마트 시연", "en": "YoMart demo" } }
       ],
-      "hue": 150,
       "content": {
         "ko": {
           "title": "요마트",
