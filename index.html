@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Taemin Yun | Portfolio</title>
+  <meta name="description" content="소프트웨어 엔지니어 윤태민의 포트폴리오">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // 첫 렌더 전에 테마를 적용해 깜빡임 방지
+    try {
+      const saved = localStorage.getItem('theme');
+      if (saved) document.documentElement.dataset.theme = saved;
+    } catch (e) {}
+  </script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container">
+      <a href="#top" class="logo">TY</a>
+      <button class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><button class="theme-toggle" aria-label="테마 전환">◐</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero container">
+      <p class="eyebrow">안녕하세요, 저는</p>
+      <h1>윤태민 <span class="accent">Taemin Yun</span></h1>
+      <p class="lead">사용자 경험을 고민하는 소프트웨어 엔지니어입니다.<br>
+        작고 단단한 코드로 오래 쓰이는 제품을 만드는 것을 좋아합니다.</p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">프로젝트 보기</a>
+        <a href="#contact" class="btn btn-ghost">연락하기</a>
+      </div>
+    </section>
+
+    <section id="about" class="section container reveal">
+      <h2 class="section-title">About</h2>
+      <div class="about-grid">
+        <div>
+          <p>컴퓨터공학을 전공하고 웹과 모바일 서비스를 개발해 왔습니다.
+            문제를 작게 쪼개고, 측정하고, 개선하는 과정을 즐깁니다.</p>
+          <p>최근에는 프런트엔드 성능 최적화와 개발자 경험(DX) 개선에 관심이 많습니다.</p>
+        </div>
+        <ul class="facts">
+          <li><strong>3+</strong><span>년 경력</span></li>
+          <li><strong>12</strong><span>완료 프로젝트</span></li>
+          <li><strong>5</strong><span>오픈소스 기여</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="skills" class="section container reveal">
+      <h2 class="section-title">Skills</h2>
+      <div class="skills-grid">
+        <div class="card">
+          <h3>Frontend</h3>
+          <ul class="tags">
+            <li>HTML</li><li>CSS</li><li>JavaScript</li><li>TypeScript</li><li>React</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Backend</h3>
+          <ul class="tags">
+            <li>Node.js</li><li>Python</li><li>PostgreSQL</li><li>REST</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Mobile &amp; Tools</h3>
+          <ul class="tags">
+            <li>Swift</li><li>Git</li><li>Docker</li><li>Figma</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section container reveal">
+      <h2 class="section-title">Projects</h2>
+      <div class="projects-grid">
+        <article class="card project">
+          <div class="project-thumb" style="--hue: 210">01</div>
+          <h3>Daily Habit Tracker</h3>
+          <p>습관을 기록하고 연속 달성일을 시각화하는 웹 앱. 오프라인에서도 동작합니다.</p>
+          <ul class="tags small"><li>JavaScript</li><li>PWA</li><li>IndexedDB</li></ul>
+          <div class="project-links">
+            <a href="#" target="_blank" rel="noopener">Demo ↗</a>
+            <a href="https://github.com/Taeminator1" target="_blank" rel="noopener">Code ↗</a>
+          </div>
+        </article>
+        <article class="card project">
+          <div class="project-thumb" style="--hue: 150">02</div>
+          <h3>Weather Dashboard</h3>
+          <p>공공 API를 활용한 지역별 날씨·미세먼지 대시보드. 반응형 차트 제공.</p>
+          <ul class="tags small"><li>React</li><li>Chart.js</li><li>Open API</li></ul>
+          <div class="project-links">
+            <a href="#" target="_blank" rel="noopener">Demo ↗</a>
+            <a href="https://github.com/Taeminator1" target="_blank" rel="noopener">Code ↗</a>
+          </div>
+        </article>
+        <article class="card project">
+          <div class="project-thumb" style="--hue: 30">03</div>
+          <h3>Study Group Matcher</h3>
+          <p>관심사 기반으로 스터디원을 매칭해 주는 서비스. 실시간 채팅 포함.</p>
+          <ul class="tags small"><li>Node.js</li><li>Socket.IO</li><li>PostgreSQL</li></ul>
+          <div class="project-links">
+            <a href="#" target="_blank" rel="noopener">Demo ↗</a>
+            <a href="https://github.com/Taeminator1" target="_blank" rel="noopener">Code ↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="section container reveal">
+      <h2 class="section-title">Contact</h2>
+      <p class="lead">함께 일하거나 이야기 나누고 싶으시면 편하게 연락 주세요.</p>
+      <div class="contact-links">
+        <a class="btn btn-primary" href="mailto:hello@example.com">Email</a>
+        <a class="btn btn-ghost" href="https://github.com/Taeminator1" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Taemin Yun. Built with HTML, CSS &amp; JS.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
