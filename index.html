@@ -18,7 +18,10 @@
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <button class="lang-toggle" type="button"></button>
+      <div class="dropdown lang-menu">
+        <button class="dropdown-toggle lang-toggle" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="lang-list"></button>
+        <ul class="dropdown-list" id="lang-list" hidden></ul>
+      </div>
       <button class="nav-toggle" aria-label="메뉴 열기" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -30,7 +33,10 @@
       <p class="lead intro" id="intro"></p>
       <div class="section-head">
         <h2 class="section-title">Projects</h2>
-        <button class="sort-toggle filter-chip" type="button"></button>
+        <div class="dropdown sort-menu">
+          <button class="dropdown-toggle filter-chip" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="sort-list"></button>
+          <ul class="dropdown-list" id="sort-list" hidden></ul>
+        </div>
       </div>
       <div class="stack-filter" role="group" aria-label="기술로 필터"></div>
       <div class="project-list"></div>
@@ -42,10 +48,6 @@
       <div class="contact-links"></div>
     </section>
   </main>
-
-  <footer class="site-footer">
-    <p>© <span id="year"></span> Taemin Yun. Built with HTML, CSS &amp; JS.</p>
-  </footer>
 
   <script src="script.js"></script>
 </body>

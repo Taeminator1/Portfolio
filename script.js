@@ -1,6 +1,3 @@
-// 푸터 연도
-document.getElementById('year').textContent = new Date().getFullYear();
-
 // 모바일 메뉴 토글
 const navToggle = document.querySelector('.nav-toggle');
 const navLinks = document.querySelector('.nav-links');
@@ -45,12 +42,11 @@ const strings = {
     period: '기간',
     stack: '기술',
     present: '진행 중',
-    demo: '데모',
+    demo: '실행 화면',
     overview: '개요',
     achievements: '성과',
     contributions: '주요 작업 내용',
-    switchTo: 'EN',
-    switchLabel: 'View in English',
+    langLabel: 'Language',
   },
   en: {
     description: 'Portfolio of Taemin Yun, software engineer',
@@ -69,10 +65,12 @@ const strings = {
     overview: 'Overview',
     achievements: 'Achievements',
     contributions: 'Key Contributions',
-    switchTo: '한국어',
-    switchLabel: '한국어로 보기',
+    langLabel: '언어',
   },
 };
+
+// 언어 이름은 화면 언어와 상관없이 각 언어로 표시한다
+const languageNames = { en: 'English', ko: '한국어' };
 
 // ?lang=ko|en 이 있으면 따르고, 없으면 브라우저 언어가 한국어일 때만 한국어
 function detectLang() {
@@ -87,16 +85,63 @@ let data = null;
 // 프로젝트 정렬. 시작 시간 기준 최신순(desc)이 기본이고, 오래된순은 주소에 ?sort=asc 로 남긴다
 let sortOrder = readQuery('sort') === 'asc' ? 'asc' : 'desc';
 
-const langToggle = document.querySelector('.lang-toggle');
-langToggle.addEventListener('click', () => {
-  lang = lang === 'ko' ? 'en' : 'ko';
+// 드롭다운 메뉴(언어, 정렬). 바깥을 누르거나 Esc를 누르면 닫히고, 고른 항목은 굵게 표시한다
+// 반환하는 함수에 항목 목록을 넘겨 다시 그린다. option: { value, text, lang? }
+const dropdowns = [];
+
+document.addEventListener('click', (e) => {
+  dropdowns.forEach((d) => { if (!d.root.contains(e.target)) d.setOpen(false); });
+});
+
+function createDropdown(root, onSelect) {
+  const toggle = root.querySelector('.dropdown-toggle');
+  const list = root.querySelector('.dropdown-list');
+
+  function setOpen(open) {
+    list.hidden = !open;
+    toggle.setAttribute('aria-expanded', String(open));
+  }
+
+  toggle.addEventListener('click', () => setOpen(list.hidden));
+  root.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !list.hidden) {
+      setOpen(false);
+      toggle.focus();
+    }
+  });
+  dropdowns.push({ root, setOpen });
+
+  return function renderDropdown(label, options, current) {
+    const selected = options.find((o) => o.value === current);
+    const text = el('span', null, selected.text);
+    if (selected.lang) text.lang = selected.lang;
+    toggle.replaceChildren(text, el('span', 'chevron'));
+    list.setAttribute('aria-label', label);
+    list.replaceChildren(...options.map((o) => {
+      const button = el('button', 'dropdown-option', o.text);
+      button.type = 'button';
+      if (o.lang) button.lang = o.lang;
+      if (o.value === current) button.setAttribute('aria-current', 'true');
+      button.addEventListener('click', () => {
+        setOpen(false);
+        toggle.focus();
+        if (o.value !== current) onSelect(o.value);
+      });
+      const li = el('li');
+      li.append(button);
+      return li;
+    }));
+  };
+}
+
+const renderLangMenu = createDropdown(document.querySelector('.lang-menu'), (code) => {
+  lang = code;
   writeQuery('lang', lang);
   render();
 });
 
-const sortToggle = document.querySelector('.sort-toggle');
-sortToggle.addEventListener('click', () => {
-  sortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
+const renderSortMenu = createDropdown(document.querySelector('.sort-menu'), (order) => {
+  sortOrder = order;
   writeQuery('sort', sortOrder === 'asc' ? 'asc' : null);
   renderStatic();
   if (data) renderProjects(data.projects);
@@ -104,20 +149,17 @@ sortToggle.addEventListener('click', () => {
 
 function renderStatic() {
   const t = strings[lang];
-  const other = lang === 'ko' ? 'en' : 'ko';
   document.documentElement.lang = lang;
   document.querySelector('meta[name="description"]').content = t.description;
   document.querySelector('.logo').textContent = t.logo;
   navToggle.setAttribute('aria-label', t.menuOpen);
   document.querySelector('.stack-filter').setAttribute('aria-label', t.filterLabel);
-  langToggle.textContent = t.switchTo;
-  langToggle.lang = other;
-  langToggle.setAttribute('aria-label', t.switchLabel);
-  sortToggle.replaceChildren(
-    sortOrder === 'asc' ? t.sortAsc : t.sortDesc,
-    el('span', 'sort-arrow', sortOrder === 'asc' ? '↑' : '↓'),
-  );
-  sortToggle.title = t.sortLabel;
+  const languages = Object.keys(languageNames).map((code) => ({ value: code, text: languageNames[code], lang: code }));
+  renderLangMenu(t.langLabel, languages, lang);
+  renderSortMenu(t.sortLabel, [
+    { value: 'desc', text: t.sortDesc },
+    { value: 'asc', text: t.sortAsc },
+  ], sortOrder);
 }
 
 function render() {
@@ -224,7 +266,6 @@ function renderProject(project) {
   meta.append(el('dt', null, t.period), periodsDd, el('dt', null, t.stack), stackDd);
   body.append(meta);
 
-  if (project.media && project.media.length) body.append(block(t.demo, renderMedia(project)));
   body.append(block(t.overview, list(content.overview, 'bullets')));
   body.append(block(t.achievements, list(content.achievements, 'achievements')));
 
@@ -235,6 +276,7 @@ function renderProject(project) {
     contributions.append(li);
   });
   body.append(block(t.contributions, contributions));
+  if (project.media && project.media.length) body.append(block(t.demo, renderMedia(project)));
 
   item.append(summary, body);
   return item;
