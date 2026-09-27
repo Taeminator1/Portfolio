@@ -131,7 +131,66 @@ function renderProject(project, i) {
 
 function renderProjects(projects) {
   const container = document.querySelector('.project-list');
-  projects.forEach((project, i) => container.append(renderProject(project, i)));
+  const items = projects.map((project, i) => renderProject(project, i));
+  container.append(...items);
+  renderStackFilter(projects, items);
+}
+
+// stack 값으로 필터. 한 번에 하나만 선택하고, 같은 버튼을 다시 누르면 해제
+// 프로젝트 하나에만 쓰인 기술은 "기타" 버튼 하나로 묶고, 누르면 목록이 펼쳐진다
+function renderStackFilter(projects, items) {
+  const counts = new Map();
+  projects.forEach((p) => p.stack.forEach((s) => counts.set(s, (counts.get(s) || 0) + 1)));
+  const stacks = [...counts.keys()].sort((a, b) => counts.get(b) - counts.get(a));
+  const common = stacks.filter((s) => counts.get(s) > 1);
+  const rare = stacks.filter((s) => counts.get(s) === 1);
+
+  const bar = document.querySelector('.stack-filter');
+  const more = el('div', 'filter-more');
+  more.id = 'filter-more';
+  more.hidden = true;
+  const buttons = [];
+  let selected = null;
+  let moreToggle = null;
+
+  function apply(value) {
+    selected = value;
+    items.forEach((item, i) => {
+      item.hidden = value !== null && !projects[i].stack.includes(value);
+    });
+    buttons.forEach((b) => b.setAttribute('aria-pressed', b.dataset.value === (value ?? '')));
+    if (moreToggle) moreToggle.classList.toggle('has-selected', rare.includes(value));
+  }
+
+  function addButton(parent, label, value, count) {
+    const button = el('button', 'filter-chip', label);
+    button.type = 'button';
+    button.dataset.value = value ?? '';
+    if (count !== undefined) button.append(el('span', 'filter-count', String(count)));
+    button.addEventListener('click', () => apply(value === null || value === selected ? null : value));
+    buttons.push(button);
+    parent.append(button);
+  }
+
+  addButton(bar, '전체', null);
+  common.forEach((s) => addButton(bar, s, s, counts.get(s)));
+
+  if (rare.length) {
+    moreToggle = el('button', 'filter-chip filter-toggle', '기타');
+    moreToggle.type = 'button';
+    moreToggle.setAttribute('aria-expanded', 'false');
+    moreToggle.setAttribute('aria-controls', more.id);
+    moreToggle.append(el('span', 'filter-count', String(rare.length)), el('span', 'chevron'));
+    moreToggle.addEventListener('click', () => {
+      more.hidden = !more.hidden;
+      moreToggle.setAttribute('aria-expanded', String(!more.hidden));
+    });
+    bar.append(moreToggle);
+    rare.forEach((s) => addButton(more, s, s));
+    bar.append(more);
+  }
+
+  apply(null);
 }
 
 function renderContact(contact) {
