@@ -39,6 +39,9 @@ const strings = {
     filterLabel: '기술로 필터',
     all: '전체',
     more: '기타',
+    sortLabel: '시작 시간 기준 정렬',
+    sortDesc: '최신순',
+    sortAsc: '오래된순',
     period: '기간',
     stack: '기술',
     present: '진행 중',
@@ -56,6 +59,9 @@ const strings = {
     filterLabel: 'Filter by stack',
     all: 'All',
     more: 'More',
+    sortLabel: 'Sort by start date',
+    sortDesc: 'Newest',
+    sortAsc: 'Oldest',
     period: 'Period',
     stack: 'Stack',
     present: 'Present',
@@ -78,12 +84,22 @@ function detectLang() {
 
 let lang = detectLang();
 let data = null;
+// 프로젝트 정렬. 시작 시간 기준 최신순(desc)이 기본이고, 오래된순은 주소에 ?sort=asc 로 남긴다
+let sortOrder = readQuery('sort') === 'asc' ? 'asc' : 'desc';
 
 const langToggle = document.querySelector('.lang-toggle');
 langToggle.addEventListener('click', () => {
   lang = lang === 'ko' ? 'en' : 'ko';
   writeQuery('lang', lang);
   render();
+});
+
+const sortToggle = document.querySelector('.sort-toggle');
+sortToggle.addEventListener('click', () => {
+  sortOrder = sortOrder === 'asc' ? 'desc' : 'asc';
+  writeQuery('sort', sortOrder === 'asc' ? 'asc' : null);
+  renderStatic();
+  if (data) renderProjects(data.projects);
 });
 
 function renderStatic() {
@@ -97,6 +113,11 @@ function renderStatic() {
   langToggle.textContent = t.switchTo;
   langToggle.lang = other;
   langToggle.setAttribute('aria-label', t.switchLabel);
+  sortToggle.replaceChildren(
+    sortOrder === 'asc' ? t.sortAsc : t.sortDesc,
+    el('span', 'sort-arrow', sortOrder === 'asc' ? '↑' : '↓'),
+  );
+  sortToggle.title = t.sortLabel;
 }
 
 function render() {
@@ -219,12 +240,26 @@ function renderProject(project) {
   return item;
 }
 
-function renderProjects(projects) {
+// 프로젝트 시작 시간은 periods 중 가장 이른 start. "YYYY-MM"이라 문자열 비교로 충분하다
+function startOf(project) {
+  return project.periods.map((p) => p.start).sort()[0] || '';
+}
+
+function sortProjects(projects) {
+  const sign = sortOrder === 'asc' ? 1 : -1;
+  return [...projects].sort((a, b) => sign * startOf(a).localeCompare(startOf(b)));
+}
+
+function renderProjects(allProjects) {
   const container = document.querySelector('.project-list');
-  // 언어를 바꿔 다시 그릴 때 펼쳐 둔 프로젝트는 그대로 펼친다
-  const wasOpen = [...container.children].map((item) => item.open);
+  const projects = sortProjects(allProjects);
+  // 언어나 정렬을 바꿔 다시 그릴 때 펼쳐 둔 프로젝트는 그대로 펼친다
+  const wasOpen = new Set([...container.children].filter((item) => item.open).map((item) => item.dataset.slug));
   const items = projects.map(renderProject);
-  items.forEach((item, i) => { item.open = Boolean(wasOpen[i]); });
+  items.forEach((item, i) => {
+    item.dataset.slug = projects[i].slug;
+    item.open = wasOpen.has(projects[i].slug);
+  });
   container.replaceChildren(...items);
   renderStackFilter(projects, items);
 }

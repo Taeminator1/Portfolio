@@ -110,6 +110,8 @@ ul { list-style: none; }
 .contact-links { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
 
 /* Projects */
+.section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 32px; }
+.section-head .section-title { margin-bottom: 0; }
 .stack-filter { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
 .filter-chip {
   display: inline-flex;
