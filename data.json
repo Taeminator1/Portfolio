@@ -27,6 +27,22 @@
         "DocC",
         "Figma"
       ],
+      "media": [
+        {
+          "src": "uikit.gif",
+          "alt": {
+            "ko": "YDSKit UIKit 컴포넌트 시연",
+            "en": "YDSKit UIKit components demo"
+          }
+        },
+        {
+          "src": "swiftui.gif",
+          "alt": {
+            "ko": "YDSKit SwiftUI 컴포넌트 시연",
+            "en": "YDSKit SwiftUI components demo"
+          }
+        }
+      ],
       "hue": 210,
       "content": {
         "ko": {

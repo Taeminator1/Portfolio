@@ -21,7 +21,7 @@
 
 | 필드 | 타입 | 필수 | 설명 |
 |---|---|---|---|
-| `slug` | string | O | 상세 페이지 폴더명. `projects/<slug>/`. 영문 소문자·숫자·`-`만 |
+| `slug` | string | O | 프로젝트 식별자. 자료 폴더명(`projects/<slug>/`)으로도 쓴다. 영문 소문자·숫자·`-`만 |
 | `periods` | Period[] | O | 개발 기간. 대부분 1개, YDSKit처럼 단계가 나뉘면 여러 개 |
 | `stack` | string[] | O | 사용 기술. 카드 태그로도 쓴다 |
 | `media` | Media[] | | Notion의 "Demo" 하위 페이지 내용. 없으면 생략 (예: 앱 실행 속도 최적화) |
@@ -40,9 +40,8 @@
 
 | 필드 | 타입 | 필수 | 설명 |
 |---|---|---|---|
-| `type` | `"image"` \| `"video"` \| `"youtube"` | O | GIF는 `image`. 긴 영상은 `youtube` |
-| `src` | string | O | `projects/<slug>/` 기준 상대 경로, 또는 YouTube URL |
-| `alt` | { ko, en } | | 대체 텍스트 |
+| `src` | string | O | 파일 이름(`projects/<slug>/` 기준 상대 경로) 또는 YouTube 주소. 종류는 `src`로 판단한다: YouTube 주소 → 임베드, `.mp4`·`.webm`·`.mov` → 영상, 그 외 → 이미지(GIF 포함). 긴 영상은 YouTube를 쓴다 |
+| `alt` | { ko, en } | | 대체 텍스트. 이미지의 `alt`, 영상의 `aria-label`, YouTube iframe의 `title`로 쓴다 |
 
 ### ProjectContent
 
@@ -90,7 +89,7 @@ Notion 글머리 기호가 최대 2단계라서, 하위 목록은 한 단계만 
       "periods": [{ "start": "2022-12", "end": "2023-04" }],
       "stack": ["Clean Architecture", "Tuist", "SDUI", "Rx"],
       "media": [
-        { "type": "image", "src": "demo.gif", "alt": { "ko": "요마트 시연", "en": "YoMart demo" } }
+        { "src": "demo.gif", "alt": { "ko": "요마트 시연", "en": "YoMart demo" } }
       ],
       "hue": 150,
       "content": {
@@ -146,4 +145,3 @@ Notion 글머리 기호가 최대 2단계라서, 하위 목록은 한 단계만 
 
 - 영문을 실제로 보여 줄지. 보여 주려면 언어 전환 UI가 필요하다(새 UI이므로 승인 필요). 당장은 `ko`만 렌더링하고 `en`은 비워 둘 수도 있다.
 - `summary`는 Notion에 없는 필드다. 카드용 한 줄을 새로 쓰거나, `overview[0]`을 그대로 쓸지.
-- 현재 카드의 `Demo ↗` / `Code ↗` 링크는 회사 프로젝트에 맞지 않는다. 카드 링크를 상세 페이지(`projects/<slug>/`) 하나로 바꿀지.
