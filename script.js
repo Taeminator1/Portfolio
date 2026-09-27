@@ -134,7 +134,8 @@ function renderProjects(projects) {
   renderStackFilter(projects, items);
 }
 
-// stack 값으로 필터. 한 번에 하나만 선택하고, 같은 버튼을 다시 누르면 해제
+// stack 값으로 필터. 여러 개를 고를 수 있고, 고른 기술 중 하나라도 쓴 프로젝트를 보여 준다
+// 같은 버튼을 다시 누르면 해제, "전체"를 누르면 모두 해제
 // 프로젝트 하나에만 쓰인 기술은 "기타" 버튼 하나로 묶고, 누르면 목록이 펼쳐진다
 function renderStackFilter(projects, items) {
   const counts = new Map();
@@ -148,16 +149,25 @@ function renderStackFilter(projects, items) {
   more.id = 'filter-more';
   more.hidden = true;
   const buttons = [];
-  let selected = null;
+  const selected = new Set();
   let moreToggle = null;
 
-  function apply(value) {
-    selected = value;
+  function apply() {
     items.forEach((item, i) => {
-      item.hidden = value !== null && !projects[i].stack.includes(value);
+      item.hidden = selected.size > 0 && !projects[i].stack.some((s) => selected.has(s));
     });
-    buttons.forEach((b) => b.setAttribute('aria-pressed', b.dataset.value === (value ?? '')));
-    if (moreToggle) moreToggle.classList.toggle('has-selected', rare.includes(value));
+    buttons.forEach((b) => {
+      const pressed = b.dataset.value === '' ? selected.size === 0 : selected.has(b.dataset.value);
+      b.setAttribute('aria-pressed', pressed);
+    });
+    if (moreToggle) moreToggle.classList.toggle('has-selected', rare.some((s) => selected.has(s)));
+  }
+
+  function toggle(value) {
+    if (value === null) selected.clear();
+    else if (selected.has(value)) selected.delete(value);
+    else selected.add(value);
+    apply();
   }
 
   function addButton(parent, label, value, count) {
@@ -165,7 +175,7 @@ function renderStackFilter(projects, items) {
     button.type = 'button';
     button.dataset.value = value ?? '';
     if (count !== undefined) button.append(el('span', 'filter-count', String(count)));
-    button.addEventListener('click', () => apply(value === null || value === selected ? null : value));
+    button.addEventListener('click', () => toggle(value));
     buttons.push(button);
     parent.append(button);
   }
@@ -188,7 +198,7 @@ function renderStackFilter(projects, items) {
     bar.append(more);
   }
 
-  apply(null);
+  apply();
 }
 
 // intro는 선택 값. 없거나 해당 언어 문구가 비어 있으면 자리까지 숨긴다
