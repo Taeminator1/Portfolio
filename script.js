@@ -17,8 +17,99 @@ navLinks.querySelectorAll('a').forEach((link) => {
   });
 });
 
+// 주소 쿼리 읽기/쓰기. 값은 인코딩된 문자열 그대로 다루고, 다른 쿼리와 해시는 유지한다
+function readQuery(name) {
+  const param = location.search.slice(1).split('&').find((p) => p.startsWith(`${name}=`));
+  return param ? param.slice(name.length + 1) : null;
+}
+
+function writeQuery(name, value) {
+  const params = location.search.slice(1).split('&').filter((p) => p && !p.startsWith(`${name}=`));
+  if (value) params.push(`${name}=${value}`);
+  const query = params.length ? `?${params.join('&')}` : '';
+  history.replaceState(null, '', location.pathname + query + location.hash);
+}
+
+// 화면 고정 문구. 콘텐츠는 data.json에 언어별로 있다
+const strings = {
+  ko: {
+    description: '소프트웨어 엔지니어 윤태민의 포트폴리오',
+    logo: '윤태민',
+    menuOpen: '메뉴 열기',
+    filterLabel: '기술로 필터',
+    all: '전체',
+    more: '기타',
+    period: '기간',
+    stack: '기술',
+    present: '진행 중',
+    demo: '데모',
+    overview: '개요',
+    achievements: '성과',
+    contributions: '주요 작업 내용',
+    switchTo: 'EN',
+    switchLabel: 'View in English',
+  },
+  en: {
+    description: 'Portfolio of Taemin Yun, software engineer',
+    logo: 'Taemin Yun',
+    menuOpen: 'Open menu',
+    filterLabel: 'Filter by stack',
+    all: 'All',
+    more: 'More',
+    period: 'Period',
+    stack: 'Stack',
+    present: 'Present',
+    demo: 'Demo',
+    overview: 'Overview',
+    achievements: 'Achievements',
+    contributions: 'Key Contributions',
+    switchTo: '한국어',
+    switchLabel: '한국어로 보기',
+  },
+};
+
+// ?lang=ko|en 이 있으면 따르고, 없으면 브라우저 언어가 한국어일 때만 한국어
+function detectLang() {
+  const query = readQuery('lang');
+  if (query && Object.hasOwn(strings, query)) return query;
+  const preferred = (navigator.languages && navigator.languages[0]) || navigator.language || '';
+  return preferred.toLowerCase().startsWith('ko') ? 'ko' : 'en';
+}
+
+let lang = detectLang();
+let data = null;
+
+const langToggle = document.querySelector('.lang-toggle');
+langToggle.addEventListener('click', () => {
+  lang = lang === 'ko' ? 'en' : 'ko';
+  writeQuery('lang', lang);
+  render();
+});
+
+function renderStatic() {
+  const t = strings[lang];
+  const other = lang === 'ko' ? 'en' : 'ko';
+  document.documentElement.lang = lang;
+  document.querySelector('meta[name="description"]').content = t.description;
+  document.querySelector('.logo').textContent = t.logo;
+  navToggle.setAttribute('aria-label', t.menuOpen);
+  document.querySelector('.stack-filter').setAttribute('aria-label', t.filterLabel);
+  langToggle.textContent = t.switchTo;
+  langToggle.lang = other;
+  langToggle.setAttribute('aria-label', t.switchLabel);
+}
+
+function render() {
+  renderStatic();
+  if (!data) return;
+  renderIntro(data.intro);
+  renderProjects(data.projects);
+  renderContact(data.contact);
+}
+
+renderStatic();
+
 // data.json으로 콘텐츠 그리기
-const lang = 'ko';
 
 function el(tag, className, text) {
   const node = document.createElement(tag);
@@ -29,7 +120,7 @@ function el(tag, className, text) {
 
 function formatMonth(ym) {
   const [y, m] = ym.split('-');
-  return `${y}년 ${m}월`;
+  return lang === 'ko' ? `${y}년 ${m}월` : `${m}/${y}`;
 }
 
 function list(items, className) {
@@ -88,6 +179,7 @@ function renderMedia(project) {
 }
 
 function renderProject(project) {
+  const t = strings[lang];
   const content = project.content[lang];
   const item = el('details', 'project');
 
@@ -100,7 +192,7 @@ function renderProject(project) {
 
   const meta = el('dl', 'meta');
   const periods = project.periods.map((p) => {
-    const end = p.end ? formatMonth(p.end) : '진행 중';
+    const end = p.end ? formatMonth(p.end) : t.present;
     const label = p.label ? ` · ${p.label[lang]}` : '';
     return `${formatMonth(p.start)} – ${end}${label}`;
   });
@@ -108,12 +200,12 @@ function renderProject(project) {
   periodsDd.append(list(periods));
   const stackDd = el('dd');
   stackDd.append(list(project.stack, 'tags small'));
-  meta.append(el('dt', null, '기간'), periodsDd, el('dt', null, '기술'), stackDd);
+  meta.append(el('dt', null, t.period), periodsDd, el('dt', null, t.stack), stackDd);
   body.append(meta);
 
-  if (project.media && project.media.length) body.append(block('데모', renderMedia(project)));
-  body.append(block('개요', list(content.overview, 'bullets')));
-  body.append(block('성과', list(content.achievements, 'achievements')));
+  if (project.media && project.media.length) body.append(block(t.demo, renderMedia(project)));
+  body.append(block(t.overview, list(content.overview, 'bullets')));
+  body.append(block(t.achievements, list(content.achievements, 'achievements')));
 
   const contributions = el('ul', 'bullets');
   content.contributions.forEach((c) => {
@@ -121,7 +213,7 @@ function renderProject(project) {
     if (c.children) li.append(list(c.children));
     contributions.append(li);
   });
-  body.append(block('주요 작업 내용', contributions));
+  body.append(block(t.contributions, contributions));
 
   item.append(summary, body);
   return item;
@@ -129,8 +221,11 @@ function renderProject(project) {
 
 function renderProjects(projects) {
   const container = document.querySelector('.project-list');
+  // 언어를 바꿔 다시 그릴 때 펼쳐 둔 프로젝트는 그대로 펼친다
+  const wasOpen = [...container.children].map((item) => item.open);
   const items = projects.map(renderProject);
-  container.append(...items);
+  items.forEach((item, i) => { item.open = Boolean(wasOpen[i]); });
+  container.replaceChildren(...items);
   renderStackFilter(projects, items);
 }
 
@@ -139,18 +234,15 @@ function renderProjects(projects) {
 // 프로젝트 하나에만 쓰인 기술은 "기타" 버튼 하나로 묶고, 누르면 목록이 펼쳐진다
 // 선택 상태는 주소의 ?stack=A,B 와 맞춘다. 기술 이름에 쉼표가 있어도 되도록 값마다 인코딩한다
 function readStackQuery() {
-  const param = location.search.slice(1).split('&').find((p) => p.startsWith('stack='));
+  const param = readQuery('stack');
   if (!param) return [];
-  return param.slice('stack='.length).split(',').map((s) => {
+  return param.split(',').map((s) => {
     try { return decodeURIComponent(s.replace(/\+/g, ' ')); } catch (e) { return ''; }
   });
 }
 
 function writeStackQuery(values) {
-  const params = location.search.slice(1).split('&').filter((p) => p && !p.startsWith('stack='));
-  if (values.length) params.push('stack=' + values.map(encodeURIComponent).join(','));
-  const query = params.length ? `?${params.join('&')}` : '';
-  history.replaceState(null, '', location.pathname + query + location.hash);
+  writeQuery('stack', values.map(encodeURIComponent).join(','));
 }
 
 function renderStackFilter(projects, items) {
@@ -160,7 +252,10 @@ function renderStackFilter(projects, items) {
   const common = stacks.filter((s) => counts.get(s) > 1);
   const rare = stacks.filter((s) => counts.get(s) === 1);
 
+  const t = strings[lang];
   const bar = document.querySelector('.stack-filter');
+  const wasMoreOpen = bar.querySelector('.filter-more:not([hidden])') !== null;
+  bar.replaceChildren();
   const more = el('div', 'filter-more');
   more.id = 'filter-more';
   more.hidden = true;
@@ -202,11 +297,11 @@ function renderStackFilter(projects, items) {
     parent.append(button);
   }
 
-  addButton(bar, '전체', null);
+  addButton(bar, t.all, null);
   common.forEach((s) => addButton(bar, s, s, counts.get(s)));
 
   if (rare.length) {
-    moreToggle = el('button', 'filter-chip filter-toggle', '기타');
+    moreToggle = el('button', 'filter-chip filter-toggle', t.more);
     moreToggle.type = 'button';
     moreToggle.setAttribute('aria-expanded', 'false');
     moreToggle.setAttribute('aria-controls', more.id);
@@ -218,7 +313,7 @@ function renderStackFilter(projects, items) {
   }
 
   readStackQuery().filter((s) => counts.has(s)).forEach((s) => selected.add(s));
-  if (rare.some((s) => selected.has(s))) setMoreOpen(true);
+  if (wasMoreOpen || rare.some((s) => selected.has(s))) setMoreOpen(true);
   apply();
 }
 
@@ -226,13 +321,14 @@ function renderStackFilter(projects, items) {
 function renderIntro(intro) {
   const node = document.getElementById('intro');
   const text = intro && intro[lang];
-  if (text) node.textContent = text;
-  else node.hidden = true;
+  node.textContent = text || '';
+  node.hidden = !text;
 }
 
 function renderContact(contact) {
   document.getElementById('contact-message').textContent = contact.message[lang];
   const links = document.querySelector('.contact-links');
+  links.replaceChildren();
   contact.links.forEach((link, i) => {
     const a = el('a', i === 0 ? 'btn btn-primary' : 'btn btn-ghost', link.label[lang]);
     a.href = link.url;
@@ -249,10 +345,9 @@ fetch('data.json')
     if (!res.ok) throw new Error(`data.json ${res.status}`);
     return res.json();
   })
-  .then((data) => {
-    renderIntro(data.intro);
-    renderProjects(data.projects);
-    renderContact(data.contact);
+  .then((json) => {
+    data = json;
+    render();
   })
   .catch((err) => console.error('콘텐츠를 불러오지 못했습니다.', err));
 
