@@ -181,6 +181,23 @@ function el(tag, className, text) {
   return node;
 }
 
+// data.json 문구 안의 **구절**은 굵게. HTML은 해석하지 않고 글자 그대로 둔다
+// node.append(...rich(text)) 로 쓴다. 짝이 안 맞는 ** 는 글자로 남는다
+function rich(text) {
+  return text.split(/\*\*(.+?)\*\*/).map((part, i) => (i % 2 ? el('strong', null, part) : part));
+}
+
+// 속성(alt 등)에 넣을 때는 ** 를 지운다
+function plain(text) {
+  return text.replace(/\*\*(.+?)\*\*/g, '$1');
+}
+
+function richEl(tag, className, text) {
+  const node = el(tag, className);
+  node.append(...rich(text));
+  return node;
+}
+
 function formatMonth(ym) {
   const [y, m] = ym.split('-');
   return lang === 'ko' ? `${y}년 ${m}월` : `${m}/${y}`;
@@ -188,7 +205,7 @@ function formatMonth(ym) {
 
 function list(items, className) {
   const ul = el('ul', className);
-  items.forEach((text) => ul.append(el('li', null, text)));
+  items.forEach((text) => ul.append(richEl('li', null, text)));
   return ul;
 }
 
@@ -216,7 +233,7 @@ function youtubeEmbed(src) {
 function renderMedia(project) {
   const wrap = el('div', 'media');
   project.media.forEach((item) => {
-    const alt = item.alt ? item.alt[lang] : '';
+    const alt = item.alt ? plain(item.alt[lang]) : '';
     const embed = youtubeEmbed(item.src);
     let node;
     if (embed) {
@@ -248,7 +265,7 @@ function renderProject(project) {
 
   const summary = el('summary');
   const head = el('div', 'project-head');
-  head.append(el('h3', null, content.title), el('p', null, content.summary));
+  head.append(richEl('h3', null, content.title), richEl('p', null, content.summary));
   summary.append(head, el('span', 'chevron'));
 
   const body = el('div', 'project-body');
@@ -271,7 +288,7 @@ function renderProject(project) {
 
   const contributions = el('ul', 'bullets');
   content.contributions.forEach((c) => {
-    const li = el('li', null, c.text);
+    const li = richEl('li', null, c.text);
     if (c.children) li.append(list(c.children));
     contributions.append(li);
   });
@@ -398,16 +415,16 @@ function renderStackFilter(projects, items) {
 function renderIntro(intro) {
   const node = document.getElementById('intro');
   const text = intro && intro[lang];
-  node.textContent = text || '';
+  node.replaceChildren(...rich(text || ''));
   node.hidden = !text;
 }
 
 function renderContact(contact) {
-  document.getElementById('contact-message').textContent = contact.message[lang];
+  document.getElementById('contact-message').replaceChildren(...rich(contact.message[lang]));
   const links = document.querySelector('.contact-links');
   links.replaceChildren();
   contact.links.forEach((link, i) => {
-    const a = el('a', i === 0 ? 'btn btn-primary' : 'btn btn-ghost', link.label[lang]);
+    const a = richEl('a', i === 0 ? 'btn btn-primary' : 'btn btn-ghost', link.label[lang]);
     a.href = link.url;
     if (!link.url.startsWith('mailto:')) {
       a.target = '_blank';
