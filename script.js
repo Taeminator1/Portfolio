@@ -114,9 +114,14 @@ function createDropdown(root, onSelect) {
   dropdowns.push({ root, setOpen });
 
   return function renderDropdown(label, options, current) {
-    const selected = options.find((o) => o.value === current);
-    const text = el('span', null, selected.text);
-    if (selected.lang) text.lang = selected.lang;
+    // 버튼 안에 모든 항목을 겹쳐 두고 고른 것만 보이게 해서, 버튼 폭을 가장 긴 항목에 맞춘다
+    // 목록은 버튼과 같은 폭으로 열리고, 무엇을 골라도 버튼 크기가 바뀌지 않는다
+    const text = el('span', 'dropdown-label');
+    options.forEach((o) => {
+      const span = el('span', o.value === current ? null : 'dropdown-ghost', o.text);
+      if (o.lang) span.lang = o.lang;
+      text.append(span);
+    });
     toggle.replaceChildren(text, el('span', 'chevron'));
     list.setAttribute('aria-label', label);
     list.replaceChildren(...options.map((o) => {
