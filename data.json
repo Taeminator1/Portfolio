@@ -6,6 +6,7 @@
   "projects": [
     {
       "slug": "ydskit",
+      "featured": true,
       "periods": [
         {
           "start": "2023-07",
@@ -110,6 +111,7 @@
     },
     {
       "slug": "yomart",
+      "featured": false,
       "periods": [
         {
           "start": "2022-12",
@@ -204,6 +206,7 @@
     },
     {
       "slug": "app-launch-optimization",
+      "featured": false,
       "periods": [
         {
           "start": "2023-05",
@@ -273,6 +276,7 @@
     },
     {
       "slug": "flash-sale",
+      "featured": false,
       "periods": [
         {
           "start": "2024-02",
@@ -355,6 +359,7 @@
     },
     {
       "slug": "checkout-cart",
+      "featured": false,
       "periods": [
         {
           "start": "2023-08",
@@ -438,6 +443,7 @@
     },
     {
       "slug": "rewards-plus",
+      "featured": false,
       "periods": [
         {
           "start": "2026-03",
@@ -496,6 +502,7 @@
     },
     {
       "slug": "order-tracking",
+      "featured": false,
       "periods": [
         {
           "start": "2025-02",

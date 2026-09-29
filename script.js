@@ -36,6 +36,7 @@ const strings = {
     filterLabel: '기술로 필터',
     all: '전체',
     more: '기타',
+    featured: '주요',
     sortLabel: '시작 시간 기준 정렬',
     sortDesc: '최신순',
     sortAsc: '오래된순',
@@ -55,6 +56,7 @@ const strings = {
     filterLabel: 'Filter by stack',
     all: 'All',
     more: 'More',
+    featured: 'Featured',
     sortLabel: 'Sort by start date',
     sortDesc: 'Newest',
     sortAsc: 'Oldest',
@@ -327,6 +329,8 @@ function renderProjects(allProjects) {
 // 같은 버튼을 다시 누르면 해제, "전체"를 누르면 모두 해제
 // 프로젝트 하나에만 쓰인 기술은 "기타" 버튼 하나로 묶고, 누르면 목록이 펼쳐진다
 // 선택 상태는 주소의 ?stack=A,B 와 맞춘다. 기술 이름에 쉼표가 있어도 되도록 값마다 인코딩한다
+// "전체" 옆 "주요" 버튼은 featured: true 인 프로젝트를 고른다. 기술 버튼과 같이 고른 것 중 하나라도 해당하면 보여 주고,
+// 켜진 상태는 ?featured=1 로 남긴다. 주요 프로젝트가 없으면 버튼을 만들지 않는다
 function readStackQuery() {
   const param = readQuery('stack');
   if (!param) return [];
@@ -356,15 +360,21 @@ function renderStackFilter(projects, items) {
   const buttons = [];
   const selected = new Set();
   let moreToggle = null;
+  const featuredCount = projects.filter((p) => p.featured).length;
+  let featuredOnly = featuredCount > 0 && readQuery('featured') === '1';
+  let featuredButton = null;
 
   function apply() {
     items.forEach((item, i) => {
-      item.hidden = selected.size > 0 && !projects[i].stack.some((s) => selected.has(s));
+      const any = selected.size > 0 || featuredOnly;
+      const matched = (featuredOnly && projects[i].featured) || projects[i].stack.some((s) => selected.has(s));
+      item.hidden = any && !matched;
     });
     buttons.forEach((b) => {
-      const pressed = b.dataset.value === '' ? selected.size === 0 : selected.has(b.dataset.value);
+      const pressed = b.dataset.value === '' ? selected.size === 0 && !featuredOnly : selected.has(b.dataset.value);
       b.setAttribute('aria-pressed', pressed);
     });
+    if (featuredButton) featuredButton.setAttribute('aria-pressed', featuredOnly);
     if (moreToggle) moreToggle.classList.toggle('has-selected', rare.some((s) => selected.has(s)));
   }
 
@@ -373,9 +383,16 @@ function renderStackFilter(projects, items) {
     moreToggle.setAttribute('aria-expanded', String(open));
   }
 
+  function setFeaturedOnly(on) {
+    featuredOnly = on;
+    writeQuery('featured', on ? '1' : null);
+  }
+
   function toggle(value) {
-    if (value === null) selected.clear();
-    else if (selected.has(value)) selected.delete(value);
+    if (value === null) {
+      selected.clear();
+      setFeaturedOnly(false);
+    } else if (selected.has(value)) selected.delete(value);
     else selected.add(value);
     apply();
     writeStackQuery([...selected]);
@@ -392,6 +409,20 @@ function renderStackFilter(projects, items) {
   }
 
   addButton(bar, t.all, null);
+
+  if (featuredCount) {
+    featuredButton = el('button', 'filter-chip');
+    featuredButton.type = 'button';
+    const star = el('span', null, '★');
+    star.setAttribute('aria-hidden', 'true');
+    featuredButton.append(star, t.featured, el('span', 'filter-count', String(featuredCount)));
+    featuredButton.addEventListener('click', () => {
+      setFeaturedOnly(!featuredOnly);
+      apply();
+    });
+    bar.append(featuredButton);
+  }
+
   common.forEach((s) => addButton(bar, s, s, counts.get(s)));
 
   if (rare.length) {

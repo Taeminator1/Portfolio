@@ -26,6 +26,7 @@
 | 필드 | 타입 | 필수 | 설명 |
 |---|---|---|---|
 | `slug` | string | O | 프로젝트 식별자. 자료 폴더명(`projects/<slug>/`)으로도 쓴다. 영문 소문자·숫자·`-`만 |
+| `featured` | boolean | | 주요 프로젝트. `true`면 "주요" 필터에 포함된다. 생략하면 `false` |
 | `periods` | Period[] | O | 개발 기간. 대부분 1개, YDSKit처럼 단계가 나뉘면 여러 개 |
 | `stack` | string[] | O | 사용 기술. 카드 태그로도 쓴다 |
 | `media` | Media[] | | Notion의 "Demo" 하위 페이지 내용. 없으면 생략 (예: 앱 실행 속도 최적화) |
