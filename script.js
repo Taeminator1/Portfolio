@@ -276,7 +276,7 @@ function renderProject(project) {
   const summary = el('summary');
   const head = el('div', 'project-head');
   const title = content.subtitle ? `${content.title} - ${content.subtitle}` : content.title;
-  head.append(richEl('h3', null, title), richEl('p', null, content.summary));
+  head.append(richEl('h3', null, title));
   summary.append(head, el('span', 'chevron'));
 
   const body = el('div', 'project-body');

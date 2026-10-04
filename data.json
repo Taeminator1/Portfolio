@@ -27,7 +27,6 @@
         "ko": {
           "title": "요마트",
           "subtitle": "식료품 배달 서비스",
-          "summary": "웹뷰 기반의 마트 서비스를 완전한 네이티브 앱으로 변화하여 성능과 사용자 경험을 크게 향상시킴",
           "overview": [
             "웹뷰 기반의 마트 서비스를 완전한 네이티브 앱으로 변화하여 성능과 사용자 경험을 크게 향상시킴"
           ],
@@ -64,7 +63,6 @@
         "en": {
           "title": "YoMart",
           "subtitle": "Grocery Delivery Service",
-          "summary": "Rebuilt YoMart from a WebView-based service into a fully native architecture, enabling scalable feature development while significantly improving business performance.",
           "overview": [
             "Rebuilt YoMart from a WebView-based service into a fully native architecture, enabling scalable feature development while significantly improving business performance."
           ],
@@ -151,7 +149,6 @@
         "ko": {
           "title": "요기요 디자인 시스템",
           "subtitle": "YDSKit",
-          "summary": "위대한상상이 제공하는 일반 고객, 사장님, 라이더 앱을 위한 크로스 플랫폼 디자인 시스템을 정의하고 UI 컴포넌트 라이브러리 YDSKit을 개발",
           "overview": [
             "위대한상상이 제공하는 일반 고객, 사장님, 라이더 앱을 위한 크로스 플랫폼 디자인 시스템을 정의하고 UI 컴포넌트 라이브러리 YDSKit을 개발"
           ],
@@ -180,7 +177,6 @@
         "en": {
           "title": "YDSKit",
           "subtitle": "Yogiyo Design System Components Library",
-          "summary": "Built YDSKit, a shared design system for Yogiyo’s customer, merchant, and rider apps, improving consistency, reusability, and scalability across products.",
           "overview": [
             "Built YDSKit, a shared design system for Yogiyo’s customer, merchant, and rider apps, improving consistency, reusability, and scalability across products."
           ],
@@ -227,7 +223,6 @@
       "content": {
         "ko": {
           "title": "할인 랭킹 광고 상품",
-          "summary": "남은 시간과 메뉴 특성에 따라 매장 메뉴를 동적으로 노출하는 광고형 서비스 구축",
           "overview": [
             "남은 시간과 메뉴 특성에 따라 매장 메뉴를 동적으로 노출하는 광고형 서비스 구축"
           ],
@@ -259,7 +254,6 @@
         },
         "en": {
           "title": "Flash Sale Advertising Product",
-          "summary": "Built a real-time promotion system that dynamically updated store menus based on synchronized server time and menu characteristics, enabling flexible marketing campaigns.",
           "overview": [
             "Built a real-time promotion system that dynamically updated store menus based on synchronized server time and menu characteristics, enabling flexible marketing campaigns."
           ],
@@ -319,7 +313,6 @@
       "content": {
         "ko": {
           "title": "결제하기 화면의 웹뷰 전환 및 장바구니의 기능 확장",
-          "summary": "결제하기 네이티브 화면을 웹뷰로 전환하여 기능 업데이트의 유연성을 높임",
           "overview": [
             "결제하기 네이티브 화면을 웹뷰로 전환하여 기능 업데이트의 유연성을 높임",
             "장바구니 웹뷰를 신설하고, 앱에서 관리하던 장바구니를 단일 구조에서 다중 구조로 확장"
@@ -351,7 +344,6 @@
         },
         "en": {
           "title": "Checkout Migration to WebView",
-          "summary": "Migrated the Checkout flow from native screens to a WebView-based architecture, enabling faster feature delivery and issue resolution without app releases.",
           "overview": [
             "Migrated the Checkout flow from native screens to a WebView-based architecture, enabling faster feature delivery and issue resolution without app releases."
           ],
@@ -392,7 +384,6 @@
       "content": {
         "ko": {
           "title": "앱 실행 속도 최적화",
-          "summary": "API 호출과 리소스 로딩을 최적화하여 앱 실행 시간을 단축",
           "overview": [
             "API 호출과 리소스 로딩을 최적화하여 앱 실행 시간을 단축"
           ],
@@ -417,7 +408,6 @@
         },
         "en": {
           "title": "App Launch & Flow Optimization",
-          "summary": "Optimized the app launch pipeline by reducing unnecessary network requests and improving resource loading, resulting in a 33.9% faster launch experience.",
           "overview": [
             "Optimized the app launch pipeline by reducing unnecessary network requests and improving resource loading, resulting in a 33.9% faster launch experience."
           ],
@@ -464,7 +454,6 @@
         "ko": {
           "title": "실시간 주문 추적 시스템 개선",
           "subtitle": "다중 대행사 & Live Activity",
-          "summary": "여러 배달 대행사에 대한 라이더 추적 기능을 확장하고, Live Activity 활용하여 실시간 주문 상태를 제공",
           "overview": [
             "여러 배달 대행사에 대한 라이더 추적 기능을 확장하고, Live Activity 활용하여 실시간 주문 상태를 제공"
           ],
@@ -494,7 +483,6 @@
         "en": {
           "title": "Order Tracking System",
           "subtitle": "Multi-Agency & Live Activity",
-          "summary": "Redesigned the order tracking system to support multiple delivery agencies and Live Activity, providing a more scalable and real-time tracking experience.",
           "overview": [
             "Redesigned the order tracking system to support multiple delivery agencies and Live Activity, providing a more scalable and real-time tracking experience."
           ],
@@ -540,7 +528,6 @@
         "ko": {
           "title": "요기더+ 적립관 신설",
           "subtitle": "포인트 기반 광고 상품",
-          "summary": "주문 여정 전반에서 포인트 적립을 유도하여 고객 리텐션을 높이기 위한 리워드 기반 광고 서비스, 요기더+ 적립관 신설",
           "overview": [
             "주문 여정 전반에서 포인트 적립을 유도하여 고객 리텐션을 높이기 위한 리워드 기반 광고 서비스, 요기더+ 적립관 신설"
           ],
@@ -560,7 +547,6 @@
         "en": {
           "title": "Yogiyo Rewards+",
           "subtitle": "Reward-Based Advertising Experience",
-          "summary": "Launched Yogiyo Rewards+, a reward-driven advertising experience designed to increase customer retention by encouraging point accumulation throughout the ordering journey.",
           "overview": [
             "Launched Yogiyo Rewards+, a reward-driven advertising experience designed to increase customer retention by encouraging point accumulation throughout the ordering journey."
           ],
@@ -590,14 +576,12 @@
       "content": {
         "ko": {
           "title": "에어브릿지 이관 (+ 딥링크, AppsFlyer 제거)",
-          "summary": "",
           "overview": [],
           "achievements": [],
           "contributions": []
         },
         "en": {
           "title": "",
-          "summary": "",
           "overview": [],
           "achievements": [],
           "contributions": []
@@ -612,14 +596,12 @@
       "content": {
         "ko": {
           "title": "앱리뉴얼",
-          "summary": "",
           "overview": [],
           "achievements": [],
           "contributions": []
         },
         "en": {
           "title": "",
-          "summary": "",
           "overview": [],
           "achievements": [],
           "contributions": []
@@ -634,14 +616,12 @@
       "content": {
         "ko": {
           "title": "일회용컵 보증금",
-          "summary": "",
           "overview": [],
           "achievements": [],
           "contributions": []
         },
         "en": {
           "title": "",
-          "summary": "",
           "overview": [],
           "achievements": [],
           "contributions": []
@@ -656,14 +636,12 @@
       "content": {
         "ko": {
           "title": "타겟요 배너",
-          "summary": "",
           "overview": [],
           "achievements": [],
           "contributions": []
         },
         "en": {
           "title": "",
-          "summary": "",
           "overview": [],
           "achievements": [],
           "contributions": []
@@ -678,14 +656,12 @@
       "content": {
         "ko": {
           "title": "방문식사",
-          "summary": "",
           "overview": [],
           "achievements": [],
           "contributions": []
         },
         "en": {
           "title": "",
-          "summary": "",
           "overview": [],
           "achievements": [],
           "contributions": []
@@ -700,14 +676,12 @@
       "content": {
         "ko": {
           "title": "로봇배달",
-          "summary": "",
           "overview": [],
           "achievements": [],
           "contributions": []
         },
         "en": {
           "title": "",
-          "summary": "",
           "overview": [],
           "achievements": [],
           "contributions": []
@@ -722,14 +696,12 @@
       "content": {
         "ko": {
           "title": "주문상세 네트워크 광고 (AdFit·네이버플레이스)",
-          "summary": "",
           "overview": [],
           "achievements": [],
           "contributions": []
         },
         "en": {
           "title": "",
-          "summary": "",
           "overview": [],
           "achievements": [],
           "contributions": []
