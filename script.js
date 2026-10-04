@@ -172,6 +172,7 @@ function renderStatic() {
 function render() {
   renderStatic();
   if (!data) return;
+  renderTitle(data.title);
   renderIntro(data.intro);
   renderProjects(data.projects);
   renderContact(data.contact);
@@ -448,6 +449,10 @@ function renderStackFilter(projects, items) {
 }
 
 // intro는 선택 값. 없거나 해당 언어 문구가 비어 있으면 자리까지 숨긴다
+function renderTitle(title) {
+  document.getElementById('logo').textContent = title[lang];
+}
+
 function renderIntro(intro) {
   const node = document.getElementById('intro');
   const text = intro && intro[lang];
