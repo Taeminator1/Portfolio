@@ -410,8 +410,11 @@ function renderStackFilter(projects, items) {
   }
 
   function addButton(parent, label, value, count) {
-    const button = el('button', 'filter-chip', label);
+    // "Firebase (Remote Config)"처럼 괄호가 있으면 버튼에는 앞부분만 쓰고, 괄호 안은 마우스를 올렸을 때 팝업으로 보여 준다
+    const [, name, detail] = label.match(/^(.*?)\s*\((.+)\)$/) || [null, label, null];
+    const button = el('button', 'filter-chip', name);
     button.type = 'button';
+    if (detail) button.append(el('span', 'filter-tip', detail));
     button.dataset.value = value ?? '';
     if (count !== undefined) button.append(el('span', 'filter-count', String(count)));
     button.addEventListener('click', () => toggle(value));
