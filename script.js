@@ -46,7 +46,7 @@ const strings = {
     demo: '실행 화면',
     overview: '개요',
     achievements: '성과',
-    contributions: '주요 작업 내용',
+    contributions: '주요 작업',
     langLabel: 'Language',
   },
   en: {
