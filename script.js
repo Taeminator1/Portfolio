@@ -240,9 +240,14 @@ function youtubeEmbed(src) {
 }
 
 // media.src는 projects/<slug>/ 기준 상대 경로, 또는 YouTube 주소. 종류는 src로 판단
+// src가 빈 항목은 아직 채우지 않은 자리라서 건너뛴다
+function mediaItems(project) {
+  return (project.media || []).filter((item) => item.src);
+}
+
 function renderMedia(project) {
   const wrap = el('div', 'media');
-  project.media.forEach((item) => {
+  mediaItems(project).forEach((item) => {
     const alt = item.alt ? plain(item.alt[lang]) : '';
     const embed = youtubeEmbed(item.src);
     let node;
@@ -262,6 +267,13 @@ function renderMedia(project) {
       node.src = `projects/${project.slug}/${item.src}`;
       node.alt = alt;
       node.loading = 'lazy';
+    }
+    // 파일을 불러오지 못하면 그 항목을 지우고, 남은 항목이 없으면 "실행 화면" 블록까지 지운다
+    if (!embed) {
+      node.addEventListener('error', () => {
+        node.remove();
+        if (!wrap.children.length) wrap.closest('.project-block')?.remove();
+      });
     }
     wrap.append(node);
   });
@@ -306,7 +318,7 @@ function renderProject(project) {
     contributions.append(li);
   });
   body.append(block(t.contributions, contributions));
-  if (project.media && project.media.length) body.append(block(t.demo, renderMedia(project)));
+  if (mediaItems(project).length) body.append(block(t.demo, renderMedia(project)));
 
   item.append(summary, body);
   return item;
