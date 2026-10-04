@@ -1,16 +1,16 @@
 {
   "title": {
-    "ko": "윤태민",
-    "en": "Taemin Yun"
+    "ko": "윤태민의 포트폴리오",
+    "en": "Taemin's Portfolio"
   },
   "intro": {
-    "ko": "안녕하세요. 제가 진행한 프로젝트를 소개할게요",
+    "ko": "안녕하세요. 제가 했던 프로젝트들을 소개합니다. **가장 중요하다고 생각하는 프로젝트**를 링크로 공유했습니다. 이것만 보셔도 좋지만, 더 궁금하시면 **필터를 직접 조작해** 보는 다른 프로젝트들도 봐주세요! 감사합니다.",
     "en": "Hello. Let me introduce the projects I have worked on."
   },
   "projects": [
     {
       "slug": "yomart",
-      "featured": false,
+      "featured": true,
       "periods": [
         {
           "start": "2022-11",
@@ -19,44 +19,44 @@
       ],
       "stack": [
         "Clean Architecture",
-        "Tuist",
-        "SDUI (Server-Driven UI)",
-        "Rx"
+        "Modularization (with Tuist)",
+        "SDUI (Server-Driven UI)"
       ],
       "content": {
         "ko": {
           "title": "요마트",
           "subtitle": "식료품 배달 서비스",
           "overview": [
-            "웹뷰 기반의 마트 서비스를 완전한 네이티브 앱으로 변화하여 성능과 사용자 경험을 크게 향상시킴"
+            "GS Refresh에서 운영하던 **웹뷰 기반의 마트 서비스를 완전한 네이티브 앱으로 변환**",
+            "상품 전시, 검색, 장바구니 등 **앱의 전반적인 영역에 마트 서비스 제공**"
           ],
           "achievements": [
-            "앱 출시 후 매출 61%, 전환율(CVR) 3.2% 증가",
-            "SDUI를 통해 앱 배포 없이도 동적으로 UI 업데이트가 가능하도록 구현하여 비즈니스 민첩성을 향상시킴"
+            "앱 출시 후 **매출 61%, 전환율(CVR) 3.2% 증가**",
+            "SDUI를 통해 앱 배포 없이도 **동적으로 UI 업데이트**가 가능하도록 구현하여 비즈니스 민첩성을 향상시킴"
           ],
           "contributions": [
             {
-              "text": "Clean Architecture와 Tuist를 기반으로 모듈화를 구현",
+              "text": "Clean Architecture와 Tuist를 통한 **모듈화 설계 및 구현**",
               "children": [
-                "Tuist를 활용해 계층별로 모듈을 생성하여 유지보수 및 확장성을 향상시킴",
-                "Domain 계층을 분리하여 비즈니스 로직 중심의 개발 및 의존성 관리 효율화를 달성"
+                "계층별로 모듈을 생성하여 **유지보수 및 재사용성**을 향상시킴",
+                "**비즈니스 로직 중심의 테스트**를 통해 신뢰성 있는 코드 구현"
               ]
-            },
-            {
-              "text": "각각의 마이크로서비스 단위로 세분화된 오류 처리 로직을 구현하여 다양한 상황에 적절하게 에러 처리"
-            },
-            {
-              "text": "딥링크 기반의 유연한 내비게이션 시스템을 개발하여, 특정 화면에 의존하지 않고 화면 전환(Push 및 Present) 지원"
             },
             {
               "text": "장바구니 시스템 개선",
               "children": [
-                "레스토랑 카트와 마트 카트를 동시에 관리하여 끊김 없는 멀티 카트 경험 제공",
-                "장바구니 데이터를 서버로 이전함으로써 사용자의 탐색 경험 유지"
+                "**레스토랑 카트와 요마트 카트를 동시에 관리**하여 끊김 없는 장바구니 경험 제공",
+                "장바구니 데이터를 서버로 이전하여 **기기 간에도 장바구니가 유지**되도록 개선"
               ]
             },
             {
-              "text": "글로벌 아웃소싱 팀(Sotatek, 베트남)과 협업하여 출시 이후 유지보수 및 기능 고도화를 진행"
+              "text": "딥링크 기반의 내비게이션 시스템을 통해 **특정 화면에 의존하지 않는 화면 전환** 지원"
+            },
+            {
+              "text": "마이크로서비스별로 세분화된 오류를 **하나의 처리 구조로 통합**"
+            },
+            {
+              "text": "**글로벌 아웃소싱 팀(Sotatek, 베트남)과 협업**하여 출시 이후 유지보수 및 기능 고도화를 진행"
             }
           ]
         },
@@ -64,38 +64,36 @@
           "title": "YoMart",
           "subtitle": "Grocery Delivery Service",
           "overview": [
-            "Rebuilt YoMart from a WebView-based service into a fully native architecture, enabling scalable feature development while significantly improving business performance."
+            "Rebuilt the **WebView-based grocery service operated by GS Refresh as a fully native app**.",
+            "Brought the grocery service **across the entire app**, including product displays, search, and cart."
           ],
           "achievements": [
-            "Increased revenue by 61% and boosted conversion rate (CVR) by 3.2% after launching the native app.",
-            "Enabled dynamic UI updates through Server-Driven UI (SDUI) without requiring app releases, improving business agility."
+            "Increased **revenue by 61% and conversion rate (CVR) by 3.2%** after launch.",
+            "Enabled **dynamic UI updates** without app releases through SDUI, improving business agility."
           ],
           "contributions": [
             {
-              "text": "Modularized the project using Clean Architecture and Tuist.",
+              "text": "**Designed and implemented a modular architecture** with Clean Architecture and Tuist.",
               "children": [
-                "Separated modules using Tuist to improve maintainability and build scalability.",
-                "Decoupled the Data and Domain layers to improve dependency management and align with domain-driven design principles."
+                "Split modules by layer to improve **maintainability and reusability**.",
+                "Ensured code reliability through **business logic–focused testing**."
               ]
             },
             {
-              "text": "Optimized the shopping cart system.",
+              "text": "Improved the cart system.",
               "children": [
-                "Managed both Restaurant Cart and Mart Cart simultaneously, for a seamless multi-cart experience.",
-                "Migrated cart data to the server, allowing users to retain items across devices."
+                "**Managed the Restaurant cart and YoMart cart simultaneously** for a seamless cart experience.",
+                "Migrated cart data to the server so that **carts persist across devices**."
               ]
             },
             {
-              "text": "Developed a flexible deep link-based navigation system.",
-              "children": [
-                "Supported push and present transitions without dependencies on specific screens."
-              ]
+              "text": "Built a deep link–based navigation system that supports **screen transitions without dependencies on specific screens**."
             },
             {
-              "text": "Implemented granular error handling for each microservice (MS) to improve error resolution."
+              "text": "Unified granular errors from each microservice **into a single error-handling structure**."
             },
             {
-              "text": "Collaborated with global outsourcing teams (including Sotatek in Vietnam) for post-launch maintenance and feature enhancements."
+              "text": "**Collaborated with a global outsourcing team (Sotatek, Vietnam)** on post-launch maintenance and feature enhancements."
             }
           ]
         }
