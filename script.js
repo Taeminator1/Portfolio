@@ -326,12 +326,12 @@ function sortProjects(projects) {
 function renderProjects(allProjects) {
   const container = document.querySelector('.project-list');
   const projects = sortProjects(allProjects);
-  // 언어나 정렬을 바꿔 다시 그릴 때 펼쳐 둔 프로젝트는 그대로 펼친다
-  const wasOpen = new Set([...container.children].filter((item) => item.open).map((item) => item.dataset.slug));
+  // 처음에는 모두 펼쳐 두고, 언어나 정렬을 바꿔 다시 그릴 때 접어 둔 프로젝트는 그대로 접는다
+  const wasClosed = new Set([...container.children].filter((item) => !item.open).map((item) => item.dataset.slug));
   const items = projects.map(renderProject);
   items.forEach((item, i) => {
     item.dataset.slug = projects[i].slug;
-    item.open = wasOpen.has(projects[i].slug);
+    item.open = !wasClosed.has(projects[i].slug);
   });
   container.replaceChildren(...items);
   renderStackFilter(projects, items);
