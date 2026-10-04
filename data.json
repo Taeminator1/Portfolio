@@ -229,10 +229,17 @@
       ],
       "media": [
         {
-          "src": "flash-sale.gif",
+          "src": "basic.gif",
           "alt": {
-            "ko": "flash-sale 시연",
-            "en": "flash-sale demo"
+            "ko": "flash-sale 시연 1",
+            "en": "flash-sale demo 1"
+          }
+        },
+        {
+          "src": "sdui.gif",
+          "alt": {
+            "ko": "flash-sale 시연 2",
+            "en": "flash-sale demo 2"
           }
         }
       ],
@@ -486,10 +493,17 @@
       ],
       "media": [
         {
-          "src": "order-tracking.gif",
+          "src": "live-activity.gif",
           "alt": {
-            "ko": "order-tracking 시연",
-            "en": "order-tracking demo"
+            "ko": "live-activity 시연",
+            "en": "live-activity demo"
+          }
+        },
+        {
+          "src": "tracking.gif",
+          "alt": {
+            "ko": "tracking 시연",
+            "en": "tracking demo"
           }
         }
       ],
@@ -555,7 +569,7 @@
       }
     },
     {
-      "slug": "rewards-plus",
+      "slug": "yogithe",
       "featured": false,
       "periods": [
         {
@@ -569,10 +583,10 @@
       ],
       "media": [
         {
-          "src": "rewards-plus.gif",
+          "src": "yogithe.gif",
           "alt": {
-            "ko": "rewards-plus 시연",
-            "en": "rewards-plus demo"
+            "ko": "yogithe 시연",
+            "en": "yogithe demo"
           }
         }
       ],
