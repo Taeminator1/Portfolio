@@ -31,7 +31,6 @@ function writeQuery(name, value) {
 const strings = {
   ko: {
     description: '소프트웨어 엔지니어 윤태민의 포트폴리오',
-    logo: '윤태민',
     menuOpen: '메뉴 열기',
     filterLabel: '기술로 필터',
     all: '전체',
@@ -51,7 +50,6 @@ const strings = {
   },
   en: {
     description: 'Portfolio of Taemin Yun, software engineer',
-    logo: 'Taemin Yun',
     menuOpen: 'Open menu',
     filterLabel: 'Filter by stack',
     all: 'All',
@@ -158,7 +156,6 @@ function renderStatic() {
   const t = strings[lang];
   document.documentElement.lang = lang;
   document.querySelector('meta[name="description"]').content = t.description;
-  document.querySelector('.logo').textContent = t.logo;
   navToggle.setAttribute('aria-label', t.menuOpen);
   document.querySelector('.stack-filter').setAttribute('aria-label', t.filterLabel);
   const languages = Object.keys(languageNames).map((code) => ({ value: code, text: languageNames[code], lang: code }));
