@@ -590,14 +590,7 @@
           "ko": "Email",
           "en": "Email"
         },
-        "url": "mailto:hello@example.com"
-      },
-      {
-        "label": {
-          "ko": "GitHub",
-          "en": "GitHub"
-        },
-        "url": "https://github.com/Taeminator1"
+        "url": "mailto:taeminyun689@gmail.com"
       },
       {
         "label": {
@@ -605,27 +598,6 @@
           "en": "LinkedIn"
         },
         "url": "https://www.linkedin.com/in/taemin-yun-b590822b7"
-      },
-      {
-        "label": {
-          "ko": "디자인 작업 샘플",
-          "en": "Design Work Samples"
-        },
-        "url": "https://drive.google.com/file/d/1Gi3U-CetiLdm3RsLgFc1bS5VdQbJt3jm/view?usp=share_link"
-      },
-      {
-        "label": {
-          "ko": "App Store",
-          "en": "App Store"
-        },
-        "url": "https://apps.apple.com/kr/app/yogiyo-food-delivery/id543831532?l=en-GB"
-      },
-      {
-        "label": {
-          "ko": "회사 웹사이트",
-          "en": "Company Website"
-        },
-        "url": "https://www.wesang.com"
       }
     ]
   }

@@ -459,14 +459,16 @@ function renderContact(contact) {
   document.getElementById('contact-message').replaceChildren(...rich(contact.message[lang]));
   const links = document.querySelector('.contact-links');
   links.replaceChildren();
-  contact.links.forEach((link, i) => {
-    const a = richEl('a', i === 0 ? 'btn btn-primary' : 'btn btn-ghost', link.label[lang]);
+  contact.links.forEach((link) => {
+    const a = richEl('a', null, link.label[lang]);
     a.href = link.url;
     if (!link.url.startsWith('mailto:')) {
       a.target = '_blank';
       a.rel = 'noopener';
     }
-    links.append(a);
+    const li = el('li');
+    li.append(a);
+    links.append(li);
   });
 }
 

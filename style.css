@@ -149,7 +149,9 @@ ul { list-style: none; }
 }
 .tags.small li { font-size: 0.8rem; padding: 2px 10px; }
 
-.contact-links { display: flex; gap: 12px; margin-top: 24px; flex-wrap: wrap; }
+.contact-links { margin-top: 24px; }
+.contact-links a { color: var(--accent); }
+.contact-links a:hover { text-decoration: underline; }
 
 /* Projects */
 .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 32px; }
