@@ -231,6 +231,31 @@ ul { list-style: none; }
 
 .project-head { flex: 1; min-width: 0; }
 .project-head h3 { font-size: 1.1rem; line-height: 1.4; }
+.project-read {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+.project-read:hover { color: var(--text); border-color: var(--muted); }
+.project-read input { width: 14px; height: 14px; margin: 0; accent-color: var(--accent); cursor: pointer; }
+.project-read:has(input:checked) {
+  color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+  background: color-mix(in srgb, var(--accent) 12%, transparent);
+}
+.project-read:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
+.project.is-read .project-head h3 { color: var(--muted); }
 
 .chevron {
   flex: none;
@@ -241,7 +266,9 @@ ul { list-style: none; }
   transform: rotate(45deg);
   transition: transform 0.2s;
 }
-.project[open] .chevron { transform: rotate(-135deg); }
+/* 카드는 GitHub PR처럼 왼쪽 꺾쇠가 접히면 >, 펼치면 v */
+.project summary .chevron { transform: rotate(-45deg); }
+.project[open] summary .chevron { transform: translateY(-2px) rotate(45deg); }
 
 .project-body {
   display: grid;

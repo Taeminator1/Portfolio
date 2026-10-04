@@ -47,6 +47,7 @@ const strings = {
     overview: '개요',
     achievements: '성과',
     contributions: '주요 작업',
+    markRead: '읽음',
     langLabel: 'Language',
   },
   en: {
@@ -67,6 +68,7 @@ const strings = {
     overview: 'Overview',
     achievements: 'Achievements',
     contributions: 'Key Contributions',
+    markRead: 'Viewed',
     langLabel: '언어',
   },
 };
@@ -280,6 +282,18 @@ function renderMedia(project) {
   return wrap;
 }
 
+// 읽음 표시한 프로젝트 slug 목록. 방문자 브라우저에만 저장하고, 저장소를 못 쓰면 이번 방문 동안만 기억한다
+const readKey = 'portfolio-read';
+const readSlugs = new Set((() => {
+  try { return JSON.parse(localStorage.getItem(readKey)) || []; } catch (e) { return []; }
+})());
+
+function setRead(slug, read) {
+  if (read) readSlugs.add(slug);
+  else readSlugs.delete(slug);
+  try { localStorage.setItem(readKey, JSON.stringify([...readSlugs])); } catch (e) { /* 저장 못 해도 화면은 그대로 */ }
+}
+
 function renderProject(project) {
   const t = strings[lang];
   const content = project.content[lang];
@@ -289,7 +303,20 @@ function renderProject(project) {
   const head = el('div', 'project-head');
   const title = content.subtitle ? `${content.title} - ${content.subtitle}` : content.title;
   head.append(richEl('h3', null, title));
-  summary.append(head, el('span', 'chevron'));
+  // GitHub PR의 Viewed처럼 체크하면 카드를 접고 제목을 흐리게, 해제하면 다시 펼친다
+  // label로 감싸서 버튼을 눌러도 카드 접기/펼치기는 따로 일어나지 않는다
+  const readToggle = el('label', 'project-read');
+  const read = el('input');
+  read.type = 'checkbox';
+  read.checked = readSlugs.has(project.slug);
+  readToggle.append(read, el('span', null, t.markRead));
+  item.classList.toggle('is-read', read.checked);
+  read.addEventListener('change', () => {
+    setRead(project.slug, read.checked);
+    item.classList.toggle('is-read', read.checked);
+    item.open = !read.checked;
+  });
+  summary.append(el('span', 'chevron'), head, readToggle);
 
   const body = el('div', 'project-body');
 
@@ -338,12 +365,13 @@ function sortProjects(projects) {
 function renderProjects(allProjects) {
   const container = document.querySelector('.project-list');
   const projects = sortProjects(allProjects);
-  // 처음에는 모두 펼쳐 두고, 언어나 정렬을 바꿔 다시 그릴 때 접어 둔 프로젝트는 그대로 접는다
+  // 처음에는 읽음 표시한 것만 접어 두고, 언어나 정렬을 바꿔 다시 그릴 때 접어 둔 프로젝트는 그대로 접는다
+  const first = container.children.length === 0;
   const wasClosed = new Set([...container.children].filter((item) => !item.open).map((item) => item.dataset.slug));
   const items = projects.map(renderProject);
   items.forEach((item, i) => {
     item.dataset.slug = projects[i].slug;
-    item.open = !wasClosed.has(projects[i].slug);
+    item.open = !(first ? readSlugs : wasClosed).has(projects[i].slug);
   });
   container.replaceChildren(...items);
   renderStackFilter(projects, items);
