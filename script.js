@@ -36,7 +36,8 @@ const strings = {
     all: '전체',
     more: '기타',
     featured: '주요',
-    sortLabel: '시작 시간 기준 정렬',
+    sortLabel: '정렬',
+    sortImportance: '중요도순',
     sortDesc: '최신순',
     sortAsc: '오래된순',
     period: '기간',
@@ -55,7 +56,8 @@ const strings = {
     all: 'All',
     more: 'More',
     featured: 'Featured',
-    sortLabel: 'Sort by start date',
+    sortLabel: 'Sort',
+    sortImportance: 'Importance',
     sortDesc: 'Newest',
     sortAsc: 'Oldest',
     period: 'Period',
@@ -82,8 +84,10 @@ function detectLang() {
 
 let lang = detectLang();
 let data = null;
-// 프로젝트 정렬. 시작 시간 기준 최신순(desc)이 기본이고, 오래된순은 주소에 ?sort=asc 로 남긴다
-let sortOrder = readQuery('sort') === 'asc' ? 'asc' : 'desc';
+// 프로젝트 정렬. 중요도순(importance, data.json에 나열된 순서)이 기본이고,
+// 시작 시간 기준 최신순·오래된순은 주소에 ?sort=desc|asc 로 남긴다
+const sortOrders = ['importance', 'desc', 'asc'];
+let sortOrder = sortOrders.includes(readQuery('sort')) ? readQuery('sort') : 'importance';
 
 // 드롭다운 메뉴(언어, 정렬). 바깥을 누르거나 Esc를 누르면 닫히고, 고른 항목은 굵게 표시한다
 // 반환하는 함수에 항목 목록을 넘겨 다시 그린다. option: { value, text, lang? }
@@ -147,7 +151,7 @@ const renderLangMenu = createDropdown(document.querySelector('.lang-menu'), (cod
 
 const renderSortMenu = createDropdown(document.querySelector('.sort-menu'), (order) => {
   sortOrder = order;
-  writeQuery('sort', sortOrder === 'asc' ? 'asc' : null);
+  writeQuery('sort', sortOrder === 'importance' ? null : sortOrder);
   renderStatic();
   if (data) renderProjects(data.projects);
 });
@@ -161,6 +165,7 @@ function renderStatic() {
   const languages = Object.keys(languageNames).map((code) => ({ value: code, text: languageNames[code], lang: code }));
   renderLangMenu(t.langLabel, languages, lang);
   renderSortMenu(t.sortLabel, [
+    { value: 'importance', text: t.sortImportance },
     { value: 'desc', text: t.sortDesc },
     { value: 'asc', text: t.sortAsc },
   ], sortOrder);
@@ -312,6 +317,7 @@ function startOf(project) {
 }
 
 function sortProjects(projects) {
+  if (sortOrder === 'importance') return [...projects];
   const sign = sortOrder === 'asc' ? 1 : -1;
   return [...projects].sort((a, b) => sign * startOf(a).localeCompare(startOf(b)));
 }
