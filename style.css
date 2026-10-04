@@ -132,7 +132,7 @@ ul { list-style: none; }
 .btn-primary { background: var(--accent); color: var(--accent-contrast); }
 .btn-ghost { border: 1px solid var(--border); }
 
-.lead { color: var(--muted); font-size: 1.1rem; max-width: 620px; }
+.lead { color: var(--muted); font-size: 1.1rem; }
 .intro { margin-bottom: 48px; }
 
 /* Sections */
