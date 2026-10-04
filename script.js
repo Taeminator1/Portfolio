@@ -292,7 +292,9 @@ function renderProject(project) {
   body.append(meta);
 
   body.append(block(t.overview, list(content.overview, 'bullets')));
-  body.append(block(t.achievements, list(content.achievements, 'achievements')));
+  const achievements = block(t.achievements, list(content.achievements, 'bullets'));
+  achievements.classList.add('achievements');
+  body.append(achievements);
 
   const contributions = el('ul', 'bullets');
   content.contributions.forEach((c) => {

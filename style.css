@@ -249,12 +249,13 @@ ul { list-style: none; }
 .bullets li + li { margin-top: 6px; }
 .bullets ul { list-style: circle; padding-left: 20px; margin-top: 6px; color: var(--muted); }
 
-.achievements { display: grid; gap: 12px; }
-.achievements li {
+.achievements {
   background: var(--bg);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  padding: 14px 18px;
+  /* 내용이 다른 섹션과 같은 열에 오도록 패딩만큼 바깥으로 넓힌다 */
+  padding: 14px 11px; /* 테두리 1px 포함 12px */
+  margin: 0 -12px;
 }
 
 /* Scroll reveal */
