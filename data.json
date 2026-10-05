@@ -116,16 +116,16 @@
           "start": "2023-07",
           "end": "2023-12",
           "label": {
-            "ko": "UIKit-based library",
-            "en": "UIKit-based library"
+            "ko": "UIKit",
+            "en": "UIKit"
           }
         },
         {
           "start": "2024-08",
           "end": "2025-02",
           "label": {
-            "ko": "SwiftUI-based library",
-            "en": "SwiftUI-based library"
+            "ko": "SwiftUI",
+            "en": "SwiftUI"
           }
         }
       ],
@@ -133,8 +133,7 @@
         "UIKit",
         "SwiftUI",
         "SwiftPM",
-        "DocC",
-        "Figma"
+        "DocC"
       ],
       "media": [
         {
@@ -154,57 +153,61 @@
       ],
       "content": {
         "ko": {
-          "title": "요기요 디자인 시스템",
-          "subtitle": "YDSKit",
+          "title": "YDSKit",
+          "subtitle": "요기요 디자인 시스템",
           "overview": [
-            "위대한상상이 제공하는 일반 고객, 사장님, 라이더 앱을 위한 크로스 플랫폼 디자인 시스템을 정의하고 UI 컴포넌트 라이브러리 YDSKit을 개발"
+            "위대한상상이 제공하는 일반 사용자, 사장님, 라이더 앱을 위한 **크로스 플랫폼 디자인 시스템 정의**",
+            "디자인 토큰과 컴포넌트를 구현한 **독립적인 패키지인 YDSKit 개발**"
           ],
           "achievements": [
-            "공통 디자인 토큰과 UI 컴포넌트를 도입하여 프로젝트 간 재사용성을 향상시켰으며, 이전 구조 대비 6%의 코드 재사용률 달성"
+            "공통 디자인 토큰과 컴포넌트를 도입하여 **프로젝트 간 코드 재사용률 6% 향상**",
+            "공용으로 사용하는 토큰과 컴포넌트에 대한 **테스트 시간 절감**"
           ],
           "contributions": [
             {
-              "text": "다른 앱과 분리된 독립 패키지로 개발",
+              "text": "다른 앱과 분리된 **독립 패키지 개발**",
               "children": [
-                "UIKit과 SwiftUI에 대응하는 컴포넌트들을 각 모듈에 배치하여 디자인 시스템의 일관된 이름을 사용할 수 있도록 설계 및 개발",
-                "디자인 시스템 토큰(색상, 폰트, 이미지 등)을 Swift 코드로 자동 변환하는 파이프라인 구축",
-                "각 컴포넌트에 대한 사전 QA를 수행하여, 앱 구현 단계에서 반복되는 디자인 QA를 최소화",
-                "샘플 코드와 DocC 문서를 제공하여 개발시 손쉽게 통합할 수 있도록 지원"
+                "UIKit과 SwiftUI에 대응하는 컴포넌트들을 **별도의 모듈로 구현**하여 디자인 시스템에서 정의한 일관된 이름을 사용할 수 있도록 설계",
+                "디자인 시스템 토큰(색상, 폰트, 이미지 등)을 Swift 코드로 **자동 변환하는 파이프라인 구축**",
+                "각 컴포넌트에 대한 **사전 QA를 수행하여, 앱 구현 단계에서 반복되는 디자인 검증을 최소화**",
+                "**샘플 코드와 DocC 문서를 제공**하여 개발 시 손쉽게 통합할 수 있도록 지원"
               ]
             },
             {
               "text": "디자이너와 협업하여 디자인 시스템 구조를 정의",
               "children": [
-                "SDUI 기반 API 응답을 고려한 디자인 토큰 및 컴포넌트 구조를 정의",
-                "확장성을 높이기 위해 계층적 구조로 컴포넌트를 설계"
+                "**SDUI 기반 API 응답을 고려**한 디자인 토큰 및 컴포넌트 구조를 정의",
+                "확장성을 높이기 위해 **계층적 구조로 컴포넌트를 설계**"
               ]
             }
           ]
         },
         "en": {
           "title": "YDSKit",
-          "subtitle": "Yogiyo Design System Components Library",
+          "subtitle": "Yogiyo Design System",
           "overview": [
-            "Built YDSKit, a shared design system for Yogiyo’s customer, merchant, and rider apps, improving consistency, reusability, and scalability across products."
+            "**Defined a cross-platform design system** for Wesang's customer, merchant, and rider apps.",
+            "**Developed YDSKit, a standalone package** implementing the design tokens and components."
           ],
           "achievements": [
-            "Improved code reusability across projects with common design tokens and UI components, achieving 6% code reuse compared to the previous structure."
+            "**Improved code reuse across projects by 6%** through shared design tokens and components.",
+            "**Reduced testing time** for shared tokens and components."
           ],
           "contributions": [
             {
-              "text": "Built a standalone package architecture.",
+              "text": "**Developed a standalone package** separate from the apps.",
               "children": [
-                "Designed the design system as an independent package, separate from all Wesang apps.",
-                "Automated the conversion of design tokens (e.g., colors, fonts, images) into Swift code.",
-                "Conducted preemptive QA for each component, reducing repetitive design QA during app implementation.",
-                "Provided sample code and DocC documentation to simplify integration for developers."
+                "**Implemented UIKit and SwiftUI components as separate modules**, keeping the consistent names defined by the design system.",
+                "**Built a pipeline that automatically converts** design system tokens (e.g., colors, fonts, images) into Swift code.",
+                "**Conducted preemptive QA on each component, minimizing repeated design reviews** during app implementation.",
+                "**Provided sample code and DocC documentation** for easy integration during development."
               ]
             },
             {
               "text": "Collaborated with designers to define the design system structure.",
               "children": [
-                "Defined design tokens and components considering SDUI-based API responses.",
-                "Designed components with a hierarchical structure to enhance scalability."
+                "Defined the design token and component structures **with SDUI-based API responses in mind**.",
+                "**Designed components in a hierarchical structure** to improve scalability."
               ]
             }
           ]
