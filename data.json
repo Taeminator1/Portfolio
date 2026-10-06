@@ -216,7 +216,7 @@
     },
     {
       "slug": "flash-sale",
-      "featured": false,
+      "featured": true,
       "periods": [
         {
           "start": "2024-02",
@@ -250,62 +250,60 @@
         "ko": {
           "title": "할인 랭킹 광고 상품",
           "overview": [
-            "남은 시간과 메뉴 특성에 따라 매장 메뉴를 동적으로 노출하는 광고형 서비스 구축"
+            "**남은 시간**과 메뉴 특성에 따라 매장 **메뉴를 동적으로 노출하는 광고형 서비스 신설**"
           ],
           "achievements": [
-            "해당 서비스를 이용한 사용자 그룹에서 주문 수 15%, 방문 빈도 14% 향상",
-            "서비스 참여 매장의 신규 고객 유입률을 85.3% 증가시켜 매출 성장에 기여"
+            "할인 랭킹 서비스를 이용한 사용자 그룹에서 **주문 수 15%, 방문 빈도 14% 향상**",
+            "서비스 참여 매장의 **신규 고객 유입률을 85.3% 증가**시켜 매출 성장에 기여"
           ],
           "contributions": [
             {
-              "text": "재사용 가능한 타이머 로직 및 컴포넌트 구현",
+              "text": "**재사용 가능한 타이머** 로직 및 컴포넌트 구현",
               "children": [
-                "NTP를 연동하여 정확한 서버 시간을 가져와, 안정적인 서비스 구현",
-                "남은 시간을 주기적으로 방출하는 퍼블리셔를 추상화하여 시간 관련 로직을 손쉽게 통합할 수 있도록 설계",
-                "인터페이스를 구축하여 앱과 웹뷰 간 일관된 시간 참조를 보장",
-                "서버 다운타임이나 네트워크 장애 등 NTP 시간 조회 실패 상황에 대한 오류 처리"
+                "**NTP를 연동**하여 정확한 서버 시간을 가져와, 안정적인 서비스 구현",
+                "남은 시간을 주기적으로 방출하는 퍼블리셔를 **추상화하여 시간 관련 로직을 손쉽게 통합**",
+                "인터페이스를 구축하여 **앱과 웹 간 일관된 시간 참조를 보장**"
               ]
             },
             {
               "text": "SDUI(Server-Driven UI)용 응답 설계",
               "children": [
-                "BE 개발자 및 디자이너와 협업하여 레이아웃을 위한 응답과 컴포넌트를 위한 응답의 데이터 구조 정의",
-                "Compositional Layout 없이도 CollectionViewCell 재사용이 가능하도록 컴포넌트를 모듈화"
+                "BE 개발자 및 디자이너와 협업하여 **레이아웃과 컴포넌트를 위한 데이터 구조 정의**",
+                "Compositional Layout 없이도 CollectionViewCell **재사용이 가능하도록 컴포넌트를 모듈화**"
               ]
             },
             {
-              "text": "홈 화면의 사용자 참여도를 높이기 위해 자연스럽고 반응적인 애니메이션을 구현"
+              "text": "홈 화면의 사용자 참여도를 높이기 위해 **자연스럽고 반응적인 애니메이션을 구현**"
             }
           ]
         },
         "en": {
           "title": "Flash Sale Advertising Product",
           "overview": [
-            "Built a real-time promotion system that dynamically updated store menus based on synchronized server time and menu characteristics, enabling flexible marketing campaigns."
+            "**Launched an ad service that dynamically displays store menus** based on the **remaining time** and menu characteristics."
           ],
           "achievements": [
-            "Increased orders by 15% and visit frequency by 14% among users who experienced the service.",
-            "Achieved an 85.3% increase in new customer acquisition for participating stores."
+            "**Increased orders by 15% and visit frequency by 14%** among users of the flash sale service.",
+            "**Increased new customer acquisition by 85.3%** for participating stores, contributing to revenue growth."
           ],
           "contributions": [
             {
-              "text": "Developed reusable timer logic.",
+              "text": "Implemented **reusable timer** logic and components.",
               "children": [
-                "Integrated NTP to synchronize server time and cache it locally for reliable timer calculations.",
-                "Abstracted a reusable publisher that periodically emitted the remaining time, simplifying timer integration across features.",
-                "Built a bridge between the app and embedded web pages to ensure a consistent time reference.",
-                "Defined error-handling logic for NTP time retrieval failures (e.g., server downtime, network issues)."
+                "**Integrated NTP** to fetch accurate server time for a reliable service.",
+                "Abstracted a publisher that periodically emits the remaining time, **making time-related logic easy to integrate**.",
+                "Built an interface to **ensure a consistent time reference between the app and web**."
               ]
             },
             {
-              "text": "Designed UI components for SDUI.",
+              "text": "Designed responses for SDUI (Server-Driven UI).",
               "children": [
-                "Defined design elements (e.g., colors, sizes, animations) and data structures (e.g., labels, button texts) in collaboration with BE developers and designers.",
-                "Modularized components for CollectionViewCell reuse, even without Compositional Layout."
+                "**Defined data structures for layouts and components** in collaboration with BE developers and designers.",
+                "**Modularized components to enable CollectionViewCell reuse** even without Compositional Layout."
               ]
             },
             {
-              "text": "Implemented interactive animations to boost engagement on the home screen."
+              "text": "**Implemented natural, responsive animations** to boost user engagement on the home screen."
             }
           ]
         }
@@ -313,7 +311,7 @@
     },
     {
       "slug": "checkout-cart",
-      "featured": false,
+      "featured": true,
       "periods": [
         {
           "start": "2023-07",
@@ -327,14 +325,15 @@
           "start": "2026-05",
           "end": "2026-07",
           "label": {
-            "ko": "장바구니 기능 확장",
-            "en": "Cart Expansion"
+            "ko": "멀티 장바구니 기능 추가",
+            "en": "Multi-Cart Support"
           }
         }
       ],
       "stack": [
-        "WebKit (WKWebView)",
-        "A/B Testing (Hackle)"
+        "WebKit",
+        "Feature Flag",
+        "Swift Concurrency"
       ],
       "media": [
         {
@@ -347,56 +346,60 @@
       ],
       "content": {
         "ko": {
-          "title": "결제하기 화면의 웹뷰 전환 및 장바구니의 기능 확장",
+          "title": "결제하기 화면의 웹뷰 전환 및 멀티 장바구니 기능 추가",
           "overview": [
-            "결제하기 네이티브 화면을 웹뷰로 전환하여 기능 업데이트의 유연성을 높임",
-            "장바구니 웹뷰를 신설하고, 앱에서 관리하던 장바구니를 단일 구조에서 다중 구조로 확장"
+            "결제하기 **네이티브 화면을 웹뷰로 전환**하여 기능 업데이트의 유연성을 높임",
+            "장바구니 웹뷰를 신설하고, **앱에서 관리하던 장바구니를 단일 구조에서 다중 구조로 확장**"
           ],
           "achievements": [
-            "앱 업데이트 없이도 기능을 유연하게 배포하고 오류에 신속히 대응할 수 있는 구조를 구축",
-            "여러 매장의 메뉴를 장바구니에 담았을 때 가격을 비교하기 어려웠던 문제를 개선"
+            "앱 업데이트 없이도 **기능을 유연하게 배포하고 오류에 신속히 대응**할 수 있도록 구조 변경",
+            "멀티 장바구니 도입 후 15분 내 **연속 주문 20%, 두 곳 이상 주문 1.7% 증가**"
           ],
           "contributions": [
             {
-              "text": "결제하기 화면의 웹뷰 전환 당시의 전문성을 바탕으로 장바구니 기능 확장을 주도"
+              "text": "결제하기 화면을 안정적으로 웹뷰로 전환",
+              "children": [
+                "MessageHandler 및 JavaScript Evaluate 함수를 통한 **앱 ↔ 웹 인터페이스를 구현**",
+                "기존 단일 웹뷰 객체를 **역할별로 추상화**하여 유지보수성을 향상시킴",
+                "Feature Flag, 웹뷰의 fallback 전략 등을 활용하여, 오류 발생 시 기존 화면을 **별도의 배포 없이 즉시 전환할 수 있도록 안정성 확립**"
+              ]
             },
             {
-              "text": "시간 또는 경로 등의 할인 혜택은 유지하면서 여러 개의 장바구니를 운용할 수 있도록 UX 플로우 제공"
-            },
-            {
-              "text": "스레드 안정성을 고려해 여러 장바구니의 안정적인 CRUD 기능을 구현"
-            },
-            {
-              "text": "MessageHandler 및 JavaScript Evaluate 함수를 통한 앱 ↔ 웹 인터페이스를 구현"
-            },
-            {
-              "text": "기존 웹뷰 단일 객체를 단일 책임 원칙(SRP)에 따라 리팩터링하고, 역할별 추상화를 통해 유지보수성을 향상"
-            },
-            {
-              "text": "A/B 테스트, 웹뷰의 fallback 전략 등을 활용하여, 오류 발생 시 기존 화면을 별도의 배포 없이 즉시 전환할 수 있도록 안정성 확립"
+              "text": "앱 전역에서 사용하던 **단일 장바구니를 멀티 장바구니로 전환**",
+              "children": [
+                "결제하기 화면의 웹뷰 전환 당시의 전문성을 바탕으로 **장바구니 기능 확장을 주도**",
+                "**시간 또는 경로 등의 할인 혜택은 유지**하면서 여러 개의 장바구니를 운용할 수 있도록 UX 플로우 제공",
+                "스레드 안전성을 고려해 여러 장바구니의 **안정적인 CRUD 기능을 구현**"
+              ]
             }
           ]
         },
         "en": {
-          "title": "Checkout Migration to WebView",
+          "title": "Checkout Migration to WebView & Multi-Cart Support",
           "overview": [
-            "Migrated the Checkout flow from native screens to a WebView-based architecture, enabling faster feature delivery and issue resolution without app releases."
+            "Migrated the Checkout **native screen to WebView**, increasing flexibility for feature updates.",
+            "Built a new Cart WebView and **expanded the app-managed cart from a single-cart to a multi-cart structure**."
           ],
           "achievements": [
-            "Enabled flexible Checkout updates and faster issue resolution without app releases by migrating the flow to WebView."
+            "Restructured the app to **deploy features flexibly and respond to issues quickly** without app updates.",
+            "After introducing multi-cart, increased **consecutive orders within 15 minutes by 20% and orders from two or more stores by 1.7%**."
           ],
           "contributions": [
             {
-              "text": "Established communication between the app and WebView.",
+              "text": "Reliably migrated the Checkout screen to WebView.",
               "children": [
-                "Built an interface to control native screens (e.g., gift card and coupon management) from the web."
+                "**Implemented an app ↔ web interface** using MessageHandler and JavaScript evaluation.",
+                "**Abstracted the existing single WebView object by role** to improve maintainability.",
+                "Used feature flags and a WebView fallback strategy to **ensure stability, allowing an instant switch back to the previous screen without a separate release** when errors occur."
               ]
             },
             {
-              "text": "Refactored the unified WebView ViewController to follow the Single Responsibility Principle (SRP) by abstracting common logic with Protocols."
-            },
-            {
-              "text": "Used Hackle’s feature flags to roll back to the previous native Checkout flow without requiring additional deployments."
+              "text": "**Converted the app-wide single cart into a multi-cart system.**",
+              "children": [
+                "**Led the cart expansion**, drawing on expertise from the Checkout WebView migration.",
+                "Designed a UX flow that supports multiple carts while **preserving time- or entry-point-based discounts**.",
+                "**Implemented reliable CRUD for multiple carts** with thread safety in mind."
+              ]
             }
           ]
         }
