@@ -503,6 +503,13 @@
       ],
       "media": [
         {
+          "src": "https://techblog.yogiyo.co.kr/live-activities-0e957c868858",
+          "alt": {
+            "ko": "기술 블로그 - 라이브 액티비티 개발기",
+            "en": "Tech Blog - Building Live Activities"
+          }
+        },
+        {
           "src": "live-activity.gif",
           "alt": {
             "ko": "live-activity 시연",

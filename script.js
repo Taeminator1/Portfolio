@@ -43,7 +43,8 @@ const strings = {
     period: '기간',
     stack: '기술',
     present: '진행 중',
-    demo: '실행 화면',
+    demo: '참고 자료',
+    screens: '실행 화면',
     overview: '개요',
     achievements: '성과',
     contributions: '주요 작업',
@@ -64,7 +65,8 @@ const strings = {
     period: 'Period',
     stack: 'Stack',
     present: 'Present',
-    demo: 'Demo',
+    demo: 'References',
+    screens: 'Demo',
     overview: 'Overview',
     achievements: 'Achievements',
     contributions: 'Key Contributions',
@@ -241,13 +243,16 @@ function youtubeEmbed(src) {
   return id ? `https://www.youtube.com/embed/${id}` : null;
 }
 
-// media.src는 projects/<slug>/ 기준 상대 경로, 또는 YouTube 주소. 종류는 src로 판단
+// media.src는 projects/<slug>/ 기준 상대 경로, YouTube 주소, 또는 일반 URL(링크로 표시). 종류는 src로 판단
 // src가 빈 항목은 아직 채우지 않은 자리라서 건너뛴다
 function mediaItems(project) {
   return (project.media || []).filter((item) => item.src);
 }
 
+// 링크는 항목마다 불릿 하나, 이미지·영상·YouTube는 접을 수 있는 "실행 화면" 불릿 하나 아래에 가운데 정렬로 모은다
 function renderMedia(project) {
+  const t = strings[lang];
+  const list = el('ul', 'bullets media-list');
   const wrap = el('div', 'media');
   mediaItems(project).forEach((item) => {
     const alt = item.alt ? plain(item.alt[lang]) : '';
@@ -258,6 +263,15 @@ function renderMedia(project) {
       node.src = embed;
       node.allowFullscreen = true;
       node.title = alt;
+    } else if (/^https?:\/\//i.test(item.src)) {
+      const link = el('a', 'media-link', alt || item.src);
+      link.href = item.src;
+      link.target = '_blank';
+      link.rel = 'noopener';
+      const li = el('li');
+      li.append(link);
+      list.append(li);
+      return;
     } else if (/\.(mp4|webm|mov)$/i.test(item.src)) {
       node = el('video', 'media-item');
       node.src = `projects/${project.slug}/${item.src}`;
@@ -270,16 +284,27 @@ function renderMedia(project) {
       node.alt = alt;
       node.loading = 'lazy';
     }
-    // 파일을 불러오지 못하면 그 항목을 지우고, 남은 항목이 없으면 "실행 화면" 블록까지 지운다
-    if (!embed) {
+    // 파일을 불러오지 못하면 그 항목을 지우고, 남은 항목이 없으면 "실행 화면" 불릿, 불릿이 다 없어지면 "참고 자료" 블록까지 지운다
+    if (node.matches('img, video')) {
       node.addEventListener('error', () => {
         node.remove();
-        if (!wrap.children.length) wrap.closest('.project-block')?.remove();
+        if (wrap.children.length) return;
+        wrap.closest('li')?.remove();
+        if (!list.children.length) list.closest('.project-block')?.remove();
       });
     }
     wrap.append(node);
   });
-  return wrap;
+  if (wrap.children.length) {
+    const details = el('details', 'media-toggle');
+    const summary = el('summary');
+    summary.append(t.screens, el('span', 'chevron'));
+    details.append(summary, wrap);
+    const li = el('li');
+    li.append(details);
+    list.append(li);
+  }
+  return list;
 }
 
 // 읽음 표시한 프로젝트 slug 목록. 방문자 브라우저에만 저장하고, 저장소를 못 쓰면 이번 방문 동안만 기억한다

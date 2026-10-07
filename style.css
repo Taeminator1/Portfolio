@@ -218,7 +218,7 @@ ul { list-style: none; }
   box-shadow: var(--shadow);
 }
 
-.project summary {
+.project > summary {
   display: flex;
   align-items: center;
   gap: 16px;
@@ -226,8 +226,8 @@ ul { list-style: none; }
   cursor: pointer;
   list-style: none;
 }
-.project summary::-webkit-details-marker { display: none; }
-.project summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: var(--radius); }
+.project > summary::-webkit-details-marker { display: none; }
+.project > summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: var(--radius); }
 
 .project-head { flex: 1; min-width: 0; }
 .project-head h3 { font-size: 1.1rem; line-height: 1.4; }
@@ -267,8 +267,8 @@ ul { list-style: none; }
   transition: transform 0.2s;
 }
 /* 카드는 GitHub PR처럼 왼쪽 꺾쇠가 접히면 >, 펼치면 v */
-.project summary .chevron { transform: rotate(-45deg); }
-.project[open] summary .chevron { transform: translateY(-2px) rotate(45deg); }
+.project > summary .chevron { transform: rotate(-45deg); }
+.project[open] > summary .chevron { transform: translateY(-2px) rotate(45deg); }
 
 .project-body {
   display: grid;
@@ -282,13 +282,22 @@ ul { list-style: none; }
 .meta dd { min-width: 0; }
 .meta dd li + li { margin-top: 2px; }
 
-.media { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+.media { display: flex; margin-top: 12px; gap: 16px; flex-wrap: wrap; justify-content: center; }
 .media-item {
   width: min(240px, calc(50% - 8px));
   height: auto;
   border-radius: 18px;
   border: 1px solid var(--border);
 }
+.media-list > li::marker { color: var(--accent); }
+.media-link { color: var(--accent); }
+.media-link:hover { text-decoration: underline; }
+/* summary를 flex로 두면 빈 꺾쇠가 기준선이 돼 불릿 점이 위로 뜬다. 글자 기준선을 그대로 쓰도록 block으로 둔다 */
+.media-toggle summary { display: block; width: fit-content; color: var(--accent); cursor: pointer; list-style: none; }
+.media-toggle summary::-webkit-details-marker { display: none; }
+.media-toggle summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
+.media-toggle .chevron { display: inline-block; width: 8px; height: 8px; margin-left: 5px; vertical-align: 0.15em; border-width: 0 1.5px 1.5px 0; border-color: currentColor; transform: rotate(-45deg); }
+.media-toggle[open] .chevron { margin-left: 8px; transform: translateY(-2px) rotate(45deg); }
 .media-youtube { width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: var(--radius); }
 
 .bullets { list-style: disc; padding-left: 20px; }
@@ -331,6 +340,6 @@ ul { list-style: none; }
   }
   .nav-links.open { display: flex; }
   .section { padding: 56px 16px; }
-  .project summary { padding: 16px; gap: 12px; }
+  .project > summary { padding: 16px; gap: 12px; }
   .project-body { padding: 4px 16px 24px; }
 }
