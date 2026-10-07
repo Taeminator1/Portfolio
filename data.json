@@ -407,7 +407,7 @@
     },
     {
       "slug": "app-launch-optimization",
-      "featured": false,
+      "featured": true,
       "periods": [
         {
           "start": "2023-04",
@@ -415,9 +415,8 @@
         }
       ],
       "stack": [
-        "Deferred Deep Linking (AppsFlyer)",
-        "Swift Concurrency",
-        "Firebase (Remote Config)"
+        "Deferred Deep Linking",
+        "Swift Concurrency"
       ],
       "media": [
         {
@@ -432,51 +431,56 @@
         "ko": {
           "title": "앱 실행 속도 최적화",
           "overview": [
-            "API 호출과 리소스 로딩을 최적화하여 앱 실행 시간을 단축"
+            "**API 호출과 리소스 로딩을 최적화**하여 앱 실행 시간을 단축"
           ],
           "achievements": [
-            "앱 실행 시간을 33.9% 단축하여 온보딩 경험과 사용자 유지율을 향상시킴",
-            "API 호출을 최적화함으로써 서버 부하와 비용을 절감"
+            "**앱 실행 시간을 33.9% 단축**하여 사용자가 더 빠르게 탐색을 시작할 수 있도록 개선",
+            "두 플랫폼(iOS, Android) 간의 **API 호출 시퀀스를 맞춰** 일관된 사용자 경험 제공"
           ],
           "contributions": [
             {
-              "text": "런치 스크린 이미지 리소스를 서버로 이전하고, 상황에 따라 PNG 또는 Lottie 리소스를 비동기로 다운받아 로딩 시간 최적화"
+              "text": "런치 스크린 이미지 리소스를 서버 기반으로 전환",
+              "children": [
+                "런치 스크린 리소스를 서버로 이전하여 **비즈니스 방향에 유연하게 대응**",
+                "**로컬 캐시를 적용**하여, 반복되는 다운로드 없이 빠른 앱 실행 보장"
+              ]
             },
             {
-              "text": "iOS와 Android 간 API 호출 시퀀스를 표준화하여 플랫폼 간 일관성을 확보"
+              "text": "두 플랫폼의 **API 호출 시퀀스 표준화**",
+              "children": [
+                "표준화된 시퀀스를 기반으로 **API를 병렬적으로 실행하여 불필요한 대기 시간 제거**"
+              ]
             },
             {
-              "text": "Concurrency를 활용해 API 요청을 순차적 또는 병렬적으로 실행함으로써 대기 시간을 단축"
-            },
-            {
-              "text": "Deferred Deep Linking 환경에서 Operation Queue를 활용해 API 요청을 최적화"
+              "text": "**Deferred Deep Linking** 환경에서 Operation Queue를 활용해 **온보딩에서도 끊기지 않는 경험 제공**"
             }
           ]
         },
         "en": {
-          "title": "App Launch & Flow Optimization",
+          "title": "App Launch Optimization",
           "overview": [
-            "Optimized the app launch pipeline by reducing unnecessary network requests and improving resource loading, resulting in a 33.9% faster launch experience."
+            "Reduced app launch time by **optimizing API calls and resource loading**."
           ],
           "achievements": [
-            "Reduced app launch time by 33.9%, improving user onboarding and retention.",
-            "Minimized server load and backend costs by optimizing API calls."
+            "**Reduced app launch time by 33.9%**, letting users start browsing faster.",
+            "**Aligned API call sequences** across both platforms (iOS and Android) for a consistent user experience."
           ],
           "contributions": [
             {
-              "text": "Refactored event API calls to trigger only when necessary, reducing redundant requests."
+              "text": "Moved launch screen image resources to a server-based setup.",
+              "children": [
+                "Served launch screen resources from the server to **respond flexibly to business needs**.",
+                "**Applied local caching** to ensure a fast launch without repeated downloads."
+              ]
             },
             {
-              "text": "Applied Swift Concurrency (async/await) to execute API requests sequentially or concurrently, reducing overall launch latency."
+              "text": "**Standardized API call sequences** across both platforms.",
+              "children": [
+                "Based on the standardized sequence, **ran APIs in parallel to eliminate unnecessary wait time**."
+              ]
             },
             {
-              "text": "Leveraged Operation Queue to optimize API requests in Deferred Deep Linking environments."
-            },
-            {
-              "text": "Moved Launch Screen image assets to the server, dynamically selecting resources (PNG or Lottie) based on context."
-            },
-            {
-              "text": "Standardized API call sequences between iOS and Android to ensure platform consistency."
+              "text": "Used Operation Queue in **Deferred Deep Linking** scenarios to **provide a seamless experience even during onboarding**."
             }
           ]
         }
