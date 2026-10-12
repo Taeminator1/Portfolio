@@ -355,10 +355,10 @@ function renderProject(project) {
   periodsDd.append(list(periods));
   const stackDd = el('dd');
   stackDd.append(list(project.stack, 'tags small'));
+  if (content.overview) meta.append(el('dt', null, t.overview), richEl('dd', null, content.overview));
   meta.append(el('dt', null, t.period), periodsDd, el('dt', null, t.stack), stackDd);
   body.append(meta);
 
-  body.append(block(t.overview, richEl('p', null, content.overview)));
   const achievements = block(t.achievements, list(content.achievements, 'bullets'));
   achievements.classList.add('achievements');
   body.append(achievements);
