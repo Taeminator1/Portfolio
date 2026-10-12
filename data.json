@@ -19,7 +19,7 @@
       ],
       "stack": [
         "Clean Architecture",
-        "Modularization (with Tuist)",
+        "Tuist",
         "SDUI (Server-Driven UI)"
       ],
       "media": [
@@ -357,7 +357,7 @@
         },
         "en": {
           "title": "Checkout Migration to WebView & Multi-Cart Support",
-          "overview": "Migrated the Checkout **native screen to WebView**, increasing flexibility for feature updates. Built a new Cart WebView and **expanded the app-managed cart from a single-cart to a multi-cart structure**.",
+          "overview": "",
           "achievements": [
             "Restructured the app to **deploy features flexibly and respond to issues quickly** without app updates.",
             "After introducing multi-cart, increased **consecutive orders within 15 minutes by 20% and orders from two or more stores by 1.7%**."
@@ -472,7 +472,8 @@
       "stack": [
         "SwiftUI",
         "Live Activities",
-        "Deep Linking"
+        "Deep Linking",
+        "Tuist"
       ],
       "media": [
         {
