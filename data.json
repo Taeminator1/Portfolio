@@ -35,9 +35,7 @@
         "ko": {
           "title": "요마트",
           "subtitle": "식료품 배달 서비스",
-          "overview": [
-            "타사(GS Refresh)의 **웹뷰 기반 마트 서비스를 완전한 네이티브 앱으로 변환**"
-          ],
+          "overview": "타사(GS Refresh)의 **웹뷰 기반 마트 서비스를 완전한 네이티브 앱으로 변환**",
           "achievements": [
             "앱의 전반적인 영역에 마트 서비스를 제공하여 **매출 61%, 전환율(CVR) 3.2% 증가**",
             "SDUI를 통해 앱 배포 없이도 **동적으로 UI 업데이트**가 가능하도록 구현하여 비즈니스 민첩성을 향상시킴"
@@ -71,9 +69,7 @@
         "en": {
           "title": "YoMart",
           "subtitle": "Grocery Delivery Service",
-          "overview": [
-            "Rebuilt a third-party (GS Refresh) **WebView-based grocery service as a fully native app**."
-          ],
+          "overview": "Rebuilt a third-party (GS Refresh) **WebView-based grocery service as a fully native app**.",
           "achievements": [
             "Brought the grocery service across the entire app, **increasing revenue by 61% and conversion rate (CVR) by 3.2%**.",
             "Enabled **dynamic UI updates** without app releases through SDUI, improving business agility."
@@ -153,9 +149,7 @@
         "ko": {
           "title": "YDSKit",
           "subtitle": "요기요 디자인 시스템",
-          "overview": [
-            "위대한상상이 제공하는 일반 사용자, 사장님, 라이더 앱을 위한 **크로스 플랫폼 디자인 시스템 정의**"
-          ],
+          "overview": "위대한상상이 제공하는 일반 사용자, 사장님, 라이더 앱을 위한 **크로스 플랫폼 디자인 시스템 정의**",
           "achievements": [
             "**독립적인 패키지인 YDSKit**을 개발하여 **프로젝트 간 코드 재사용률 6% 향상**",
             "공용으로 사용하는 토큰과 컴포넌트에 대한 **테스트 시간 절감**"
@@ -182,9 +176,7 @@
         "en": {
           "title": "YDSKit",
           "subtitle": "Yogiyo Design System",
-          "overview": [
-            "**Defined a cross-platform design system** for Wesang's customer, merchant, and rider apps."
-          ],
+          "overview": "**Defined a cross-platform design system** for Wesang's customer, merchant, and rider apps.",
           "achievements": [
             "Developed **YDSKit as a standalone package**, **improving code reuse across projects by 6%**.",
             "**Reduced testing time** for shared tokens and components."
@@ -245,9 +237,7 @@
       "content": {
         "ko": {
           "title": "할인 랭킹 광고 상품",
-          "overview": [
-            "**남은 시간**과 메뉴 특성에 따라 매장 **메뉴를 동적으로 노출하는 광고형 서비스 신설**"
-          ],
+          "overview": "**남은 시간**과 메뉴 특성에 따라 매장 **메뉴를 동적으로 노출하는 광고형 서비스 신설**",
           "achievements": [
             "할인 랭킹 서비스를 이용한 사용자 그룹에서 **주문 수 15%, 방문 빈도 14% 향상**",
             "서비스 참여 매장의 **신규 고객 유입률을 85.3% 증가**시켜 매출 성장에 기여"
@@ -275,9 +265,7 @@
         },
         "en": {
           "title": "Flash Sale Advertising Product",
-          "overview": [
-            "**Launched an ad service that dynamically displays store menus** based on the **remaining time** and menu characteristics."
-          ],
+          "overview": "**Launched an ad service that dynamically displays store menus** based on the **remaining time** and menu characteristics.",
           "achievements": [
             "**Increased orders by 15% and visit frequency by 14%** among users of the flash sale service.",
             "**Increased new customer acquisition by 85.3%** for participating stores, contributing to revenue growth."
@@ -343,9 +331,7 @@
       "content": {
         "ko": {
           "title": "결제하기 화면의 웹뷰 전환 및 멀티 장바구니 기능 추가",
-          "overview": [
-            ""
-          ],
+          "overview": "",
           "achievements": [
             "앱 업데이트 없이도 **기능을 유연하게 배포하고 오류에 신속히 대응**할 수 있도록 구조 변경",
             "멀티 장바구니 도입 후 15분 내 **연속 주문 20%, 두 곳 이상 주문 1.7% 증가**"
@@ -371,10 +357,7 @@
         },
         "en": {
           "title": "Checkout Migration to WebView & Multi-Cart Support",
-          "overview": [
-            "Migrated the Checkout **native screen to WebView**, increasing flexibility for feature updates.",
-            "Built a new Cart WebView and **expanded the app-managed cart from a single-cart to a multi-cart structure**."
-          ],
+          "overview": "Migrated the Checkout **native screen to WebView**, increasing flexibility for feature updates. Built a new Cart WebView and **expanded the app-managed cart from a single-cart to a multi-cart structure**.",
           "achievements": [
             "Restructured the app to **deploy features flexibly and respond to issues quickly** without app updates.",
             "After introducing multi-cart, increased **consecutive orders within 15 minutes by 20% and orders from two or more stores by 1.7%**."
@@ -425,9 +408,7 @@
       "content": {
         "ko": {
           "title": "앱 실행 속도 최적화",
-          "overview": [
-            "**API 호출과 리소스 로딩을 최적화**하여 앱 실행 시간을 단축"
-          ],
+          "overview": "**API 호출과 리소스 로딩을 최적화**하여 앱 실행 시간을 단축",
           "achievements": [
             "**앱 실행 시간을 33.9% 단축**하여 사용자가 더 빠르게 탐색을 시작할 수 있도록 개선",
             "두 플랫폼(iOS, Android) 간의 **API 호출 시퀀스를 맞춰** 일관된 사용자 경험 제공"
@@ -453,9 +434,7 @@
         },
         "en": {
           "title": "App Launch Optimization",
-          "overview": [
-            "Reduced app launch time by **optimizing API calls and resource loading**."
-          ],
+          "overview": "Reduced app launch time by **optimizing API calls and resource loading**.",
           "achievements": [
             "**Reduced app launch time by 33.9%**, letting users start browsing faster.",
             "**Aligned API call sequences** across both platforms (iOS and Android) for a consistent user experience."
@@ -522,9 +501,7 @@
         "ko": {
           "title": "실시간 주문 추적 시스템 개선",
           "subtitle": "다중 대행사 & Live Activities",
-          "overview": [
-            "**주문 추적 시스템을 개선**하여 사용성 향상"
-          ],
+          "overview": "**주문 추적 시스템을 개선**하여 사용성 향상",
           "achievements": [
             "**여러 배달 대행사(Multi-Agency)의 라이더 경로에 대응하는 인터페이스를 개발**하여 폭넓은 주문 추적 실현",
             "**Live Activities를 통해 실시간으로 접근 가능한 주문 상태 업데이트를 제공**"
@@ -551,9 +528,7 @@
         "en": {
           "title": "Real-Time Order Tracking",
           "subtitle": "Multi-Agency & Live Activities",
-          "overview": [
-            "**Improved the order tracking system** to enhance usability."
-          ],
+          "overview": "**Improved the order tracking system** to enhance usability.",
           "achievements": [
             "**Developed an interface that handles rider routes from multiple delivery agencies (Multi-Agency)**, enabling tracking across a wider range of orders.",
             "**Provided real-time, readily accessible order status updates through Live Activities.**"
@@ -606,9 +581,7 @@
         "ko": {
           "title": "요기더+ 적립관 신설",
           "subtitle": "포인트 기반 광고 상품",
-          "overview": [
-            "주문 여정 전반에서 포인트 적립을 유도하여 고객 리텐션을 높이기 위한 리워드 기반 광고 서비스, 요기더+ 적립관 신설"
-          ],
+          "overview": "주문 여정 전반에서 포인트 적립을 유도하여 고객 리텐션을 높이기 위한 리워드 기반 광고 서비스, 요기더+ 적립관 신설",
           "achievements": [
             "적립관의 주문 비중을 2.0%에서 3.1%로, 매출을 0.1%에서 0.3%로 향상",
             "적립관에서 시작하여 결제까지 매끄러운 UX 플로우를 설계하여, 이탈을 최소화하고 현금성 혜택 제공"
@@ -625,9 +598,7 @@
         "en": {
           "title": "Yogiyo Rewards+",
           "subtitle": "Reward-Based Advertising Experience",
-          "overview": [
-            "Launched Yogiyo Rewards+, a reward-driven advertising experience designed to increase customer retention by encouraging point accumulation throughout the ordering journey."
-          ],
+          "overview": "Launched Yogiyo Rewards+, a reward-driven advertising experience designed to increase customer retention by encouraging point accumulation throughout the ordering journey.",
           "achievements": [
             "Increased the Rewards+ revenue ratio from 0.10% to 0.30%.",
             "Increased the proportion of Rewards+ orders from 2.0% to 3.1%."
@@ -663,13 +634,13 @@
       "content": {
         "ko": {
           "title": "에어브릿지 이관 (+ 딥링크, AppsFlyer 제거)",
-          "overview": [],
+          "overview": "",
           "achievements": [],
           "contributions": []
         },
         "en": {
           "title": "",
-          "overview": [],
+          "overview": "",
           "achievements": [],
           "contributions": []
         }
@@ -692,13 +663,13 @@
       "content": {
         "ko": {
           "title": "앱리뉴얼",
-          "overview": [],
+          "overview": "",
           "achievements": [],
           "contributions": []
         },
         "en": {
           "title": "",
-          "overview": [],
+          "overview": "",
           "achievements": [],
           "contributions": []
         }
@@ -721,13 +692,13 @@
       "content": {
         "ko": {
           "title": "일회용컵 보증금",
-          "overview": [],
+          "overview": "",
           "achievements": [],
           "contributions": []
         },
         "en": {
           "title": "",
-          "overview": [],
+          "overview": "",
           "achievements": [],
           "contributions": []
         }
@@ -750,13 +721,13 @@
       "content": {
         "ko": {
           "title": "타겟요 배너",
-          "overview": [],
+          "overview": "",
           "achievements": [],
           "contributions": []
         },
         "en": {
           "title": "",
-          "overview": [],
+          "overview": "",
           "achievements": [],
           "contributions": []
         }
@@ -779,13 +750,13 @@
       "content": {
         "ko": {
           "title": "방문식사",
-          "overview": [],
+          "overview": "",
           "achievements": [],
           "contributions": []
         },
         "en": {
           "title": "",
-          "overview": [],
+          "overview": "",
           "achievements": [],
           "contributions": []
         }
@@ -808,13 +779,13 @@
       "content": {
         "ko": {
           "title": "로봇배달",
-          "overview": [],
+          "overview": "",
           "achievements": [],
           "contributions": []
         },
         "en": {
           "title": "",
-          "overview": [],
+          "overview": "",
           "achievements": [],
           "contributions": []
         }
@@ -837,13 +808,13 @@
       "content": {
         "ko": {
           "title": "주문상세 네트워크 광고 (AdFit·네이버플레이스)",
-          "overview": [],
+          "overview": "",
           "achievements": [],
           "contributions": []
         },
         "en": {
           "title": "",
-          "overview": [],
+          "overview": "",
           "achievements": [],
           "contributions": []
         }

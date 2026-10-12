@@ -358,7 +358,7 @@ function renderProject(project) {
   meta.append(el('dt', null, t.period), periodsDd, el('dt', null, t.stack), stackDd);
   body.append(meta);
 
-  body.append(block(t.overview, list(content.overview, 'bullets')));
+  body.append(block(t.overview, richEl('p', null, content.overview)));
   const achievements = block(t.achievements, list(content.achievements, 'bullets'));
   achievements.classList.add('achievements');
   body.append(achievements);

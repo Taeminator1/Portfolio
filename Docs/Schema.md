@@ -54,7 +54,7 @@
 | `title` | string | O | 헤더 (예: `요마트`) |
 | `subtitle` | string | | 헤더 괄호 안 (예: `식료품 배달 서비스`) |
 | `summary` | string | O | 카드에 보일 한 줄 소개 |
-| `overview` | string[] | O | 🗒️ 개요 / Overview (기간·기술 줄 제외) |
+| `overview` | string | O | 🗒️ 개요 / Overview (기간·기술 줄 제외) |
 | `achievements` | string[] | O | 🏆 성과 / Achievements |
 | `contributions` | Item[] | O | 🚀 주요 작업 내용 / Key Contributions |
 
@@ -104,7 +104,7 @@ Notion 글머리 기호가 최대 2단계라서, 하위 목록은 한 단계만 
           "title": "요마트",
           "subtitle": "식료품 배달 서비스",
           "summary": "웹뷰 기반 마트 서비스를 네이티브 앱으로 전환",
-          "overview": ["웹뷰 기반의 마트 서비스를 완전한 네이티브 앱으로 변화하여 성능과 사용자 경험을 크게 향상시킴"],
+          "overview": "웹뷰 기반의 마트 서비스를 완전한 네이티브 앱으로 변화하여 성능과 사용자 경험을 크게 향상시킴",
           "achievements": ["앱 출시 후 매출 61%, 전환율(CVR) 3.2% 증가"],
           "contributions": [
             {
@@ -117,7 +117,7 @@ Notion 글머리 기호가 최대 2단계라서, 하위 목록은 한 단계만 
           "title": "YoMart",
           "subtitle": "Grocery Delivery Service",
           "summary": "Rebuilt a WebView-based grocery service as a native app",
-          "overview": ["Rebuilt YoMart from a WebView-based service into a fully native architecture."],
+          "overview": "Rebuilt YoMart from a WebView-based service into a fully native architecture.",
           "achievements": ["Increased revenue by 61% and boosted conversion rate (CVR) by 3.2% after launching the native app."],
           "contributions": [
             { "text": "Modularized the project using Clean Architecture and Tuist." }
@@ -150,4 +150,4 @@ Notion 글머리 기호가 최대 2단계라서, 하위 목록은 한 단계만 
 
 ## 정할 것
 
-- `summary`는 Notion에 없는 필드다. 카드용 한 줄을 새로 쓰거나, `overview[0]`을 그대로 쓸지.
+- `summary`는 Notion에 없는 필드다. 카드용 한 줄을 새로 쓰거나, `overview`를 그대로 쓸지.
