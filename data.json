@@ -580,39 +580,44 @@
       ],
       "content": {
         "ko": {
-          "title": "요기더+ 적립관 신설",
-          "subtitle": "포인트 기반 광고 상품",
-          "overview": "주문 여정 전반에서 포인트 적립을 유도하여 고객 리텐션을 높이기 위한 리워드 기반 광고 서비스, 요기더+ 적립관 신설",
+          "title": "요기더+ 적립",
+          "subtitle": "포인트 기반 리워드 서비스",
+          "overview": "포인트 적립을 유도하는 리워드 기반 서비스인 요기더+ 적립 신설",
           "achievements": [
-            "적립관의 주문 비중을 2.0%에서 3.1%로, 매출을 0.1%에서 0.3%로 향상",
-            "적립관에서 시작하여 결제까지 매끄러운 UX 플로우를 설계하여, 이탈을 최소화하고 현금성 혜택 제공"
+            "일반 상품 대비 **주문 비중을 2.0%에서 3.1%로, 매출을 0.1%에서 0.3%로 향상**",
+            "적립관에서 시작하여 결제까지 매끄러운 UX 플로우를 설계하여, 이탈을 최소화"
           ],
           "contributions": [
             {
-              "text": "앱 재실행과 딥링크 기반 화면 전환 등의 복잡한 상황에서도 주문 여정이 끊기지 않도록 리워드 경험을 설계"
+              "text": "SDUI에서 정의한 **화면별 리워드 대상 여부를 결제하기 화면까지 전달**"
             },
             {
-              "text": "사용자가 요기더+ 적립관을 이탈하더라도 기존 주문 경험을 유지할 수 있도록 폴백 사용자 흐름을 구현"
+              "text": "**복잡한 상황에서도 주문 여정이 끊기지 않도록** 리워드 경험을 설계",
+              "children": [
+                "리워드 대상 여부를 저장하여 **앱 재실행 시에도 고객의 이탈 최소화**",
+                "딥링크 이동이나 다른 할인 혜택과의 충돌 시 알림을 제공하여, **사용자가 주체적으로 혜택을 선택할 수 있도록 유도**"
+              ]
             }
           ]
         },
         "en": {
           "title": "Yogiyo Rewards+",
-          "subtitle": "Reward-Based Advertising Experience",
-          "overview": "Launched Yogiyo Rewards+, a reward-driven advertising experience designed to increase customer retention by encouraging point accumulation throughout the ordering journey.",
+          "subtitle": "Point-Based Reward Service",
+          "overview": "Launched Yogiyo Rewards+, a reward-based service that encourages users to earn points.",
           "achievements": [
-            "Increased the Rewards+ revenue ratio from 0.10% to 0.30%.",
-            "Increased the proportion of Rewards+ orders from 2.0% to 3.1%."
+            "Compared to regular products, **increased the order share from 2.0% to 3.1% and the revenue share from 0.1% to 0.3%**.",
+            "Designed a seamless UX flow from the Rewards+ page through checkout, minimizing drop-off."
           ],
           "contributions": [
             {
-              "text": "Designed a seamless reward experience across the entire ordering journey.",
-              "children": [
-                "Ensured users could consistently view and earn rewards from browsing to checkout."
-              ]
+              "text": "**Passed per-screen reward eligibility defined via SDUI through to the Checkout screen.**"
             },
             {
-              "text": "Implemented a fallback user flow to preserve the existing ordering experience when users exited Rewards+."
+              "text": "Designed the reward experience **so the ordering journey stays uninterrupted even in complex situations**.",
+              "children": [
+                "Persisted reward eligibility to **minimize drop-off even when the app is relaunched**.",
+                "Showed alerts on deep link navigation or conflicts with other discounts, **letting users choose which benefit to apply**."
+              ]
             }
           ]
         }
