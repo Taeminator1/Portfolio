@@ -415,7 +415,7 @@
         }
       ],
       "stack": [
-        "Deferred Deep Linking",
+        "Deep Linking",
         "Swift Concurrency"
       ],
       "media": [
@@ -488,7 +488,7 @@
     },
     {
       "slug": "order-tracking",
-      "featured": false,
+      "featured": true,
       "periods": [
         {
           "start": "2025-02",
@@ -497,8 +497,7 @@
       ],
       "stack": [
         "SwiftUI",
-        "Live Activity",
-        "Braze",
+        "Live Activities",
         "Deep Linking"
       ],
       "media": [
@@ -527,58 +526,58 @@
       "content": {
         "ko": {
           "title": "실시간 주문 추적 시스템 개선",
-          "subtitle": "다중 대행사 & Live Activity",
+          "subtitle": "다중 대행사 & Live Activities",
           "overview": [
-            "여러 배달 대행사에 대한 라이더 추적 기능을 확장하고, Live Activity 활용하여 실시간 주문 상태를 제공"
+            "**주문 추적 시스템을 개선**하여 사용성 향상"
           ],
           "achievements": [
-            "여러 배달 대행사의 라이더 경로에 대응하는 인터페이스를 개발하여 폭넓은 주문 추적 실현",
-            "Live Activity를 통해 실시간으로 접근 가능한 주문 상태 업데이트를 제공함으로써 사용성을 향상시킴"
+            "**여러 배달 대행사(Multi-Agency)의 라이더 경로에 대응하는 인터페이스를 개발**하여 폭넓은 주문 추적 실현",
+            "**Live Activities를 통해 실시간으로 접근 가능한 주문 상태 업데이트를 제공**"
           ],
           "contributions": [
             {
-              "text": "여러 배달 대행사(Multi-Agency)의 라이더 추적 기능을 구현",
+              "text": "여러 배달 대행사의 라이더 추적 기능을 구현",
               "children": [
-                "다양한 경로 데이터 형식을 처리할 수 있도록 route 데이터 구조를 수정",
-                "폴링 주기를 동적으로 변경하여, 여러 대행사에게 대응하는 인터페이스 개발",
+                "**다양한 경로 데이터 형식을 처리**할 수 있도록 route 데이터 구조를 수정",
+                "폴링 주기를 동적으로 변경하여, **여러 대행사에 대응하는 인터페이스 개발**",
                 "이동 수단별로 마커 애니메이션이 자연스럽게 변경되도록 개선"
               ]
             },
             {
-              "text": "Live Activity 기능 구현",
+              "text": "Live Activities 기능 구현",
               "children": [
-                "Tuist를 활용해 Live Activity용 Widget Extension을 추가하고, 필요한 Profile 및 ID를 신규 생성",
-                "Braze API와 연동하여 사내 마이크로서비스(MS)에서 제어할 수 있는 Live Activity 시스템을 구축",
-                "Live Activity에서 주문 상세 화면으로 이동하는 딥링크를 지원하여 사용자 경험을 강화"
+                "Braze API와 연동하여 **사내 마이크로서비스(MS)에서 제어할 수 있는 Live Activities 시스템을 구축**",
+                "Live Activities에서 **주문 상세 화면으로 이동하는 딥링크를 지원**하여 사용자 경험을 강화",
+                "Tuist로 **Widget Extension을 추가**하고, 필요한 **Profile 및 ID를 신규 생성**"
               ]
             }
           ]
         },
         "en": {
-          "title": "Order Tracking System",
-          "subtitle": "Multi-Agency & Live Activity",
+          "title": "Real-Time Order Tracking",
+          "subtitle": "Multi-Agency & Live Activities",
           "overview": [
-            "Redesigned the order tracking system to support multiple delivery agencies and Live Activity, providing a more scalable and real-time tracking experience."
+            "**Improved the order tracking system** to enhance usability."
           ],
           "achievements": [
-            "Expanded rider tracking to support multiple delivery agencies, increasing coverage across more orders.",
-            "Improved usability with real-time order status updates through Live Activity."
+            "**Developed an interface that handles rider routes from multiple delivery agencies (Multi-Agency)**, enabling tracking across a wider range of orders.",
+            "**Provided real-time, readily accessible order status updates through Live Activities.**"
           ],
           "contributions": [
             {
-              "text": "Expanded rider tracking to support multiple delivery agencies.",
+              "text": "Implemented rider tracking for multiple delivery agencies.",
               "children": [
-                "Modified route data structures to handle varied path formats from multiple agencies.",
-                "Implemented dynamic polling intervals to optimize tracking performance.",
-                "Adjusted marker animations to work seamlessly across different transportation modes based on order sources."
+                "Modified the route data structure to **handle various route data formats**.",
+                "**Developed an interface that adapts to multiple agencies** by dynamically changing polling intervals.",
+                "Improved marker animations to transition smoothly by mode of transportation."
               ]
             },
             {
-              "text": "Integrated Live Activity into the order tracking experience.",
+              "text": "Implemented Live Activities.",
               "children": [
-                "Integrated with Braze API to build a Live Activity system controlled by the in-house microservices.",
-                "Enhanced UX with deep linking from Live Activity to the order details page.",
-                "Created a dedicated Widget Extension for Live Activity using Tuist."
+                "Integrated with the Braze API to **build a Live Activities system controllable from in-house microservices**.",
+                "**Supported deep links from Live Activities to the order details screen**, enhancing the user experience.",
+                "**Added a Widget Extension** with Tuist and **created the required profiles and IDs**."
               ]
             }
           ]
@@ -596,6 +595,7 @@
       ],
       "stack": [
         "TCA",
+        "SDUI (Server-Driven UI)",
         "Deep Linking"
       ],
       "media": [
