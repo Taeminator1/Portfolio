@@ -36,11 +36,10 @@
           "title": "요마트",
           "subtitle": "식료품 배달 서비스",
           "overview": [
-            "GS Refresh에서 운영하던 **웹뷰 기반의 마트 서비스를 완전한 네이티브 앱으로 변환**",
-            "상품 전시, 검색, 장바구니 등 **앱의 전반적인 영역에 마트 서비스 제공**"
+            "타사(GS Refresh)의 **웹뷰 기반 마트 서비스를 완전한 네이티브 앱으로 변환**"
           ],
           "achievements": [
-            "앱 출시 후 **매출 61%, 전환율(CVR) 3.2% 증가**",
+            "앱의 전반적인 영역에 마트 서비스를 제공하여 **매출 61%, 전환율(CVR) 3.2% 증가**",
             "SDUI를 통해 앱 배포 없이도 **동적으로 UI 업데이트**가 가능하도록 구현하여 비즈니스 민첩성을 향상시킴"
           ],
           "contributions": [
@@ -73,11 +72,10 @@
           "title": "YoMart",
           "subtitle": "Grocery Delivery Service",
           "overview": [
-            "Rebuilt the **WebView-based grocery service operated by GS Refresh as a fully native app**.",
-            "Brought the grocery service **across the entire app**, including product displays, search, and cart."
+            "Rebuilt a third-party (GS Refresh) **WebView-based grocery service as a fully native app**."
           ],
           "achievements": [
-            "Increased **revenue by 61% and conversion rate (CVR) by 3.2%** after launch.",
+            "Brought the grocery service across the entire app, **increasing revenue by 61% and conversion rate (CVR) by 3.2%**.",
             "Enabled **dynamic UI updates** without app releases through SDUI, improving business agility."
           ],
           "contributions": [
@@ -156,11 +154,10 @@
           "title": "YDSKit",
           "subtitle": "요기요 디자인 시스템",
           "overview": [
-            "위대한상상이 제공하는 일반 사용자, 사장님, 라이더 앱을 위한 **크로스 플랫폼 디자인 시스템 정의**",
-            "디자인 토큰과 컴포넌트를 구현한 **독립적인 패키지인 YDSKit 개발**"
+            "위대한상상이 제공하는 일반 사용자, 사장님, 라이더 앱을 위한 **크로스 플랫폼 디자인 시스템 정의**"
           ],
           "achievements": [
-            "공통 디자인 토큰과 컴포넌트를 도입하여 **프로젝트 간 코드 재사용률 6% 향상**",
+            "**독립적인 패키지인 YDSKit**을 개발하여 **프로젝트 간 코드 재사용률 6% 향상**",
             "공용으로 사용하는 토큰과 컴포넌트에 대한 **테스트 시간 절감**"
           ],
           "contributions": [
@@ -186,11 +183,10 @@
           "title": "YDSKit",
           "subtitle": "Yogiyo Design System",
           "overview": [
-            "**Defined a cross-platform design system** for Wesang's customer, merchant, and rider apps.",
-            "**Developed YDSKit, a standalone package** implementing the design tokens and components."
+            "**Defined a cross-platform design system** for Wesang's customer, merchant, and rider apps."
           ],
           "achievements": [
-            "**Improved code reuse across projects by 6%** through shared design tokens and components.",
+            "Developed **YDSKit as a standalone package**, **improving code reuse across projects by 6%**.",
             "**Reduced testing time** for shared tokens and components."
           ],
           "contributions": [
@@ -348,8 +344,7 @@
         "ko": {
           "title": "결제하기 화면의 웹뷰 전환 및 멀티 장바구니 기능 추가",
           "overview": [
-            "결제하기 **네이티브 화면을 웹뷰로 전환**하여 기능 업데이트의 유연성을 높임",
-            "장바구니 웹뷰를 신설하고, **앱에서 관리하던 장바구니를 단일 구조에서 다중 구조로 확장**"
+            ""
           ],
           "achievements": [
             "앱 업데이트 없이도 **기능을 유연하게 배포하고 오류에 신속히 대응**할 수 있도록 구조 변경",
