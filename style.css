@@ -295,7 +295,8 @@ ul { list-style: none; }
 .media-link { color: var(--accent); }
 .media-link:hover { text-decoration: underline; }
 /* summary를 flex로 두면 빈 꺾쇠가 기준선이 돼 불릿 점이 위로 뜬다. 글자 기준선을 그대로 쓰도록 block으로 둔다 */
-.media-toggle summary { display: block; width: fit-content; color: var(--accent); cursor: pointer; list-style: none; }
+/* Safari에서 확대/축소하면 fit-content 너비가 소수점 단위로 모자라 꺾쇠가 다음 줄로 넘어가므로 nowrap으로 한 줄에 고정한다 */
+.media-toggle summary { display: block; width: fit-content; white-space: nowrap; color: var(--accent); cursor: pointer; list-style: none; }
 .media-toggle summary::-webkit-details-marker { display: none; }
 .media-toggle summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; border-radius: 4px; }
 .media-toggle .chevron { display: inline-block; width: 8px; height: 8px; margin-left: 5px; vertical-align: 0.15em; border-width: 0 1.5px 1.5px 0; border-color: currentColor; transform: rotate(-45deg); }
