@@ -626,8 +626,16 @@
     {
       "slug": "airbridge-migration",
       "featured": false,
-      "periods": [],
-      "stack": [],
+      "periods": [
+        {
+          "start": "2025-11",
+          "end": "2026-02"
+        }
+      ],
+      "stack": [
+        "Deep Linking",
+        "MMP (Mobile Measurement Partner)"
+      ],
       "media": [
         {
           "src": "airbridge-migration.gif",
@@ -655,7 +663,12 @@
     {
       "slug": "app-renewal",
       "featured": false,
-      "periods": [],
+      "periods": [
+        {
+          "start": "2023-09",
+          "end": "2024-02"
+        }
+      ],
       "stack": [],
       "media": [
         {
@@ -684,7 +697,12 @@
     {
       "slug": "cup-deposit",
       "featured": false,
-      "periods": [],
+      "periods": [
+        {
+          "start": "2022-09",
+          "end": "2022-10"
+        }
+      ],
       "stack": [],
       "media": [
         {
@@ -713,7 +731,12 @@
     {
       "slug": "target-banner",
       "featured": false,
-      "periods": [],
+      "periods": [
+        {
+          "start": "2023-04",
+          "end": "2024-05"
+        }
+      ],
       "stack": [],
       "media": [
         {
@@ -742,7 +765,12 @@
     {
       "slug": "dine-in",
       "featured": false,
-      "periods": [],
+      "periods": [
+        {
+          "start": "2024-07",
+          "end": "2024-08"
+        }
+      ],
       "stack": [],
       "media": [
         {
@@ -771,7 +799,12 @@
     {
       "slug": "robot-delivery",
       "featured": false,
-      "periods": [],
+      "periods": [
+        {
+          "start": "2024-07",
+          "end": "2024-08"
+        }
+      ],
       "stack": [],
       "media": [
         {
@@ -800,7 +833,12 @@
     {
       "slug": "order-detail-ads",
       "featured": false,
-      "periods": [],
+      "periods": [
+        {
+          "start": "2026-01",
+          "end": "2026-02"
+        }
+      ],
       "stack": [],
       "media": [
         {
