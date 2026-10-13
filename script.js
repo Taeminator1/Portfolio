@@ -36,6 +36,9 @@ const strings = {
     all: '전체',
     more: '기타',
     featured: '주요',
+    readLabel: '읽음 표시',
+    showAll: '모두 보기',
+    excludeRead: '읽음 제외',
     sortLabel: '정렬',
     sortImportance: '중요도순',
     sortDesc: '최신순',
@@ -58,6 +61,9 @@ const strings = {
     all: 'All',
     more: 'More',
     featured: 'Featured',
+    readLabel: 'Viewed',
+    showAll: 'Show all',
+    excludeRead: 'Hide viewed',
     sortLabel: 'Sort',
     sortImportance: 'Importance',
     sortDesc: 'Newest',
@@ -92,8 +98,10 @@ let data = null;
 // 시작 시간 기준 최신순·오래된순은 주소에 ?sort=desc|asc 로 남긴다
 const sortOrders = ['importance', 'desc', 'asc'];
 let sortOrder = sortOrders.includes(readQuery('sort')) ? readQuery('sort') : 'importance';
+// 읽음 표시한 프로젝트 숨기기. 정렬 왼쪽 드롭다운으로 고르고, 켜면 ?unread=1 로 남긴다
+let excludeRead = readQuery('unread') === '1';
 
-// 드롭다운 메뉴(언어, 정렬). 바깥을 누르거나 Esc를 누르면 닫히고, 고른 항목은 굵게 표시한다
+// 드롭다운 메뉴(언어, 읽음, 정렬). 바깥을 누르거나 Esc를 누르면 닫히고, 고른 항목은 굵게 표시한다
 // 반환하는 함수에 항목 목록을 넘겨 다시 그린다. option: { value, text, lang? }
 const dropdowns = [];
 
@@ -160,6 +168,13 @@ const renderSortMenu = createDropdown(document.querySelector('.sort-menu'), (ord
   if (data) renderProjects(data.projects);
 });
 
+const renderReadMenu = createDropdown(document.querySelector('.read-menu'), (value) => {
+  excludeRead = value === 'exclude';
+  writeQuery('unread', excludeRead ? '1' : null);
+  renderStatic();
+  if (data) renderProjects(data.projects);
+});
+
 function renderStatic() {
   const t = strings[lang];
   document.documentElement.lang = lang;
@@ -168,6 +183,10 @@ function renderStatic() {
   document.querySelector('.stack-filter').setAttribute('aria-label', t.filterLabel);
   const languages = Object.keys(languageNames).map((code) => ({ value: code, text: languageNames[code], lang: code }));
   renderLangMenu(t.langLabel, languages, lang);
+  renderReadMenu(t.readLabel, [
+    { value: 'all', text: t.showAll },
+    { value: 'exclude', text: t.excludeRead },
+  ], excludeRead ? 'exclude' : 'all');
   renderSortMenu(t.sortLabel, [
     { value: 'importance', text: t.sortImportance },
     { value: 'desc', text: t.sortDesc },
@@ -408,6 +427,7 @@ function renderProjects(allProjects) {
 // 선택 상태는 주소의 ?stack=A,B 와 맞춘다. 기술 이름에 쉼표가 있어도 되도록 값마다 인코딩한다
 // "전체" 옆 "주요" 버튼은 featured: true 인 프로젝트를 고른다. 기술 버튼과 같이 고른 것 중 하나라도 해당하면 보여 주고,
 // 켜진 상태는 ?featured=1 로 남긴다. 주요 프로젝트가 없으면 버튼을 만들지 않는다
+// 정렬 왼쪽 드롭다운에서 "읽음 제외"를 고르면 다른 선택과 상관없이 읽음 표시한 프로젝트를 뺀다. "전체"로는 꺼지지 않는다
 function readStackQuery() {
   const param = readQuery('stack');
   if (!param) return [];
@@ -445,7 +465,7 @@ function renderStackFilter(projects, items) {
     items.forEach((item, i) => {
       const any = selected.size > 0 || featuredOnly;
       const matched = (featuredOnly && projects[i].featured) || projects[i].stack.some((s) => selected.has(s));
-      item.hidden = any && !matched;
+      item.hidden = (any && !matched) || (excludeRead && readSlugs.has(projects[i].slug));
     });
     buttons.forEach((b) => {
       const pressed = b.dataset.value === '' ? selected.size === 0 && !featuredOnly : selected.has(b.dataset.value);
@@ -502,6 +522,11 @@ function renderStackFilter(projects, items) {
     });
     bar.append(featuredButton);
   }
+
+  // 카드에서 읽음을 바꾸면 바로 다시 걸러서, 켜져 있으면 체크한 카드가 곧장 사라진다
+  items.forEach((item) => item.addEventListener('change', (e) => {
+    if (e.target.closest('.project-read')) apply();
+  }));
 
   common.forEach((s) => addButton(bar, s, s, counts.get(s)));
 

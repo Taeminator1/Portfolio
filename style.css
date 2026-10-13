@@ -90,7 +90,8 @@ ul { list-style: none; }
 .dropdown-option:hover { background: var(--bg); color: var(--text); }
 .dropdown-option[aria-current="true"] { font-weight: 700; color: var(--text); }
 .dropdown-option:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
-.sort-menu { font-size: 0.85rem; }
+.sort-menu,
+.read-menu { font-size: 0.85rem; }
 
 .lang-menu { --dropdown-pad: 8px; margin: 0 -8px; }
 .lang-toggle {
@@ -156,6 +157,7 @@ ul { list-style: none; }
 /* Projects */
 .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 32px; }
 .section-head .section-title { margin-bottom: 0; }
+.section-actions { display: flex; align-items: center; gap: 8px; }
 .stack-filter { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
 .filter-chip {
   display: inline-flex;
