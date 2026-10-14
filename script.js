@@ -304,13 +304,17 @@ function renderMedia(project) {
       node.loading = 'lazy';
     }
     // 파일을 불러오지 못하면 그 항목을 지우고, 남은 항목이 없으면 "실행 화면" 불릿, 불릿이 다 없어지면 "참고 자료" 블록까지 지운다
+    // lazy 이미지는 접힌 "실행 화면" 안에서는 펼치기 전까지 요청되지 않아 error도 늦게 오므로, HEAD 요청으로 먼저 있는지 확인한다
     if (node.matches('img, video')) {
-      node.addEventListener('error', () => {
+      const drop = () => {
+        if (!node.isConnected) return;
         node.remove();
         if (wrap.children.length) return;
         wrap.closest('li')?.remove();
         if (!list.children.length) list.closest('.project-block')?.remove();
-      });
+      };
+      node.addEventListener('error', drop);
+      fetch(node.src, { method: 'HEAD' }).then((res) => { if (!res.ok) drop(); }, () => {});
     }
     wrap.append(node);
   });
