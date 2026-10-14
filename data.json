@@ -647,16 +647,62 @@
       ],
       "content": {
         "ko": {
-          "title": "에어브릿지 이관 (+ 딥링크, AppsFlyer 제거)",
-          "overview": "",
-          "achievements": [],
-          "contributions": []
+          "title": "MMP 전환: AppsFlyer → Airbridge",
+          "overview": "솔루션 비용 절감을 위해 iOS 앱의 MMP를 **AppsFlyer에서 Airbridge로 전환**",
+          "achievements": [
+            "AppsFlyer 계약 만료 전 **로깅과 딥링크에 대한 MMP 이관을 완료하여 솔루션 비용 56.13% 절감**"
+          ],
+          "contributions": [
+            {
+              "text": "**Airbridge SDK 도입 및 이벤트 로깅** 구현",
+              "children": [
+                "이벤트 택소노미 기준 **semantic / custom attributes** 이벤트 적재 및 action·label·value 구성요소 추가",
+                "**Uninstall Tracking**(APNs 토큰 전송), setUserID, Braze device ID 연동(setDeviceAlias) 구현"
+              ]
+            },
+            {
+              "text": "**딥링크, 디퍼드 딥링크를 Airbridge로 이관**",
+              "children": [
+                "유니버설 링크, 디퍼드 딥링크를 Airbridge 딥링크 콜백 기반으로 전환",
+                "공유하기 링크를 **AppsFlyer의 OneLink에서 Airbridge의 트래킹 링크**로 전환하고, 링크 옵션을 Android와 통일"
+              ]
+            },
+            {
+              "text": "Airbridge 도메인 추가 후 발생한 **로그인 화면 멈춤 버그** 해결",
+              "children": [
+                "Password AutoFill의 AASA 검증이 **메인 스레드를 블록**하던 원인을 찾아 **AASA와 entitlements에 webcredentials를 추가**하여 해결"
+              ]
+            }
+          ]
         },
         "en": {
-          "title": "",
-          "overview": "",
-          "achievements": [],
-          "contributions": []
+          "title": "MMP Migration: AppsFlyer to Airbridge",
+          "overview": "Migrated the iOS app's MMP **from AppsFlyer to Airbridge** to cut solution costs.",
+          "achievements": [
+            "**Completed the MMP migration for logging and deep links** before the AppsFlyer contract expired, **cutting solution costs by 56.13%**."
+          ],
+          "contributions": [
+            {
+              "text": "**Integrated the Airbridge SDK and event logging.**",
+              "children": [
+                "Logged events with **semantic / custom attributes** based on the event taxonomy, and added action, label, and value fields.",
+                "Implemented **uninstall tracking** (APNs token forwarding), setUserID, and Braze device ID linking (setDeviceAlias)."
+              ]
+            },
+            {
+              "text": "**Migrated deep links and deferred deep links to Airbridge.**",
+              "children": [
+                "Switched universal links and deferred deep links to the Airbridge deep link callback.",
+                "Moved share links **from AppsFlyer's OneLink to Airbridge tracking links** and aligned link options with Android."
+              ]
+            },
+            {
+              "text": "Fixed a **login screen freeze** introduced by the new Airbridge domains.",
+              "children": [
+                "Traced it to Password AutoFill's AASA validation **blocking the main thread**, and fixed it by **adding webcredentials to the AASA and entitlements**."
+              ]
+            }
+          ]
         }
       }
     },
@@ -669,7 +715,10 @@
           "end": "2024-02"
         }
       ],
-      "stack": [],
+      "stack": [
+        "SDUI (Server-Driven UI)",
+        "Remote Config"
+      ],
       "media": [
         {
           "src": "app-renewal.gif",
@@ -681,16 +730,52 @@
       ],
       "content": {
         "ko": {
-          "title": "앱리뉴얼",
-          "overview": "",
-          "achievements": [],
-          "contributions": []
+          "title": "요기요 앱 리뉴얼",
+          "subtitle": "SDUI 기반 앱 전면 개편",
+          "overview": "**SDUI(Frontyo)** 기반 요기요 앱 전면 리뉴얼에서 **주문내역, 공통 내비게이션, 장바구니**를 담당",
+          "achievements": [
+            "구버전 대비 리뉴얼 버전의 **주문 전환율이 최대 1.66%p 높게 나타남**"
+          ],
+          "contributions": [
+            {
+              "text": "**주문내역, 주문상세를 서버 응답 기반 화면으로 개편**",
+              "children": [
+                "앱에서 관리하던 주문 상태 및 버튼 노출 로직을 **서버 응답 기반으로 전환**하고, 동적으로 변하는 **배달 진행 표시** 구현",
+                "진입 경로(목록 / 결제 완료 딥링크)에 따라 **화면 전환 방식을 분기**하고, 갱신 주기를 Remote Config로 조정 가능하도록 변경"
+              ]
+            },
+            {
+              "text": "**앱 공통 영역(TopNav, 장바구니 플로팅 버튼) 개발**",
+              "children": [
+                "주소 설정형 **TopNav**와 화면별 내비게이션 바, 주소 바텀시트 연동",
+                "화면에 따라 해당 서비스 또는 **마지막에 담은 장바구니를 보여주는 플로팅 버튼** 구현(푸드·요마트·웹뷰)"
+              ]
+            }
+          ]
         },
         "en": {
-          "title": "",
-          "overview": "",
-          "achievements": [],
-          "contributions": []
+          "title": "Yogiyo App Renewal",
+          "subtitle": "Full App Redesign on SDUI",
+          "overview": "Owned the **order history, shared navigation, and cart** in the full renewal of the Yogiyo app built on **SDUI (Frontyo)**.",
+          "achievements": [
+            "Over the same period, the renewed version's **order conversion rate ran up to 1.66%p higher** than the legacy version."
+          ],
+          "contributions": [
+            {
+              "text": "**Rebuilt the order list and order detail screens around server responses.**",
+              "children": [
+                "Moved order status and button visibility logic **from the app to server responses**, and built a **delivery progress indicator** that updates dynamically.",
+                "**Branched screen transitions by entry path** (order list vs. checkout-complete deep link), and made the refresh interval adjustable via Remote Config."
+              ]
+            },
+            {
+              "text": "**Built app-wide shared components (TopNav, cart floating button).**",
+              "children": [
+                "Built an address-setting **TopNav** and per-screen navigation bars connected to the address bottom sheet.",
+                "Built a **cart floating button** that shows the matching service's cart or **the most recently used cart**, depending on the screen (food, YoMart, and WebViews)."
+              ]
+            }
+          ]
         }
       }
     },
@@ -699,11 +784,14 @@
       "featured": false,
       "periods": [
         {
-          "start": "2022-09",
+          "start": "2022-08",
           "end": "2022-10"
         }
       ],
-      "stack": [],
+      "stack": [
+        "UIKit",
+        "XCTest"
+      ],
       "media": [
         {
           "src": "cup-deposit.gif",
@@ -715,50 +803,36 @@
       ],
       "content": {
         "ko": {
-          "title": "일회용컵 보증금",
-          "overview": "",
-          "achievements": [],
-          "contributions": []
+          "title": "일회용컵 보증금제 대응",
+          "subtitle": "장바구니 및 결제하기 금액 계산 로직 개선",
+          "overview": "**일회용컵 보증금제** 시행에 맞춰 장바구니, 결제하기의 **금액 계산 로직에서 보증금을 분리 처리**",
+          "achievements": [
+            "2022년 12월 제주, 세종 보증금제 시행에 맞춰 iOS 주문 플로우에 보증금 결제를 반영하여 **법적 요건 충족**"
+          ],
+          "contributions": [
+            {
+              "text": "변경 전 **장바구니, 최소주문금액 바텀시트, 결제 계산 로직에 단위 테스트를 작성**하여 안전망 확보"
+            },
+            {
+              "text": "장바구니의 최소주문금액 판단과 쿠폰, 포인트 계산에서 **보증금을 제외하도록 금액 계산 로직 수정**"
+            }
+          ]
         },
         "en": {
-          "title": "",
-          "overview": "",
-          "achievements": [],
-          "contributions": []
-        }
-      }
-    },
-    {
-      "slug": "target-banner",
-      "featured": false,
-      "periods": [
-        {
-          "start": "2023-04",
-          "end": "2024-05"
-        }
-      ],
-      "stack": [],
-      "media": [
-        {
-          "src": "target-banner.gif",
-          "alt": {
-            "ko": "target-banner 시연",
-            "en": "target-banner demo"
-          }
-        }
-      ],
-      "content": {
-        "ko": {
-          "title": "타겟요 배너",
-          "overview": "",
-          "achievements": [],
-          "contributions": []
-        },
-        "en": {
-          "title": "",
-          "overview": "",
-          "achievements": [],
-          "contributions": []
+          "title": "Disposable Cup Deposit Compliance",
+          "subtitle": "Cart & Checkout Pricing Logic",
+          "overview": "Updated the cart and checkout **pricing logic to handle the cup deposit separately** for Korea's new **disposable cup deposit regulation**.",
+          "achievements": [
+            "Added deposit payment to the iOS ordering flow for the December 2022 launch of the deposit scheme in Jeju and Sejong, **meeting the legal requirement**."
+          ],
+          "contributions": [
+            {
+              "text": "**Wrote unit tests for the cart, minimum-order bottom sheet, and checkout calculation logic before changing them**, creating a safety net."
+            },
+            {
+              "text": "**Updated the pricing logic to exclude the deposit** from the cart's minimum-order check and from coupon and point calculations."
+            }
+          ]
         }
       }
     },
@@ -771,7 +845,10 @@
           "end": "2024-08"
         }
       ],
-      "stack": [],
+      "stack": [
+        "UIKit",
+        "Modularization"
+      ],
       "media": [
         {
           "src": "dine-in.gif",
@@ -784,15 +861,41 @@
       "content": {
         "ko": {
           "title": "방문식사",
-          "overview": "",
-          "achievements": [],
-          "contributions": []
+          "overview": "기존 포장 주문 흐름을 기반으로 매장에서 먹을 메뉴를 미리 주문하는 **방문식사(Dine-in) 서빙 타입 신설**",
+          "achievements": [
+            "서초, 신림, 의정부 인근 **224개 가게**에서 방문식사 MVP를 출시하여 신규 외식 버티컬의 시장성 검증 환경 마련"
+          ],
+          "contributions": [
+            {
+              "text": "**방문식사 서빙 타입 추가**와 함께 비대해진 ServingType을 **독립 모듈로 분리**",
+              "children": [
+                "흩어진 ServingType 파생 타입을 한 모듈로 모으고 ServingType으로부터 생성하도록 바꿔, **케이스 누락을 컴파일 단계에서 차단**",
+                "이후 **로봇배달 서빙 타입을 손쉽게 추가**할 수 있는 기반 마련"
+              ]
+            },
+            {
+              "text": "사용자가 방문식사 주문임을 쉽게 알 수 있도록 샵 상세부터 주문내역까지 **탭, 배지, 주문 상태 등 방문식사 전용 UI 추가**"
+            }
+          ]
         },
         "en": {
-          "title": "",
-          "overview": "",
-          "achievements": [],
-          "contributions": []
+          "title": "Dine-in",
+          "overview": "**Introduced a new Dine-in serving type** that lets customers pre-order meals to eat at the restaurant, built on the existing pickup flow.",
+          "achievements": [
+            "Launched the Dine-in MVP across **224 restaurants** in Seocho, Sillim, and Uijeongbu, giving the business a way to validate a new dine-out vertical."
+          ],
+          "contributions": [
+            {
+              "text": "**Added the Dine-in serving type** and **extracted the bloated ServingType into a standalone module**.",
+              "children": [
+                "Consolidated scattered derived types into one module and built them from ServingType, **catching missing cases at compile time**.",
+                "Laid the groundwork that later **made adding the robot delivery serving type easy**."
+              ]
+            },
+            {
+              "text": "Added **Dine-in–specific UI such as tabs, badges, and order statuses** from shop details to order history, so users can easily tell it is a Dine-in order."
+            }
+          ]
         }
       }
     },
@@ -805,7 +908,11 @@
           "end": "2024-08"
         }
       ],
-      "stack": [],
+      "stack": [
+        "UIKit",
+        "Naver Maps SDK",
+        "Deep Linking"
+      ],
       "media": [
         {
           "src": "robot-delivery.gif",
@@ -818,15 +925,43 @@
       "content": {
         "ko": {
           "title": "로봇배달",
-          "overview": "",
-          "achievements": [],
-          "contributions": []
+          "overview": "라이더 기피 지역의 주문을 자율주행 로봇이 대신 배달하는 **로봇배달 주문 유형 신설**",
+          "achievements": [
+            "송도 PoC 기간 중 4주간 **평균 배달시간 35분(P75 40분 이내)**, 로봇 주행으로 인한 **컴플레인 0건**으로 로봇배달 가능성 검증",
+            "**로봇배달에 입점한 123개 가게 중 67개 가게**에서 주문 발생"
+          ],
+          "contributions": [
+            {
+              "text": "모듈화된 ServingType에 **로봇 서빙 타입**을 추가하고, 샵 상세에서 **선택 가능한 서빙 타입만 노출**하도록 필터링"
+            },
+            {
+              "text": "사용자 이해를 돕기 위해 주문상세에 **로봇 정보, 약속장소**, 이용 방법 바텀시트, 로봇 문의 기능 구현",
+              "children": [
+                "**로봇 제어 API(적재함 열기, 경적)** 연동 버튼과 햅틱 피드백 구현",
+                "**약속장소 딥링크**와 주소 복사, 지도 트래킹 화면의 **로봇 마커** 적용"
+              ]
+            }
+          ]
         },
         "en": {
-          "title": "",
-          "overview": "",
-          "achievements": [],
-          "contributions": []
+          "title": "Robot Delivery",
+          "overview": "**Introduced a new robot delivery order type** in which autonomous robots deliver orders in areas riders tend to avoid.",
+          "achievements": [
+            "Validated robot food delivery in the Songdo PoC, with an **average delivery time of 35 minutes (P75 under 40 minutes)** over a 4-week period and **zero complaints** about robot driving.",
+            "**67 of the 123 restaurants onboarded to robot delivery** received orders."
+          ],
+          "contributions": [
+            {
+              "text": "Added a **robot serving type** to the modularized ServingType and filtered the shop detail page to **show only selectable serving types**."
+            },
+            {
+              "text": "To help users understand their order, built **robot info and meeting point** sections, a how-to-use bottom sheet, and robot inquiries on the order details screen.",
+              "children": [
+                "Integrated the **robot control API (open cargo, horn)** with buttons and haptic feedback.",
+                "Added a **meeting point deep link** with address copy, and a **robot marker** on the map tracking screen."
+              ]
+            }
+          ]
         }
       }
     },
@@ -839,7 +974,11 @@
           "end": "2026-02"
         }
       ],
-      "stack": [],
+      "stack": [
+        "A/B Testing",
+        "Remote Config",
+        "Combine"
+      ],
       "media": [
         {
           "src": "order-detail-ads.gif",
@@ -851,16 +990,66 @@
       ],
       "content": {
         "ko": {
-          "title": "주문상세 네트워크 광고 (AdFit·네이버플레이스)",
-          "overview": "",
-          "achievements": [],
-          "contributions": []
+          "title": "주문상세 네트워크 광고",
+          "subtitle": "카카오 애드핏, 네이버플레이스 A/B 테스트",
+          "overview": "주문완료 및 배달완료 화면에 **카카오 애드핏과 네이버플레이스 광고를 A/B 테스트로 노출**하는 네트워크 광고 지면 신설",
+          "achievements": [
+            "A/B 테스트 결과 네이버플레이스가 애드핏 대비 **eCPM 약 2배**(1,139원 vs 571원)를 기록하여 해당 지면 광고로 최종 채택"
+          ],
+          "contributions": [
+            {
+              "text": "**Remote Config 기반 A/B 분기**로 주문상세에 광고 셀을 동적으로 구성",
+              "children": [
+                "광고 모듈에 주문상세 지면을 추가하고, **지면 정보를 전달받는 방식으로 광고 배너 인터페이스 리팩터링**",
+                "주문 상태를 타입화하여 주문완료/배달완료 상태별 광고 위치 분기"
+              ]
+            },
+            {
+              "text": "**네이버플레이스 광고 배너 신규 구현** 및 광고 API 연동",
+              "children": [
+                "주소 펼치기 및 복사 툴팁을 window 레벨에 띄우고 **Combine으로 스크롤 시 자동으로 숨김** 처리",
+                "광고 공간 확보를 위한 **도로명 주소 접기** 구현"
+              ]
+            },
+            {
+              "text": "A/B 결과의 신뢰성을 위한 **노출, 클릭 트래킹** 구현",
+              "children": [
+                "중복 호출 방지 및 광고 응답이 없을 때 셀 제거",
+                "네이버 정산 기준에 맞춰 **impression / effective impression URL** 호출"
+              ]
+            }
+          ]
         },
         "en": {
-          "title": "",
-          "overview": "",
-          "achievements": [],
-          "contributions": []
+          "title": "Order Detail Network Ads",
+          "subtitle": "Kakao AdFit, Naver Place A/B Test",
+          "overview": "Launched a new network ad placement on the order-complete and delivery-complete screens, **serving Kakao AdFit and Naver Place ads through an A/B test**.",
+          "achievements": [
+            "In the A/B test, Naver Place delivered **about 2x the eCPM** of AdFit (KRW 1,139 vs. 571) and was adopted for this placement."
+          ],
+          "contributions": [
+            {
+              "text": "Built ad cells on the order details screen dynamically with **Remote Config–based A/B branching**.",
+              "children": [
+                "Added the order detail placement to the ad module and **refactored the banner interface to receive placement info**.",
+                "Typed the order status to position ads by order-complete / delivery-complete state."
+              ]
+            },
+            {
+              "text": "**Implemented a new Naver Place ad banner** and integrated the ad API.",
+              "children": [
+                "Rendered the address expand/copy tooltip at the window level and **auto-hid it on scroll with Combine**.",
+                "Added a **collapsible road-name address** to make room for the ad."
+              ]
+            },
+            {
+              "text": "Implemented **impression and click tracking** so the A/B results could be trusted.",
+              "children": [
+                "Prevented duplicate requests and removed the cell when no ad was returned.",
+                "Called **impression / effective impression URLs** according to Naver's billing rules."
+              ]
+            }
+          ]
         }
       }
     }
