@@ -5,7 +5,7 @@
   },
   "intro": {
     "ko": "안녕하세요. **iOS 앱 개발자 윤태민**입니다. 제가 진행했던 프로젝트들을 소개합니다. **가장 자신 있는 것들을 링크로 먼저 공유했습니다.** 이것만 보셔도 좋지만, 더 궁금하시면 **필터를 직접 조작해** 보는 다른 프로젝트들도 봐주시면 감사하겠습니다.",
-    "en": "Hello, I'm **Taemin Yun, an iOS developer**. Here are the projects I've worked on. **The link I shared shows the projects I'm most confident in first.** Those alone are enough, but if you'd like to see more, feel free to **use the filters** to explore my other projects. Thank you!"
+    "en": "Hello, I'm **Taemin Yun, an iOS developer**. Here are the projects I've worked on. **The link I shared shows the projects I'm most confident in first.** Those alone should give you a good overview, but if you'd like to see more, feel free to **use the filters** to explore my other projects. Thank you!"
   },
   "projects": [
     {
@@ -20,14 +20,15 @@
       "stack": [
         "Clean Architecture",
         "Tuist",
-        "SDUI (Server-Driven UI)"
+        "SDUI (Server-Driven UI)",
+        "Deep Linking"
       ],
       "media": [
         {
           "src": "yomart.gif",
           "alt": {
-            "ko": "yomart 시연",
-            "en": "yomart demo"
+            "ko": "요마트 시연",
+            "en": "YoMart demo"
           }
         }
       ],
@@ -38,20 +39,20 @@
           "overview": "타사(GS Refresh)의 **웹뷰 기반 마트 서비스를 완전한 네이티브 앱으로 변환**",
           "achievements": [
             "앱의 전반적인 영역에 마트 서비스를 제공하여 **매출 61%, 전환율(CVR) 3.2% 증가**",
-            "SDUI를 통해 앱 배포 없이도 **동적으로 UI 업데이트**가 가능하도록 구현하여 비즈니스 민첩성을 향상시킴"
+            "SDUI를 통해 앱 배포 없이도 **동적으로 UI 업데이트**가 가능하도록 구현하여 비즈니스 민첩성 향상"
           ],
           "contributions": [
             {
               "text": "Clean Architecture와 Tuist를 통한 **모듈화 설계 및 구현**",
               "children": [
-                "계층별로 모듈을 생성하여 **유지보수 및 재사용성**을 향상시킴",
+                "계층별로 모듈을 생성하여 **유지보수성 및 재사용성** 향상",
                 "**비즈니스 로직 중심의 테스트**를 통해 신뢰성 있는 코드 구현"
               ]
             },
             {
               "text": "장바구니 시스템 개선",
               "children": [
-                "**레스토랑 카트와 요마트 카트를 동시에 관리**하여 끊김 없는 장바구니 경험 제공",
+                "**레스토랑 장바구니와 요마트 장바구니를 동시에 관리**하여 끊김 없는 장바구니 경험 제공",
                 "장바구니 데이터를 서버로 이전하여 **기기 간에도 장바구니가 유지**되도록 개선"
               ]
             },
@@ -151,7 +152,7 @@
           "subtitle": "요기요 디자인 시스템",
           "overview": "위대한상상이 제공하는 일반 사용자, 사장님, 라이더 앱을 위한 **크로스 플랫폼 디자인 시스템 정의**",
           "achievements": [
-            "**독립적인 패키지인 YDSKit**을 개발하여 **프로젝트 간 코드 재사용률 6% 향상**",
+            "**독립적인 패키지인 YDSKit**을 개발하여 **컴포넌트 재사용으로 프로젝트 간 코드 재사용률 6% 향상**",
             "공용으로 사용하는 토큰과 컴포넌트에 대한 **테스트 시간 절감**"
           ],
           "contributions": [
@@ -178,7 +179,7 @@
           "subtitle": "Yogiyo Design System",
           "overview": "**Defined a cross-platform design system** for Wesang's customer, merchant, and rider apps.",
           "achievements": [
-            "Developed **YDSKit as a standalone package**, **improving code reuse across projects by 6%**.",
+            "Developed **YDSKit as a standalone package**, **improving code reuse across projects by 6% through shared components**.",
             "**Reduced testing time** for shared tokens and components."
           ],
           "contributions": [
@@ -216,31 +217,31 @@
         "WebKit",
         "Combine",
         "SDUI (Server-Driven UI)",
-        "Modern Collection View"
+        "Diffable Data Source"
       ],
       "media": [
         {
           "src": "basic.gif",
           "alt": {
-            "ko": "flash-sale 시연 1",
-            "en": "flash-sale demo 1"
+            "ko": "할인 랭킹 광고 상품 시연 1",
+            "en": "Flash Sale Advertising Product demo 1"
           }
         },
         {
           "src": "sdui.gif",
           "alt": {
-            "ko": "flash-sale 시연 2",
-            "en": "flash-sale demo 2"
+            "ko": "할인 랭킹 광고 상품 시연 2",
+            "en": "Flash Sale Advertising Product demo 2"
           }
         }
       ],
       "content": {
         "ko": {
           "title": "할인 랭킹 광고 상품",
-          "overview": "**남은 시간**과 메뉴 특성에 따라 매장 **메뉴를 동적으로 노출하는 광고형 서비스 신설**",
+          "overview": "**남은 시간**과 메뉴 특성에 따라 가게 **메뉴를 동적으로 노출하는 광고형 서비스 신설**",
           "achievements": [
             "할인 랭킹 서비스를 이용한 사용자 그룹에서 **주문 수 15%, 방문 빈도 14% 향상**",
-            "서비스 참여 매장의 **신규 고객 유입률을 85.3% 증가**시켜 매출 성장에 기여"
+            "서비스 참여 가게의 **신규 고객 유입률을 85.3% 증가**시켜 매출 성장에 기여"
           ],
           "contributions": [
             {
@@ -255,7 +256,8 @@
               "text": "SDUI(Server-Driven UI)용 응답 설계",
               "children": [
                 "BE 개발자 및 디자이너와 협업하여 **레이아웃과 컴포넌트를 위한 데이터 구조 정의**",
-                "Compositional Layout 없이도 CollectionViewCell **재사용이 가능하도록 컴포넌트를 모듈화**"
+                "Compositional Layout 없이도 CollectionViewCell **재사용이 가능하도록 컴포넌트를 모듈화**",
+                "**Diffable Data Source**를 적용하여 응답 기반 컬렉션 뷰 데이터 갱신"
               ]
             },
             {
@@ -265,10 +267,10 @@
         },
         "en": {
           "title": "Flash Sale Advertising Product",
-          "overview": "**Launched an ad service that dynamically displays store menus** based on the **remaining time** and menu characteristics.",
+          "overview": "**Launched an ad service that dynamically displays restaurant menus** based on the **remaining time** and menu characteristics.",
           "achievements": [
             "**Increased orders by 15% and visit frequency by 14%** among users of the flash sale service.",
-            "**Increased new customer acquisition by 85.3%** for participating stores, contributing to revenue growth."
+            "**Increased new customer acquisition by 85.3%** for participating restaurants, contributing to revenue growth."
           ],
           "contributions": [
             {
@@ -283,7 +285,8 @@
               "text": "Designed responses for SDUI (Server-Driven UI).",
               "children": [
                 "**Defined data structures for layouts and components** in collaboration with BE developers and designers.",
-                "**Modularized components to enable CollectionViewCell reuse** even without Compositional Layout."
+                "**Modularized components to enable CollectionViewCell reuse** even without Compositional Layout.",
+                "Applied **Diffable Data Source** to update collection view data from responses."
               ]
             },
             {
@@ -323,15 +326,14 @@
         {
           "src": "checkout-cart.gif",
           "alt": {
-            "ko": "checkout-cart 시연",
-            "en": "checkout-cart demo"
+            "ko": "결제하기 화면의 웹뷰 전환 및 멀티 장바구니 기능 추가 시연",
+            "en": "Checkout Migration to WebView & Multi-Cart Support demo"
           }
         }
       ],
       "content": {
         "ko": {
           "title": "결제하기 화면의 웹뷰 전환 및 멀티 장바구니 기능 추가",
-          "overview": "",
           "achievements": [
             "앱 업데이트 없이도 **기능을 유연하게 배포하고 오류에 신속히 대응**할 수 있도록 구조 변경",
             "멀티 장바구니 도입 후 15분 내 **연속 주문 20%, 두 곳 이상 주문 1.7% 증가**"
@@ -341,7 +343,7 @@
               "text": "결제하기 화면을 안정적으로 웹뷰로 전환",
               "children": [
                 "MessageHandler 및 JavaScript Evaluate 함수를 통한 **앱 ↔ 웹 인터페이스를 구현**",
-                "기존 단일 웹뷰 객체를 **역할별로 추상화**하여 유지보수성을 향상시킴",
+                "기존 단일 웹뷰 객체를 **역할별로 추상화**하여 유지보수성 향상",
                 "Feature Flag, 웹뷰의 fallback 전략 등을 활용하여, 오류 발생 시 기존 화면을 **별도의 배포 없이 즉시 전환할 수 있도록 안정성 확립**"
               ]
             },
@@ -357,10 +359,9 @@
         },
         "en": {
           "title": "Checkout Migration to WebView & Multi-Cart Support",
-          "overview": "",
           "achievements": [
             "Restructured the app to **deploy features flexibly and respond to issues quickly** without app updates.",
-            "After introducing multi-cart, increased **consecutive orders within 15 minutes by 20% and orders from two or more stores by 1.7%**."
+            "After introducing multi-cart, increased **consecutive orders within 15 minutes by 20% and orders from two or more restaurants by 1.7%**."
           ],
           "contributions": [
             {
@@ -400,8 +401,8 @@
         {
           "src": "app-launch-optimization.gif",
           "alt": {
-            "ko": "app-launch-optimization 시연",
-            "en": "app-launch-optimization demo"
+            "ko": "앱 실행 속도 최적화 시연",
+            "en": "App Launch Optimization demo"
           }
         }
       ],
@@ -424,11 +425,11 @@
             {
               "text": "두 플랫폼의 **API 호출 시퀀스 표준화**",
               "children": [
-                "표준화된 시퀀스를 기반으로 **API를 병렬적으로 실행하여 불필요한 대기 시간 제거**"
+                "표준화된 시퀀스를 기반으로 **Swift Concurrency로 API를 병렬 호출하여 불필요한 대기 시간 제거**"
               ]
             },
             {
-              "text": "**Deferred Deep Linking** 환경에서 Operation Queue를 활용해 **온보딩에서도 끊기지 않는 경험 제공**"
+              "text": "**디퍼드 딥링크** 환경에서 Operation Queue를 활용해 **온보딩에서도 끊기지 않는 경험 제공**"
             }
           ]
         },
@@ -450,11 +451,11 @@
             {
               "text": "**Standardized API call sequences** across both platforms.",
               "children": [
-                "Based on the standardized sequence, **ran APIs in parallel to eliminate unnecessary wait time**."
+                "Based on the standardized sequence, **called APIs in parallel with Swift Concurrency to eliminate unnecessary wait time**."
               ]
             },
             {
-              "text": "Used Operation Queue in **Deferred Deep Linking** scenarios to **provide a seamless experience even during onboarding**."
+              "text": "Used Operation Queue in **deferred deep linking** scenarios to **provide a seamless experience even during onboarding**."
             }
           ]
         }
@@ -486,15 +487,15 @@
         {
           "src": "live-activity.gif",
           "alt": {
-            "ko": "live-activity 시연",
-            "en": "live-activity demo"
+            "ko": "Live Activities 시연",
+            "en": "Live Activities demo"
           }
         },
         {
           "src": "tracking.gif",
           "alt": {
-            "ko": "tracking 시연",
-            "en": "tracking demo"
+            "ko": "주문 추적 시연",
+            "en": "Order tracking demo"
           }
         }
       ],
@@ -520,7 +521,7 @@
               "text": "Live Activities 기능 구현",
               "children": [
                 "Braze API와 연동하여 **사내 마이크로서비스(MS)에서 제어할 수 있는 Live Activities 시스템을 구축**",
-                "Live Activities에서 **주문 상세 화면으로 이동하는 딥링크를 지원**하여 사용자 경험을 강화",
+                "Live Activities에서 **주문상세 화면으로 이동하는 딥링크를 지원**하여 사용자 경험을 강화",
                 "Tuist로 **Widget Extension을 추가**하고, 필요한 **Profile 및 ID를 신규 생성**"
               ]
             }
@@ -565,7 +566,6 @@
         }
       ],
       "stack": [
-        "TCA",
         "SDUI (Server-Driven UI)",
         "Deep Linking"
       ],
@@ -573,8 +573,8 @@
         {
           "src": "yogithe.gif",
           "alt": {
-            "ko": "yogithe 시연",
-            "en": "yogithe demo"
+            "ko": "요기더+ 적립 시연",
+            "en": "Yogiyo Rewards+ demo"
           }
         }
       ],
@@ -640,8 +640,8 @@
         {
           "src": "airbridge-migration.gif",
           "alt": {
-            "ko": "airbridge-migration 시연",
-            "en": "airbridge-migration demo"
+            "ko": "MMP 전환: AppsFlyer → Airbridge 시연",
+            "en": "MMP Migration: AppsFlyer to Airbridge demo"
           }
         }
       ],
@@ -683,14 +683,14 @@
           ],
           "contributions": [
             {
-              "text": "**Integrated the Airbridge SDK and event logging.**",
+              "text": "Integrated the **Airbridge SDK and event logging**.",
               "children": [
                 "Logged events with **semantic / custom attributes** based on the event taxonomy, and added action, label, and value fields.",
                 "Implemented **uninstall tracking** (APNs token forwarding), setUserID, and Braze device ID linking (setDeviceAlias)."
               ]
             },
             {
-              "text": "**Migrated deep links and deferred deep links to Airbridge.**",
+              "text": "**Migrated deep links and deferred deep links** to Airbridge.",
               "children": [
                 "Switched universal links and deferred deep links to the Airbridge deep link callback.",
                 "Moved share links **from AppsFlyer's OneLink to Airbridge tracking links** and aligned link options with Android."
@@ -723,8 +723,8 @@
         {
           "src": "app-renewal.gif",
           "alt": {
-            "ko": "app-renewal 시연",
-            "en": "app-renewal demo"
+            "ko": "요기요 앱 리뉴얼 시연",
+            "en": "Yogiyo App Renewal demo"
           }
         }
       ],
@@ -734,7 +734,7 @@
           "subtitle": "SDUI 기반 앱 전면 개편",
           "overview": "**SDUI(Frontyo)** 기반 요기요 앱 전면 리뉴얼에서 **주문내역, 공통 내비게이션, 장바구니**를 담당",
           "achievements": [
-            "구버전 대비 리뉴얼 버전의 **주문 전환율이 최대 1.66%p 높게 나타남**"
+            "구버전 대비 리뉴얼 버전의 **주문 전환율 최대 1.66%p 높음**"
           ],
           "contributions": [
             {
@@ -758,18 +758,18 @@
           "subtitle": "Full App Redesign on SDUI",
           "overview": "Owned the **order history, shared navigation, and cart** in the full renewal of the Yogiyo app built on **SDUI (Frontyo)**.",
           "achievements": [
-            "Over the same period, the renewed version's **order conversion rate ran up to 1.66%p higher** than the legacy version."
+            "The renewed version's **order conversion rate was up to 1.66 percentage points higher** than the legacy version."
           ],
           "contributions": [
             {
-              "text": "**Rebuilt the order list and order detail screens around server responses.**",
+              "text": "Rebuilt the **order history and order details screens around server responses**.",
               "children": [
                 "Moved order status and button visibility logic **from the app to server responses**, and built a **delivery progress indicator** that updates dynamically.",
-                "**Branched screen transitions by entry path** (order list vs. checkout-complete deep link), and made the refresh interval adjustable via Remote Config."
+                "**Branched screen transitions by entry path** (order history vs. checkout-complete deep link), and made the refresh interval adjustable via Remote Config."
               ]
             },
             {
-              "text": "**Built app-wide shared components (TopNav, cart floating button).**",
+              "text": "Built **app-wide shared components (TopNav, cart floating button)**.",
               "children": [
                 "Built an address-setting **TopNav** and per-screen navigation bars connected to the address bottom sheet.",
                 "Built a **cart floating button** that shows the matching service's cart or **the most recently used cart**, depending on the screen (food, YoMart, and WebViews)."
@@ -789,15 +789,14 @@
         }
       ],
       "stack": [
-        "UIKit",
         "XCTest"
       ],
       "media": [
         {
           "src": "cup-deposit.gif",
           "alt": {
-            "ko": "cup-deposit 시연",
-            "en": "cup-deposit demo"
+            "ko": "일회용컵 보증금제 대응 시연",
+            "en": "Disposable Cup Deposit Compliance demo"
           }
         }
       ],
@@ -846,22 +845,21 @@
         }
       ],
       "stack": [
-        "UIKit",
         "Modularization"
       ],
       "media": [
         {
           "src": "dine-in.gif",
           "alt": {
-            "ko": "dine-in 시연",
-            "en": "dine-in demo"
+            "ko": "방문식사 시연",
+            "en": "Dine-in demo"
           }
         }
       ],
       "content": {
         "ko": {
           "title": "방문식사",
-          "overview": "기존 포장 주문 흐름을 기반으로 매장에서 먹을 메뉴를 미리 주문하는 **방문식사(Dine-in) 서빙 타입 신설**",
+          "overview": "기존 포장 주문 흐름을 기반으로 가게에서 먹을 메뉴를 미리 주문하는 **방문식사(Dine-in) 서빙 타입 신설**",
           "achievements": [
             "서초, 신림, 의정부 인근 **224개 가게**에서 방문식사 MVP를 출시하여 신규 외식 버티컬의 시장성 검증 환경 마련"
           ],
@@ -874,7 +872,7 @@
               ]
             },
             {
-              "text": "사용자가 방문식사 주문임을 쉽게 알 수 있도록 샵 상세부터 주문내역까지 **탭, 배지, 주문 상태 등 방문식사 전용 UI 추가**"
+              "text": "사용자가 방문식사 주문임을 쉽게 알 수 있도록 가게 상세부터 주문내역까지 **탭, 배지, 주문 상태 등 방문식사 전용 UI 추가**"
             }
           ]
         },
@@ -909,16 +907,14 @@
         }
       ],
       "stack": [
-        "UIKit",
-        "Naver Maps SDK",
-        "Deep Linking"
+        "Naver Maps SDK"
       ],
       "media": [
         {
           "src": "robot-delivery.gif",
           "alt": {
-            "ko": "robot-delivery 시연",
-            "en": "robot-delivery demo"
+            "ko": "로봇배달 시연",
+            "en": "Robot Delivery demo"
           }
         }
       ],
@@ -932,7 +928,7 @@
           ],
           "contributions": [
             {
-              "text": "모듈화된 ServingType에 **로봇 서빙 타입**을 추가하고, 샵 상세에서 **선택 가능한 서빙 타입만 노출**하도록 필터링"
+              "text": "모듈화된 ServingType에 **로봇 서빙 타입**을 추가하고, 가게 상세에서 **선택 가능한 서빙 타입만 노출**하도록 필터링"
             },
             {
               "text": "사용자 이해를 돕기 위해 주문상세에 **로봇 정보, 약속장소**, 이용 방법 바텀시트, 로봇 문의 기능 구현",
@@ -983,8 +979,8 @@
         {
           "src": "order-detail-ads.gif",
           "alt": {
-            "ko": "order-detail-ads 시연",
-            "en": "order-detail-ads demo"
+            "ko": "주문상세 네트워크 광고 시연",
+            "en": "Order Detail Network Ads demo"
           }
         }
       ],
@@ -1031,7 +1027,7 @@
             {
               "text": "Built ad cells on the order details screen dynamically with **Remote Config–based A/B branching**.",
               "children": [
-                "Added the order detail placement to the ad module and **refactored the banner interface to receive placement info**.",
+                "Added the order details placement to the ad module and **refactored the banner interface to receive placement info**.",
                 "Typed the order status to position ads by order-complete / delivery-complete state."
               ]
             },
