@@ -428,7 +428,7 @@ function renderProjects(allProjects) {
 // stack 값으로 필터. 여러 개를 고를 수 있고, 고른 기술 중 하나라도 쓴 프로젝트를 보여 준다
 // 같은 버튼을 다시 누르면 해제, "전체"를 누르면 모두 해제
 // 프로젝트 하나에만 쓰인 기술은 "기타" 버튼 하나로 묶고, 누르면 목록이 펼쳐진다
-// 선택 상태는 주소의 ?stack=A,B 와 맞춘다. 기술 이름에 쉼표가 있어도 되도록 값마다 인코딩한다
+// 선택 상태는 주소의 ?stack=A,B 와 맞춘다. 주소에는 괄호 앞 이름만 쓰고, 기술 이름에 쉼표가 있어도 되도록 값마다 인코딩한다
 // "전체" 옆 "주요" 버튼은 featured: true 인 프로젝트를 고른다. 기술 버튼과 같이 고른 것 중 하나라도 해당하면 보여 주고,
 // 켜진 상태는 ?featured=1 로 남긴다. 주요 프로젝트가 없으면 버튼을 만들지 않는다
 // 정렬 왼쪽 드롭다운에서 "읽음 제외"를 고르면 다른 선택과 상관없이 읽음 표시한 프로젝트를 뺀다. "전체"로는 꺼지지 않는다
@@ -441,7 +441,13 @@ function readStackQuery() {
 }
 
 function writeStackQuery(values) {
-  writeQuery('stack', values.map(encodeURIComponent).join(','));
+  writeQuery('stack', values.map((s) => encodeURIComponent(splitStack(s)[0])).join(','));
+}
+
+// "Firebase (Remote Config)" → ["Firebase", "Remote Config"]. 괄호가 없으면 괄호 안은 null
+function splitStack(label) {
+  const [, name, detail] = label.match(/^(.*?)\s*\((.+)\)$/) || [null, label, null];
+  return [name, detail];
 }
 
 function renderStackFilter(projects, items) {
@@ -501,7 +507,7 @@ function renderStackFilter(projects, items) {
 
   function addButton(parent, label, value, count) {
     // "Firebase (Remote Config)"처럼 괄호가 있으면 버튼에는 앞부분만 쓰고, 괄호 안은 마우스를 올렸을 때 팝업으로 보여 준다
-    const [, name, detail] = label.match(/^(.*?)\s*\((.+)\)$/) || [null, label, null];
+    const [name, detail] = splitStack(label);
     const button = el('button', 'filter-chip', name);
     button.type = 'button';
     if (detail) button.append(el('span', 'filter-tip', detail));
@@ -546,7 +552,8 @@ function renderStackFilter(projects, items) {
     bar.append(more);
   }
 
-  readStackQuery().filter((s) => counts.has(s)).forEach((s) => selected.add(s));
+  const queried = new Set(readStackQuery());
+  stacks.filter((s) => queried.has(splitStack(s)[0]) || queried.has(s)).forEach((s) => selected.add(s));
   if (wasMoreOpen || rare.some((s) => selected.has(s))) setMoreOpen(true);
   apply();
 }
