@@ -247,7 +247,7 @@
             {
               "text": "**재사용 가능한 타이머** 로직 및 컴포넌트 구현",
               "children": [
-                "**NTP를 연동**하여 정확한 서버 시간을 가져와, 안정적인 서비스 구현",
+                "**NTP를 이용**하여, 시스템 시간 변경이나 웹뷰 전환 등과 같은 **다양한 상황 속에서도 안정적인 시간 데이터 기반의 서비스** 구현",
                 "남은 시간을 주기적으로 방출하는 퍼블리셔를 **추상화하여 시간 관련 로직을 손쉽게 통합**",
                 "인터페이스를 구축하여 **앱과 웹 간 일관된 시간 참조를 보장**"
               ]
@@ -276,7 +276,7 @@
             {
               "text": "Implemented **reusable timer** logic and components.",
               "children": [
-                "**Integrated NTP** to fetch accurate server time for a reliable service.",
+                "**Used NTP** to deliver a service built on **reliable time data across diverse scenarios** such as system time changes and WebView transitions.",
                 "Abstracted a publisher that periodically emits the remaining time, **making time-related logic easy to integrate**.",
                 "Built an interface to **ensure a consistent time reference between the app and web**."
               ]
