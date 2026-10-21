@@ -584,12 +584,15 @@
           "subtitle": "포인트 기반 리워드 서비스",
           "overview": "포인트 적립을 유도하는 리워드 기반 서비스인 요기더+ 적립 신설",
           "achievements": [
-            "일반 상품 대비 **주문 비중을 2.0%에서 3.1%로, 매출을 0.1%에서 0.3%로 향상**",
-            "적립관에서 시작하여 결제까지 매끄러운 UX 플로우를 설계하여, 이탈을 최소화"
+            "일반 상품 대비 **주문 비중을 2.0%에서 3.1%로, 매출을 0.1%에서 0.3%로 향상**"
           ],
           "contributions": [
             {
-              "text": "SDUI에서 정의한 **화면별 리워드 대상 여부를 결제하기 화면까지 전달**"
+              "text": "적립관에서 시작하여 결제까지 **매끄러운 UX 플로우를 설계**",
+              "children": [
+                "**인턴으로 입사한 iOS Engineer**에게 요기요의 SDUI에 대해 교육하고, 개발 지원",
+                "SDUI에서 정의한 **화면별 리워드 대상 여부를 결제하기 화면까지 전달**"
+              ]
             },
             {
               "text": "**복잡한 상황에서도 주문 여정이 끊기지 않도록** 리워드 경험을 설계",
@@ -605,12 +608,15 @@
           "subtitle": "Point-Based Reward Service",
           "overview": "Launched Yogiyo Rewards+, a reward-based service that encourages users to earn points.",
           "achievements": [
-            "Compared to regular products, **increased the order share from 2.0% to 3.1% and the revenue share from 0.1% to 0.3%**.",
-            "Designed a seamless UX flow from the Rewards+ page through checkout, minimizing drop-off."
+            "Compared to regular products, **increased the order share from 2.0% to 3.1% and the revenue share from 0.1% to 0.3%**."
           ],
           "contributions": [
             {
-              "text": "**Passed per-screen reward eligibility defined via SDUI through to the Checkout screen.**"
+              "text": "**Designed a seamless UX flow** from the Rewards+ page through checkout.",
+              "children": [
+                "Onboarded **an iOS engineer who joined as an intern** to Yogiyo's SDUI and supported their development.",
+                "**Passed per-screen reward eligibility defined via SDUI through to the Checkout screen.**"
+              ]
             },
             {
               "text": "Designed the reward experience **so the ordering journey stays uninterrupted even in complex situations**.",
